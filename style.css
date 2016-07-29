@@ -1,0 +1,103 @@
+/* reset */
+    html,body,div,span,applet,object,iframe,h1,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,img,ins,kbd,q,s,samp,small,strike,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:baseline;margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}table{border-collapse:collapse;border-spacing:0}
+
+    * { box-sizing: border-box }
+    strong { font-weight: bold }
+
+    body,html {
+        margin: 0;
+        padding: 0;
+        touch-action: manipulation;
+        font-size: 100%;
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: none;
+        -webkit-font-smoothing: subpixel-antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-smoothing: subpixel-antialiased;
+        -webkit-tap-highlight-color: 0;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    body{
+        font-family: Arial;
+        font-size: 16px;
+    }
+
+/* typography */
+    @font-face {
+        font-family: 'novecento-bold';
+        src: url('./fonts/novecento_bold.eot');
+        src: url('./fonts/novecento_bold.eot?#iefix') format('embedded-opentype'),
+             url('./fonts/novecento_bold.woff2') format('woff2'),
+             url('./fonts/novecento_bold.woff') format('woff'),
+             url('./fonts/novecento_bold.ttf') format('truetype');
+    }
+
+    @font-face {
+        font-family: 'novecento-medium';
+        src: url('./fonts/novecento_medium.eot');
+        src: url('./fonts/novecento_medium.eot?#iefix') format('embedded-opentype'),
+             url('./fonts/novecento_medium.woff2') format('woff2'),
+             url('./fonts/novecento_medium.woff') format('woff'),
+             url('./fonts/novecento_medium.ttf') format('truetype');
+    }
+
+    .novecento-bold{ font-family: 'novecento-bold' }
+    .novecento-medium{ font-family: 'novecento-medium' }
+
+/* globals */
+.content{
+    border: 30px solid black;
+    border-top: 0;
+    position: relative;
+    height: 100vh;
+}
+
+.logo{
+    position: absolute;
+    z-index: 2;
+    width: 12vw;
+    max-width: 220px;
+    min-width: 100px;
+    transform: translateX(-50%);
+    left: 50%;
+    top: 3vh;
+}
+.logo img{
+    width: 100%
+}
+
+.featured {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+
+}
+.featured .swiper-slide{
+    height: calc(100vh - 30px);
+}
+
+.featured .swiper-slide img{
+    height: 125%;
+    position: absolute;
+    left: 50%; transform: translateX(-50%);
+    // min-width: 100%;
+}
+
+.featured .title{
+    position: absolute;
+    text-transform: uppercase;
+    color: white;
+    bottom: 20px;
+    left   : 20px;
+    font-size: 28px;
+    letter-spacing:0.38em;
+    line-height: 1.25em;
+}
+
+.promt-down{
+    position: absolute;
+    z-index: 1;
+    bottom: -24px;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+}

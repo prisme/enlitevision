@@ -1,0 +1,22 @@
+{
+  "name": "enlite_proto",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "budo index.js:bundle.js --live -- -t [ installify --save ]"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "budo": "^8.3.0",
+    "gsap": "^1.19.0",
+    "installify": "^1.0.3",
+    "swiper": "^3.3.1"
+  },
+  "devDependencies": {
+    "budo": "^8.3.0",
+    "installify": "^1.0.3"
+  }
+}
