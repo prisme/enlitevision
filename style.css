@@ -11,9 +11,9 @@
         font-size: 100%;
         -ms-text-size-adjust: 100%;
         -webkit-text-size-adjust: none;
-        -webkit-font-smoothing: subpixel-antialiased;
+        -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        font-smoothing: subpixel-antialiased;
+        font-smoothing: antialiased;
         -webkit-tap-highlight-color: 0;
         -webkit-tap-highlight-color: transparent;
     }
@@ -46,52 +46,60 @@
     .novecento-medium{ font-family: 'novecento-medium' }
 
 /* globals */
-.content{
-    border: 30px solid black;
-    border-top: 0;
-    position: relative;
-    height: 100vh;
-}
+    .content{
+        border: 30px solid black;
+        border-top: 0;
+        position: relative;
+        height: 100vh;
+    }
 
-.logo{
-    position: absolute;
-    z-index: 2;
-    width: 12vw;
-    max-width: 220px;
-    min-width: 100px;
-    transform: translateX(-50%);
-    left: 50%;
-    top: 3vh;
-}
-.logo img{
-    width: 100%
-}
+    .logo{
+        position: absolute;
+        z-index: 2;
+        width: 12vw;
+        max-width: 220px;
+        min-width: 100px;
+        transform: translateX(-50%);
+        left: 50%;
+        top: 3vh;
+        overflow: hidden;
+    }
+    .logo img{
+        width: 100%;
+        transform: translateY(0px);
+    }
 
-.featured {
+.full {
     position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-
-}
-.featured .swiper-slide{
-    height: calc(100vh - 30px);
 }
 
-.featured .swiper-slide img{
-    height: 125%;
-    position: absolute;
-    left: 50%; transform: translateX(-50%);
-    // min-width: 100%;
-}
+/* featured*/
+    .featured {
+    }
 
-.featured .title{
-    position: absolute;
-    text-transform: uppercase;
-    color: white;
-    bottom: 20px;
-    left   : 20px;
-    font-size: 28px;
-    letter-spacing:0.38em;
-    line-height: 1.25em;
-}
+    .featured .swiper-slide{
+        height: calc(100vh - 30px);
+    }
+
+    .featured .swiper-slide img{
+        /* min-height: 125%; */
+        position: absolute;
+        left: 50%; transform: translateX(-50%);
+        width: 101%;
+    }
+
+    .featured .title{
+        position: absolute;
+        text-transform: uppercase;
+        color: white;
+        bottom: 20px;
+        left   : 20px;
+        font-size: 28px;
+        letter-spacing:0.38em;
+        line-height: 1.25em;
+
+        opacity: 0;
+    }
 
 .promt-down{
     position: absolute;
