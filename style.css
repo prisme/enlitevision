@@ -79,6 +79,7 @@
 
     .featured .swiper-slide{
         height: calc(100vh - 30px);
+        background-color: black;
     }
 
     .featured .swiper-slide img{
@@ -86,6 +87,7 @@
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
+        opacity: 0;
     }
     .landscape .featured .swiper-slide img{
          width: 101%;
