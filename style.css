@@ -84,8 +84,14 @@
     .featured .swiper-slide img{
         /* min-height: 125%; */
         position: absolute;
-        left: 50%; transform: translateX(-50%);
-        width: 101%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .landscape .featured .swiper-slide img{
+         width: 101%;
+    }
+    .portrait .featured .swiper-slide img{
+        height:100%;
     }
 
     .featured .title{
