@@ -2,23 +2,39 @@
   "name": "enlite_proto",
   "version": "1.0.0",
   "description": "",
+  "author": "prisme",
+  "license": "ISC",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "budo index.js:bundle.js --live -- -t [ installify --save ]",
     "build": "browserify index.js | uglifyjs -m -c warnings=false > bundle.js"
   },
-  "author": "",
-  "license": "ISC",
+  "browserify": {
+    "transform": [
+      "aliasify"
+    ]
+  },
+  "aliasify": {
+    "aliases": {
+      "lib": "./lib",
+      "npm": "./node_modules/"
+    },
+    "replacements": {
+      "components/(\\w+)": "./components/$1/index.js"
+    }
+  },
   "dependencies": {
     "budo": "^8.3.0",
+    "components": "^0.1.0",
     "gsap": "^1.19.0",
     "installify": "^1.0.3",
+    "lib": "^0.1.1",
     "node-static": "^0.7.8",
-    "raf": "^3.2.0",
+    "pubsub": "^3.2.1",
     "swiper": "^3.3.1"
   },
   "devDependencies": {
+    "aliasify": "^2.0.0",
     "browserify": "^13.1.0",
     "budo": "^8.3.0",
     "installify": "^1.0.3",

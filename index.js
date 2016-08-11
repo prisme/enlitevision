@@ -1,37 +1,47 @@
-var featured = require('./featured/index')
-featured.init()
-
-
-var raf = require('raf')
 var gsap = require('gsap')
-var split = require('./SplitText')
+var timelineControls = require('lib/timelineControls')
 
-TweenMax.globalTimeScale(1.0)
-var timeline = new TimelineMax({paused: true})
+var _content = document.querySelector('.content')
 
-var splash = document.querySelector('.featured .splash')
-timeline.to(splash, 0.8, {alpha: 1})
+// main timeline
+var _tlMain = new TimelineMax({paused: true})
+var _snap = []
 
-var logo = document.querySelector('.logo img')
-TweenLite.set(logo, {y: -150, alpha: 0})
-var tweenLogo = TweenLite.to(logo, 0.8, {
-    y: 0,
-    alpha : 1,
-    ease: Power1.easeOut,
-    force3D:true,
-    clearProps: 'all'
+// Sections components
+var featured = require('components/featured')
+var capsule = require('components/capsule')
+
+var _sections = [
+    featured,
+    capsule
+]
+
+// Initialise each section
+for (var i=0; i < _sections.length; i++) {
+    _sections[i].init()
+}
+
+// Construct main timeline
+_sections.forEach(function(section, i) {
+    section.startTime = _tlMain.totalDuration() - section.introLength.duration
+
+    var snap = section.snap
+    snap.forEach(function(t) {
+        _snap.push(_tlMain.totalDuration() - section.introLength.duration + t)
+    })
+
+    _tlMain.add(section.tl, '-=' + section.introLength.duration)
 })
-timeline.add( tweenLogo, 0.4)
 
+// console.log(_tlMain.totalDuration())
 
-var title = document.querySelector('.title')
-var titleText = new split('.title', {type: "words, chars"})
-TweenLite.set(title, {alpha:1})
-timeline.staggerFrom(titleText.words, 2.0, { alpha:0, rotationY:-12, rotationX: -20 }, 0.3)
+// _tlMain.play()
+// console.log(_content)
+// _tlMain.time(0, true);
 
-
-
-timeline.play()
+// Start site interaction controls
+console.log(_snap)
+timelineControls.init(_content, _tlMain, _snap);
 
 
 // Resize
