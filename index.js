@@ -1,61 +1,49 @@
 var gsap = require('gsap')
-var timelineControls = require('lib/timelineControls')
 
-var _content = document.querySelector('.content')
 
-// main timeline
-var _tlMain = new TimelineMax({paused: true})
-var _snap = []
+// Prismic
+var Prismic = require('prismic.io')
+var endpoint = 'https://enlite.prismic.io/api'
+
+Prismic.api(endpoint).then(function(api) {
+  return api.query('[[:d = at(document.type, "product")]]')
+}).then(function(response) {
+  console.log("Documents: ", response.results)
+}, function(err) {
+  console.log("Something went wrong: ", err)
+})
+
 
 // Sections components
 var featured = require('components/featured')
-var capsule = require('components/capsule')
+var supernatural = require('components/supernatural')
+var optical = require('components/optical')
+var theopsy = require('components/theopsy')
 
 var _sections = [
-    featured,
-    capsule
+  featured,
+  supernatural,
+  optical,
+  theopsy,
 ]
 
 // Initialise each section
 for (var i=0; i < _sections.length; i++) {
-    _sections[i].init()
+  _sections[i].init()
 }
-
-// Construct main timeline
-_sections.forEach(function(section, i) {
-    section.startTime = _tlMain.totalDuration() - section.introLength.duration
-
-    var snap = section.snap
-    snap.forEach(function(t) {
-        _snap.push(_tlMain.totalDuration() - section.introLength.duration + t)
-    })
-
-    _tlMain.add(section.tl, '-=' + section.introLength.duration)
-})
-
-// console.log(_tlMain.totalDuration())
-
-// _tlMain.play()
-// console.log(_content)
-// _tlMain.time(0, true);
-
-// Start site interaction controls
-console.log(_snap)
-timelineControls.init(_content, _tlMain, _snap);
-
 
 // Resize
 var portrait = false
-var ratio = 1.3
+var ratio = 1.4
 
 var resizeHandler = function(){
-    portrait = (window.innerWidth / window.innerHeight) < ratio
+  portrait = (window.innerWidth / window.innerHeight) < ratio
 
-    flag = portrait ? 'portrait' : 'landscape'
-    if(document.body.classList.contains(flag)) return
+  flag = portrait ? 'portrait' : 'landscape'
+  if(document.body.classList.contains(flag)) return
 
-    document.body.classList= []
-    document.body.classList.add(flag)
+  document.body.classList= []
+  document.body.classList.add(flag)
 }
 
 window.addEventListener('resize', resizeHandler)
