@@ -16,10 +16,10 @@ function init() {
     speed: 3000
   })
 
-  var products_swiper = new swiper ('.optical .collection-products .swiper-container', {
+  var products_swiper = new swiper ('.supernatural .collection-products .swiper-container', {
     loop: true,
 
-    pagination: '.optical .swiper-pagination',
+    pagination: '.supernatural .swiper-pagination',
     paginationClickable : true,
     paginationBulletRender: function (index, className) {
       return '<span class="' + className + '">' + (index + 1) + '</span>'

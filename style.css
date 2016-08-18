@@ -31,10 +31,10 @@
         font-size: 1.2em;
     }
     span.swiper-pagination-bullet{
-        opacity: 1
+        opacity: 0.6
     }
     span.swiper-pagination-bullet-active{
-        opacity: 0.6
+        opacity: 1
     }
 
     .swiper-pagination-bullet{
