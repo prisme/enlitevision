@@ -37,6 +37,7 @@
     }
   },
   "dependencies": {
+    "@vimeo/player": "^1.0.4",
     "budo": "^8.3.0",
     "components": "^0.1.0",
     "gsap": "^1.19.0",

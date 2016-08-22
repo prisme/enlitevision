@@ -1,5 +1,5 @@
 var gsap = require('gsap')
-
+var Vimeo = require('@vimeo/player')
 
 // Prismic
 var Prismic = require('prismic.io')
@@ -31,6 +31,41 @@ var _sections = [
 for (var i=0; i < _sections.length; i++) {
   _sections[i].init()
 }
+
+// temp : home video
+var videoPrompt = document.querySelector('.video-prompt')
+var videoContainer = document.querySelector('.video-player')
+var closePrompt = videoContainer.querySelector('.close-prompt')
+var iframe = videoContainer.querySelector('iframe');
+var player = new Vimeo(iframe);
+
+videoPrompt.addEventListener('click', videoOpen)
+closePrompt.addEventListener('click', videoClose)
+
+function videoOpen(){
+  TweenLite.to(videoContainer, 1, {autoAlpha: 1})
+  document.body.classList.add('noscroll')
+  player.on('ended', videoClose)
+  player.play()
+
+  document.addEventListener('keydown', function(event) {
+    if(event.which == 27) {
+      videoClose()
+      document.removeEventListener('keydown')
+    }
+  })
+}
+
+function videoClose(){
+  TweenLite.to(videoContainer, 1, {autoAlpha: 0})
+  document.body.classList.remove('noscroll')
+  player.off('ended', videoClose)
+  player.pause()
+  player.setCurrentTime(0)
+}
+
+
+
 
 // Resize
 var portrait = false
