@@ -338,14 +338,15 @@ section {
 }
 
 .video-player{
-    opacity: 0; visibility: hidden;
+    opacity: 0;
+    visibility: hidden;
     position: fixed;
     top: 0;
     right: 30px;
     bottom: 30px;
     left: 30px;
     background: black;
-    z-index: 2;
+    z-index: 1;
 }
 
 .embed-container {

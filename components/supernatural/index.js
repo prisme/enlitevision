@@ -5,6 +5,8 @@ module.exports = {
     init: init
 }
 
+
+
 function init() {
   var component = document.querySelector('.supernatural')
 
@@ -13,7 +15,7 @@ function init() {
     effect: "fade",
     autoplayDisableOnInteraction: false,
     autoplay: 5000,
-    speed: 3000
+    speed: 2500
   })
 
   var products_swiper = new swiper ('.supernatural .collection-products .swiper-container', {
@@ -25,4 +27,5 @@ function init() {
       return '<span class="' + className + '">' + (index + 1) + '</span>'
     },
   })
+
 }

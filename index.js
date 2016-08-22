@@ -19,12 +19,14 @@ var featured = require('components/featured')
 var supernatural = require('components/supernatural')
 var optical = require('components/optical')
 var theopsy = require('components/theopsy')
+var corsocomo = require('components/corsocomo')
 
 var _sections = [
   featured,
   supernatural,
   optical,
   theopsy,
+  corsocomo,
 ]
 
 // Initialise each section
@@ -57,14 +59,12 @@ function videoOpen(){
 }
 
 function videoClose(){
-  TweenLite.to(videoContainer, 1, {autoAlpha: 0})
+  TweenLite.to(videoContainer, .5, {autoAlpha: 0})
   document.body.classList.remove('noscroll')
   player.off('ended', videoClose)
   player.pause()
   player.setCurrentTime(0)
 }
-
-
 
 
 // Resize

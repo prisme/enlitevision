@@ -13,7 +13,7 @@ function init() {
     effect: "fade",
     autoplayDisableOnInteraction: false,
     autoplay: 5000,
-    speed: 3000
+    speed: 2500
   })
 
   var products_swiper = new swiper ('.optical .collection-products .swiper-container', {
