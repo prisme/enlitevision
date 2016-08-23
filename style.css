@@ -376,3 +376,35 @@ section {
     font-size: 3em;
     padding: 0px 0.3em;
 }
+
+#main-footer{
+    color: white;
+    text-transform: uppercase;
+    font-family: 'novecento-medium';
+    font-size: .7em;
+    letter-spacing: 0.25em;
+    line-height: 1.6em;
+
+    padding:  50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+#main-footer h2{
+    font-size: 1em;
+    margin: 2em 0 0.2em;
+}
+#main-footer h2:first-child{
+    margin-top: 0;
+}
+
+#main-footer .col:first-child{
+    width: 20%;
+}
+
+#main-footer a{
+    display: block;
+    color: white;
+    text-decoration: none;
+}

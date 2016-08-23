@@ -1,12 +1,13 @@
-footer
-menu
-scrollto
-splash swipers controls
-dedupe swipers
-prismic home
+[x] footer
+[] scrollto
+[] menu
+[] splash swipers controls
+[] dedupe swipers
+[] prismic home
+[] prismic footer
 
-router
-collection
-prismic collection
+[] router
+[] collection
+[] prismic collection
 
-responsive images
+[] responsive images
