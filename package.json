@@ -7,7 +7,9 @@
   "main": "index.js",
   "scripts": {
     "start": "budo index.js:bundle.js --live",
-    "build": "browserify index.js | uglifyjs -m -c warnings=false > bundle.js"
+    "build:js": "browserify index.js | uglifyjs -m -c warnings=false > bundle.js",
+    "build:css": "postcss --use autoprefixer -b 'last 2 versions' < ./style.css | cssmin > style.min.css",
+    "build": "npm run build:js && npm run build:css"
   },
   "browserify": {
     "transform": [
@@ -52,8 +54,10 @@
   },
   "devDependencies": {
     "aliasify": "^2.0.0",
+    "autoprefixer": "^6.4.0",
     "browserify": "^13.1.0",
     "budo": "^8.3.0",
+    "cssmin": "^0.4.3",
     "installify": "^1.0.3",
     "jadeify": "^4.6.0",
     "uglify-js": "^2.7.0"
