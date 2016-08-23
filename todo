@@ -1,10 +1,10 @@
 [x] footer
-[] scrollto
+[x] scrollto
 [] menu
 [] splash swipers controls
-[] dedupe swipers
 [] prismic home
 [] prismic footer
+[] dedupe swipers
 
 [] router
 [] collection

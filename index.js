@@ -1,5 +1,5 @@
 var gsap = require('gsap')
-var Vimeo = require('@vimeo/player')
+
 
 // Prismic
 var Prismic = require('prismic.io')
@@ -34,7 +34,23 @@ for (var i=0; i < _sections.length; i++) {
   _sections[i].init()
 }
 
+
+
+var scrollTo = require('lib/scrollTo')
+var next = document.querySelector('.supernatural')
+var prompt = document.querySelector('.promt-down')
+if(document.documentElement.scrollTop ==0 || document.body.scrollTop ==0) {
+  TweenLite.to(prompt, 0.8, {autoAlpha: 1})
+  prompt.addEventListener('click', function(){
+    scrollTo(next, 0.8)
+    TweenLite.to(prompt, 0.6, {autoAlpha: 0, y: 50})
+  })
+}
+
+
+
 // temp : home video
+var Vimeo = require('@vimeo/player')
 var videoPrompt = document.querySelector('.video-prompt')
 var videoContainer = document.querySelector('.video-player')
 var closePrompt = videoContainer.querySelector('.close-prompt')
