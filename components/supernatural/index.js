@@ -1,24 +1,37 @@
 var gsap = require('gsap')
 var swiper = require('swiper')
+var scrollMonitor = require('scrollmonitor')
 
 module.exports = {
     init: init
 }
 
 
-
 function init() {
   var component = document.querySelector('.supernatural')
 
-  var splash_swiper = new swiper ('.supernatural .wrapper .swiper-container', {
-    loop: true,
+  var splash = component.querySelector('.wrapper .swiper-container')
+  var splash_swiper = new swiper (splash, {
+    loop: false,
     effect: "fade",
-    autoplayDisableOnInteraction: false,
-    autoplay: 5000,
-    speed: 2500
+    autoplay: 4000,
+    speed: 2000,
+    nextButton: '.supernatural .prompt-right',
+    prevButton: '.supernatural .prompt-left'
   })
 
-  var products_swiper = new swiper ('.supernatural .collection-products .swiper-container', {
+  var elementWatcher = scrollMonitor.create( splash )
+
+  elementWatcher.enterViewport(function() {
+      splash_swiper.startAutoplay()
+  })
+  elementWatcher.exitViewport(function() {
+      splash_swiper.stopAutoplay()
+  })
+
+
+  var products = component.querySelector('.collection-products .swiper-container')
+  var products_swiper = new swiper (products, {
     loop: true,
 
     pagination: '.supernatural .swiper-pagination',

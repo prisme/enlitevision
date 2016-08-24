@@ -34,13 +34,21 @@ for (var i=0; i < _sections.length; i++) {
   _sections[i].init()
 }
 
+/*
+  each collection tag =>
+    prismic data
+    jade template
+    swipers
+      splash
+      products
 
+*/
 
 var scrollTo = require('lib/scrollTo')
 var next = document.querySelector('.supernatural')
-var prompt = document.querySelector('.promt-down')
-if(document.documentElement.scrollTop ==0 || document.body.scrollTop ==0) {
-  TweenLite.to(prompt, 0.8, {autoAlpha: 1})
+var prompt = document.querySelector('.prompt-down')
+if(document.documentElement.scrollTop ==0 && document.body.scrollTop ==0) {
+  TweenLite.to(prompt, 0.8, {autoAlpha: 1, delay: 2.5})
   prompt.addEventListener('click', function(){
     scrollTo(next, 0.8)
     TweenLite.to(prompt, 0.6, {autoAlpha: 0, y: 50})

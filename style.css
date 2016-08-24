@@ -166,16 +166,51 @@ section {
     z-index: 3;
 }
 
-.promt-down {
-    position: fixed;
+
+.prompt-left,
+.prompt-right,
+.prompt-down {
     z-index: 3;
-    bottom: 5px;
+
+    visibility: hidden;
+    opacity: 0;
+
+    width: 28px;
+    height: 12px;
+    background-image: url('img/down.png');
+
+    pointer-events: all;
+    cursor: pointer;
+}
+
+.prompt-down {
+    position: fixed;
+    bottom: 8px;
     left: 50%;
     transform: translateX(-50%);
-    cursor: pointer;
+}
 
-    opacity: 0;
-    visibility: hidden;
+.prompt-left ,
+.prompt-right{
+    position: absolute;
+    top: 50%;
+    visibility: visible;
+    opacity: 1;
+
+    transition: opacity .6s ease-in;
+}
+.prompt-left {
+    left: -35px;
+    transform: rotate(90deg) translateY(-50%);
+}
+.prompt-right {
+    right: -35px;
+    transform: rotate(-90deg) translateY(-50%);
+}
+
+.prompt-left.swiper-button-disabled,
+.prompt-right.swiper-button-disabled{
+    opacity: 0
 }
 
 

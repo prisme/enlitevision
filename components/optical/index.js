@@ -1,5 +1,6 @@
 var gsap = require('gsap')
 var swiper = require('swiper')
+var scrollMonitor = require('scrollmonitor')
 
 module.exports = {
     init: init
@@ -8,15 +9,27 @@ module.exports = {
 function init() {
   var component = document.querySelector('.optical')
 
-  var splash_swiper = new swiper ('.optical .wrapper .swiper-container', {
-    loop: true,
+  var splash = component.querySelector('.wrapper .swiper-container')
+  var splash_swiper = new swiper (splash, {
+    loop: false,
     effect: "fade",
-    autoplayDisableOnInteraction: false,
-    autoplay: 5000,
-    speed: 2500
+    autoplay: 4000,
+    speed: 2000,
+    nextButton: '.optical .prompt-right',
+    prevButton: '.optical .prompt-left'
   })
 
-  var products_swiper = new swiper ('.optical .collection-products .swiper-container', {
+  var elementWatcher = scrollMonitor.create( splash )
+
+  elementWatcher.enterViewport(function() {
+      splash_swiper.startAutoplay()
+  })
+  elementWatcher.exitViewport(function() {
+      splash_swiper.stopAutoplay()
+  })
+
+  var products = component.querySelector('.collection-products .swiper-container')
+  var products_swiper = new swiper (products, {
     loop: true,
 
     pagination: '.optical .swiper-pagination',

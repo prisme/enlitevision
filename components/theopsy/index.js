@@ -8,7 +8,8 @@ module.exports = {
 function init() {
   var component = document.querySelector('.theopsy')
 
-  var products_swiper = new swiper ('.theopsy .collection-products .swiper-container', {
+  var products = component.querySelector('.collection-products .swiper-container')
+  var products_swiper = new swiper (products, {
     loop: true,
 
     pagination: '.theopsy .swiper-pagination',
