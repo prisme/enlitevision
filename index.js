@@ -35,19 +35,19 @@ for (var i=0; i < _sections.length; i++) {
 }
 
 /*
-  each collection tag =>
-    prismic data
-    jade template
+  each collection tag
     swipers
       splash
       products
-
+    scroll listener => animate in
 */
 
+
+// scrollto btn
 var scrollTo = require('lib/scrollTo')
 var next = document.querySelector('.supernatural')
 var prompt = document.querySelector('.prompt-down')
-if(document.documentElement.scrollTop ==0 && document.body.scrollTop ==0) {
+if(document.documentElement.scrollTop == 0 && document.body.scrollTop == 0) {
   TweenLite.to(prompt, 0.8, {autoAlpha: 1, delay: 2.5})
   prompt.addEventListener('click', function(){
     scrollTo(next, 0.8)
