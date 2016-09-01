@@ -29,11 +29,10 @@ function init() {
       splash_swiper.stopAutoplay()
   })
 
-
   var products = component.querySelector('.collection-products .swiper-container')
   var products_swiper = new swiper (products, {
     loop: true,
-
+    autoHeight: true,
     pagination: '.supernatural .swiper-pagination',
     paginationClickable : true,
     paginationBulletRender: function (index, className) {

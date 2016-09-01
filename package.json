@@ -6,10 +6,13 @@
   "license": "ISC",
   "main": "index.js",
   "scripts": {
-    "start": "budo index.js:bundle.js --live",
-    "build:js": "browserify index.js | uglifyjs -m -c warnings=false > bundle.js",
-    "build:css": "postcss --use autoprefixer -b 'last 2 versions' < ./style.css | cssmin > style.min.css",
-    "build": "npm run build:js && npm run build:css"
+    "budo": "budo index.js:public/bundle.js --live",
+    "start": "node server.js & npm run watch",
+    "watch": "watchify index.js -o public/bundle.js",
+    "build:js": "browserify index.js | uglifyjs -m -c warnings=false > public/bundle.js",
+    "build:css": "postcss --use autoprefixer -b 'last 2 versions' < ./style.css | cssmin > public/style/style.min.css",
+    "build": "npm run build:js && npm run build:css",
+    "publish": "npm run build && git commit -am 'publish' && git push heroku master"
   },
   "browserify": {
     "transform": [
@@ -68,6 +71,7 @@
     "cssmin": "^0.4.3",
     "installify": "^1.0.3",
     "jadeify": "^4.6.0",
-    "uglify-js": "^2.7.0"
+    "uglify-js": "^2.7.0",
+    "watchify": "^3.7.0"
   }
 }

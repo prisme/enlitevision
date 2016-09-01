@@ -1,7 +1,7 @@
 var gsap = require('gsap')
 
-
 // Prismic
+/*
 var Prismic = require('prismic.io')
 var endpoint = 'https://enlite.prismic.io/api'
 
@@ -12,6 +12,7 @@ Prismic.api(endpoint).then(function(api) {
 }, function(err) {
   console.log("Something went wrong: ", err)
 })
+*/
 
 
 // Sections components
@@ -29,19 +30,16 @@ var _sections = [
   corsocomo,
 ]
 
-// Initialise each section
-for (var i=0; i < _sections.length; i++) {
-  _sections[i].init()
-}
-
 /*
-  each collection tag
+  each section :
     swipers
       splash
       products
     scroll listener => animate in
 */
 
+// Initialise each section
+for(var i=0; i < _sections.length; i++) _sections[i].init()
 
 // scrollto btn
 var scrollTo = require('lib/scrollTo')

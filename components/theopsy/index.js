@@ -11,7 +11,7 @@ function init() {
   var products = component.querySelector('.collection-products .swiper-container')
   var products_swiper = new swiper (products, {
     loop: true,
-
+    autoHeight: true,
     pagination: '.theopsy .swiper-pagination',
     paginationClickable : true,
     paginationBulletRender: function (index, className) {
