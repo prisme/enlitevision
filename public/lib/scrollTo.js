@@ -25,5 +25,4 @@ module.exports = function (element, duration, offset, callback) {
         onComplete: callback
     });
 
-    console.log(element, scroller)
 }

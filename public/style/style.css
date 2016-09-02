@@ -262,15 +262,16 @@ section {
     text-transform: uppercase;
 }
 
-.collection-description .strong {
+.collection-description p{
+    margin-bottom: 1em;
+}
+
+.collection-description strong {
     letter-spacing: 0.1em;
     font-size: 1.4em;
     line-height: 1.2em;
 }
 
-.collection-description strong {
-    font-size: 2em;
-}
 
 .collection-products {
     width: 55%;

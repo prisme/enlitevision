@@ -1,0 +1,5 @@
+if footerContent != null
+  footer#main-footer
+    each item in footerContent.getGroup('footer.footerColumns').toArray()
+      .col
+        != item.getStructuredText("column").asHtml(ctx.linkResolver)

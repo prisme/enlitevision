@@ -7,10 +7,20 @@ module.exports = {
 }
 
 function init() {
-  var component = document.querySelector('.optical')
 
-  var splash = component.querySelector('.wrapper .swiper-container')
-  var splash_swiper = new swiper (splash, {
+  var products
+  var products_swiper
+  var splash
+  var splash_swiper
+  var elementWatcher
+
+  var component = document.querySelector('.optical')
+  if(component == null) return
+
+  splash = component.querySelector('.wrapper .swiper-container')
+  if(splash == null) return
+
+  splash_swiper = new swiper (splash, {
     loop: false,
     effect: "fade",
     autoplay: 4000,
@@ -19,7 +29,7 @@ function init() {
     prevButton: '.optical .prompt-left'
   })
 
-  var elementWatcher = scrollMonitor.create( splash )
+  elementWatcher = scrollMonitor.create( splash )
 
   elementWatcher.enterViewport(function() {
       splash_swiper.startAutoplay()
@@ -28,8 +38,8 @@ function init() {
       splash_swiper.stopAutoplay()
   })
 
-  var products = component.querySelector('.collection-products .swiper-container')
-  var products_swiper = new swiper (products, {
+  products = component.querySelector('.collection-products .swiper-container')
+  products_swiper = new swiper (products, {
     loop: true,
     autoHeight: true,
     pagination: '.optical .swiper-pagination',

@@ -8,6 +8,7 @@ module.exports = {
 
 function init() {
   var component = document.querySelector('.corsocomo')
+  if(component == null) return
 
   var splash = component.querySelector('.wrapper .swiper-container')
   var splash_swiper = new swiper (splash, {

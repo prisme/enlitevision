@@ -10,6 +10,7 @@ module.exports = {
 function init() {
 
   component = document.querySelector('.featured')
+  if(component == null) return
 
   var introTL = new TimelineMax({paused: false})
 

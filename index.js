@@ -57,36 +57,42 @@ if(document.documentElement.scrollTop == 0 && document.body.scrollTop == 0) {
 
 // temp : home video
 var Vimeo = require('@vimeo/player')
-var videoPrompt = document.querySelector('.video-prompt')
-var videoContainer = document.querySelector('.video-player')
-var closePrompt = videoContainer.querySelector('.close-prompt')
-var iframe = videoContainer.querySelector('iframe');
-var player = new Vimeo(iframe);
+function initVideo(){
+    var videoPrompt = document.querySelector('.video-prompt')
+    var videoContainer = document.querySelector('.video-player')
+    if (videoContainer==null) return
 
-videoPrompt.addEventListener('click', videoOpen)
-closePrompt.addEventListener('click', videoClose)
+    var closePrompt = videoContainer.querySelector('.close-prompt')
+    var iframe = videoContainer.querySelector('iframe');
+    var player = new Vimeo(iframe);
 
-function videoOpen(){
-  TweenLite.to(videoContainer, 1, {autoAlpha: 1})
-  document.body.classList.add('noscroll')
-  player.on('ended', videoClose)
-  player.play()
+    videoPrompt.addEventListener('click', videoOpen)
+    closePrompt.addEventListener('click', videoClose)
 
-  document.addEventListener('keydown', function(event) {
-    if(event.which == 27) {
-      videoClose()
-      document.removeEventListener('keydown')
+    function videoOpen(){
+      TweenLite.to(videoContainer, 1, {autoAlpha: 1})
+      document.body.classList.add('noscroll')
+      player.on('ended', videoClose)
+      player.play()
+
+      document.addEventListener('keydown', function(event) {
+        if(event.which == 27) {
+          videoClose()
+          document.removeEventListener('keydown')
+        }
+      })
     }
-  })
-}
 
-function videoClose(){
-  TweenLite.to(videoContainer, .5, {autoAlpha: 0})
-  document.body.classList.remove('noscroll')
-  player.off('ended', videoClose)
-  player.pause()
-  player.setCurrentTime(0)
+    function videoClose(){
+      TweenLite.to(videoContainer, .5, {autoAlpha: 0})
+      document.body.classList.remove('noscroll')
+      player.off('ended', videoClose)
+      player.pause()
+      player.setCurrentTime(0)
+    }
 }
+initVideo()
+
 
 
 // Resize
@@ -99,7 +105,7 @@ var resizeHandler = function(){
   flag = portrait ? 'portrait' : 'landscape'
   if(document.body.classList.contains(flag)) return
 
-  document.body.classList= []
+  document.body.classList.remove('portrait', 'landscape')
   document.body.classList.add(flag)
 }
 

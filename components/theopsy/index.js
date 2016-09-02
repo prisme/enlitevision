@@ -6,10 +6,17 @@ module.exports = {
 }
 
 function init() {
-  var component = document.querySelector('.theopsy')
+  var products
+  var products_swiper
+  var splash
+  var splash_swiper
+  var elementWatcher
 
-  var products = component.querySelector('.collection-products .swiper-container')
-  var products_swiper = new swiper (products, {
+  var component = document.querySelector('.theopsy')
+  if(component == null) return
+
+  products = component.querySelector('.collection-products .swiper-container')
+  products_swiper = new swiper (products, {
     loop: true,
     autoHeight: true,
     pagination: '.theopsy .swiper-pagination',

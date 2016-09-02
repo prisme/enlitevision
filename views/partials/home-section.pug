@@ -1,0 +1,44 @@
+section.supernatural
+  .wrapper
+    .title.novecento-medium
+      != pageContent.getStructuredText('home-section.title').asHtml(ctx.linkResolver)
+
+    .prompt-left
+    .prompt-right
+
+    .swiper-container
+      .swiper-wrapper
+        .swiper-slide
+          img.splash(src='public/img/supernatural_1.jpg')
+        .swiper-slide
+          img.splash(src='public/img/supernatural_2.jpg')
+        .swiper-slide
+          img.splash(src='public/img/supernatural_3.jpg')
+
+
+  .collection-preview
+    .collection-description
+      .strong.novecento-bold
+        | SMOOTH CURVES
+        br
+        |             HAND MADE FINISHINGS
+        br
+        |             EXCLUSIVE CARL ZEISS LENSES
+      br
+      .novecento-medium
+        | DESIGN TO FIT INTO ANY TYPE OF FACE
+        br
+        |             SUPERNATURAL EXCLUSIVE MATERIAL
+        br
+        |             100% RECYCLABLE  BOYANT
+    .collection-products
+      .swiper-container
+        .swiper-wrapper
+          .swiper-slide
+            .product-name volt black platinum
+            img.product-img(src='public/img/products/volt.jpg')
+          .swiper-slide
+            .product-name miles brown
+            img.product-img(src='public/img/products/miles_brown.jpg')
+        .swiper-pagination
+      a(href='/collections/supernatural') go to collection
