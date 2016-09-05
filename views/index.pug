@@ -10,7 +10,7 @@ block prepend body
         .prompt-down
 
       for section in pageContent
-        section
+        section.home-section
           .wrapper
             .title.novecento-medium
               != section.getStructuredText('home-section.title').asHtml()
@@ -23,9 +23,10 @@ block prepend body
 
                 .swiper-container
                   .swiper-wrapper
-                  for slide in slides.toArray()
-                    .swiper-slide
-                      img.splash(src='' + slide.getImage('img').url )
+                    for slide in slides.toArray()
+                      .swiper-slide
+                        img.splash(src='' + slide.getImage('img').url )
+
               else
                 img.splash(src='' + slides.toArray()[0].getImage('img').url )
 

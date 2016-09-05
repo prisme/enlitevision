@@ -46,6 +46,7 @@
     "body-parser": "^1.15.2",
     "budo": "^8.3.0",
     "components": "^0.1.0",
+    "doc-ready": "^1.0.4",
     "errorhandler": "^1.4.3",
     "express": "^4.14.0",
     "gsap": "^1.19.0",
@@ -61,6 +62,7 @@
     "pug": "^2.0.0-beta4",
     "scrollmonitor": "^1.0.12",
     "serve-favicon": "^2.3.0",
+    "simple-scrolltop": "^1.0.1",
     "swiper": "^3.3.1"
   },
   "devDependencies": {

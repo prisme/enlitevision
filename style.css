@@ -103,17 +103,19 @@ span.swiper-pagination-bullet-active {
     transform: translateY(0px);
 }
 
-section {
+.home-section {
     /*position: absolute;*/
     position: relative;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
+    overflow: hidden;
 }
 
 .wrapper {
     position: relative;
+    background-color: black;
 }
 
 .splash {
@@ -216,30 +218,18 @@ section {
 
 /* featured*/
 
-.featured {
-    overflow: hidden
-}
-
-.featured .wrapper {
-    background-color: black;
-}
-
 .featured .splash,
 .featured .title {
     opacity: 0;
 }
 
-.portrait .featured .title {
-    /* top: 70%; */
-}
-
-.featured .subtitle {
+.home-section .subtitle {
     right: 10vw;
     text-align: right;
     top: 100vh;
 }
 
-.portrait .featured .subtitle {
+.portrait .home-section .subtitle {
     top: 85%;
 }
 

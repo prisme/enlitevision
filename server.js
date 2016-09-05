@@ -82,31 +82,6 @@ app.route('/').get(function(req, res){
       handleError(err, req, res)
     })
 
-/*
-    api.query( prismic.Predicates.at('document.type', 'home-section'))
-    .then(function(pageContent) {
-
-      console.log( 'original object : ', pageContent.results )
-      // console.log( 'collection : ', pageContent.results[0].getText('home-section.collection') )
-
-      api.getByUID("footer", "footer")
-      .then(function(footerContent) {
-        // console.log(footerContent.getGroup('footer.footerColumns').toArray()[0].getStructuredText("column"))
-
-        res.render('index', {
-          pageContent: pageContent,
-          footerContent: footerContent
-        })
-      })
-      .catch(function(err) {
-        handleError(err, req, res)
-      })
-    })
-    .catch(function(err) {
-      handleError(err, req, res)
-    })
-*/
-
   })
 })
 
