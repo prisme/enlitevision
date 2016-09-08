@@ -4,7 +4,6 @@ var configuration = require('./prismic-config')
 var PORT = app.get('port')
 
 function api(req, res) {
-  // So we can use this information in the views
   res.locals.ctx = {
     endpoint: configuration.apiEndpoint,
     linkResolver: configuration.linkResolver
@@ -52,16 +51,39 @@ app.route('/').get(function(req, res){
 
         api.getByUID( 'home-section', uid)
         .then(function(homeSection) {
-          // console.log( homeSection)
-          // console.log(homeSection.getStructuredText('home-section.collection'))
+          var collection = homeSection.getText('home-section.collection')
 
-          pageContent.push(homeSection)
+          if( collection === null ){
+            homeSection.products = null
+            pageContent.push(homeSection)
+          } else {
 
+            api.query([
+              // prismic.Predicates.any('document.tags', [collection]),
+              prismic.Predicates.any('my.product.collection', [collection]),
+              prismic.Predicates.at('document.type', 'product')
+            ])
+            .then(function(products){
+
+              console.log( products.results )
+
+              homeSection.products = products.results
+              pageContent.push(homeSection)
+              // console.log(homeSection.products)
+            })
+            .catch(function(err) {
+              handleError(err, req, res)
+            })
+          }
+
+
+          // last loop
           if(index == sections.length - 1){
-            // console.log( 'constructed object : ', pageContent)
 
             api.getByUID("footer", "footer")
             .then(function(footerContent) {
+
+              // console.log(pageContent)
 
               res.render('index', {
                 pageContent: pageContent,

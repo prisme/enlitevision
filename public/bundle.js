@@ -25,7 +25,7 @@ docReady( function() {
     if (splash !== null) {
       splash_swiper = new swiper (splash, {
         loop: false,
-        effect: "fade",
+        effect: 'slide',
         autoplay: 4000,
         speed: 2000,
         nextButton: section.querySelector('.prompt-right'),
@@ -51,11 +51,11 @@ docReady( function() {
 
     // title animation
     title = section.querySelector('.title')
-    titleText = new split(title, {type: "words, chars"})
+    titleText = new split(title, {type: 'words, chars'})
     tl.staggerFrom(titleText.words, 2.0, { alpha:0, rotationY:-15, rotationX: -20 }, 0.3)
 
     titleIn = scrollMonitor.create( title )
-    titleIn.enterViewport( tl.restart )
+    titleIn.enterViewport(function(){ tl.restart() })
   }
 
   var sections = document.querySelectorAll('.home-section')
@@ -81,19 +81,33 @@ docReady( function() {
   var scrollTo = require('./lib/scrollTo')
   var scrolltop = require('simple-scrolltop')
   var next = document.querySelector('.home-section + .home-section')
-  var prompt = document.querySelector('.prompt-down')
+  var promptDown = document.querySelector('.prompt-down')
+  var scrolledAway
 
-  if( scrolltop() == 0 ) {
-    TweenLite.to(prompt, 0.8, {autoAlpha: 1, delay: 2.5})
-    prompt.addEventListener('click', function(){
-      scrollTo(next, 0.8)
-      TweenLite.to(prompt, 0.6, {autoAlpha: 0, y: 50})
+  var promptDownListener = function() {
+    scrollTo(next, 0.8)
+    TweenLite.to(promptDown, 0.6, {autoAlpha: 0, y: 50})
 
-      title = next.querySelector('.title')
-      titleText = new split(title, {type: "words, chars"})
-      TweenMax.staggerFrom(titleText.words, 2.0, { alpha:0, rotationY:-15, rotationX: -20 }, 0.3)
+    title = next.querySelector('.title')
+    titleText = new split(title, {type: 'words, chars'})
+    TweenMax.staggerFrom(titleText.words, 2.0, { alpha:0, rotationY:-15, rotationX: -20 }, 0.3)
+  }
+
+  window.onload = function(){
+    if( scrolltop() !== 0 ) return
+
+    TweenLite.to(promptDown, 0.8, {autoAlpha: 1, delay: 2.5})
+    promptDown.addEventListener('click', promptDownListener)
+
+    // hide prompt if user scrolled to next
+    scrolledAway = scrollMonitor.create( next )
+    scrolledAway.enterViewport(function(){
+      TweenLite.to(promptDown, 0.6, {autoAlpha: 0, y: 50})
+      promptDown.removeEventListener('click', promptDownListener)
     })
   }
+
+
 
 
   // home video

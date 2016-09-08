@@ -40,11 +40,12 @@ block prepend body
               .collection-products
                 .swiper-container
                   .swiper-wrapper
-                    .swiper-slide
-                      .product-name volt black platinum
-                      img.product-img(src='public/img/products/volt.jpg')
-                    .swiper-slide
-                      .product-name miles brown
-                      img.product-img(src='public/img/products/miles_brown.jpg')
+                    for product in section.products
+                      .swiper-slide
+                        .product-name
+                          != product.getText('product.name')
+
+                        img.product-img(src='' + product.getImage('product.img').url)
+
                   .swiper-pagination
                 a(href='/collections/supernatural') go to collection

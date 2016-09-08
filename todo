@@ -1,14 +1,17 @@
 [x] footer
 [x] scrollto
 [x] splash swipers controls
-[] menu
+[x] prismic footer
 [x] dedupe swipers
 [] prismic home
-[] prismic footer
+[] menu
 
 [] router
 [] product page
 [] snipcart
+[] collections page
 
 [] responsive images
 [] newsletter => mailchimp
+[] loader / intro
+[] loader / intro
