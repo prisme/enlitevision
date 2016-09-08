@@ -2,9 +2,9 @@
 [x] scrollto
 [x] splash swipers controls
 [] menu
+[x] dedupe swipers
 [] prismic home
 [] prismic footer
-[] dedupe swipers
 
 [] router
 [] product page
