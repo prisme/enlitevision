@@ -24,6 +24,7 @@ docReady( function() {
     if (splash !== null) {
       splash_swiper = new swiper (splash, {
         loop: false,
+        autoHeight: true,
         effect: 'slide',
         autoplay: 4000,
         speed: 2000,
