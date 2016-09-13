@@ -2,6 +2,7 @@ var prismic = require('prismic-nodejs')
 var app = require('./express-config')
 var configuration = require('./prismic-config')
 var PORT = app.get('port')
+var Q = require('q')
 
 function api(req, res) {
   res.locals.ctx = {
@@ -16,9 +17,9 @@ function api(req, res) {
 
 function handleError(err, req, res) {
   if (err.status == 404) {
-    res.status(404).send("404 not found")
+    res.status(404).send('404 not found')
   } else {
-    res.status(500).send("Error 500: " + err.message)
+    res.status(500).send('Error 500: ' + err.message)
   }
 }
 
@@ -36,75 +37,65 @@ app.route('/preview').get(function(req, res) {
 })
 
 
-// homepage
 app.route('/').get(function(req, res){
-  api(req, res).then(function(api) {
 
-    api.query( prismic.Predicates.at('document.type', 'homepage'))
-    .then(function(content) {
-      var pageContent = []
-      var sections = content.results[0].getGroup('homepage.body').toArray()
-      var uid
+  api(req, res)
+  .then(function(api) {
 
-      sections.forEach( function(section, index) {
-        uid = section.getLink('section').uid
+    var footerDefered =  api.getByUID('footer', 'footer')
+    var hpDefered = Q.defer()
+
+    api.query( prismic.Predicates.at('document.type', 'homepage') )
+    .then(function(homepage){
+      var sections = homepage.results[0].getGroup('homepage.body').toArray()
+      var productsPromises = []
+
+      sections.forEach( function(section) {
+        var deferred = Q.defer()
+        var uid = section.getLink('section').uid
 
         api.getByUID( 'home-section', uid)
         .then(function(homeSection) {
           var collection = homeSection.getText('home-section.collection')
+          if( collection === null ) deferred.resolve(homeSection)
 
-          if( collection === null ){
-            homeSection.products = null
-            pageContent.push(homeSection)
-          } else {
+          api.query([
+            // prismic.Predicates.any('document.tags', [collection]),
+            prismic.Predicates.any('my.product.collection', [collection]),
+            prismic.Predicates.at('document.type', 'product')
+          ])
+          .then(function(products){
+            homeSection.products = products.results
 
-            api.query([
-              // prismic.Predicates.any('document.tags', [collection]),
-              prismic.Predicates.any('my.product.collection', [collection]),
-              prismic.Predicates.at('document.type', 'product')
-            ])
-            .then(function(products){
+            console.log(collection)
+            homeSection.products.map(function(product){ console.log(product.uid) })
 
-              console.log( products.results )
-
-              homeSection.products = products.results
-              pageContent.push(homeSection)
-              // console.log(homeSection.products)
-            })
-            .catch(function(err) {
-              handleError(err, req, res)
-            })
-          }
-
-
-          // last loop
-          if(index == sections.length - 1){
-
-            api.getByUID("footer", "footer")
-            .then(function(footerContent) {
-
-              // console.log(pageContent)
-
-              res.render('index', {
-                pageContent: pageContent,
-                footerContent: footerContent
-              })
-
-            })
-            .catch(function(err) {
-              handleError(err, req, res)
-            })
-
-          }
+            deferred.resolve(homeSection)
+          })
 
         })
+
+        productsPromises.push(deferred.promise)
       })
+
+      Q.all(productsPromises).then(function(pageContent){
+        console.log(pageContent[2].products[0].getText('product.name'))
+        hpDefered.resolve( pageContent )
+      })
+
     })
-    .catch(function(err) {
-      handleError(err, req, res)
+
+    Q.all([ hpDefered.promise, footerDefered ]).then(function(blocks){
+      console.log(blocks)
+
+      res.render('index', {
+        pageContent: blocks[0],
+        footerContent: blocks[1]
+      })
     })
 
   })
+
 })
 
 

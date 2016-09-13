@@ -30,22 +30,35 @@ block prepend body
               else
                 img.splash(src='' + slides.toArray()[0].getImage('img').url )
 
-          - var collection = section.getText('home-section.collection')
           - var description = section.getStructuredText('home-section.description')
-          if collection != null && description != null
+          - var displayCollection = (description && section.products) != null
+          if displayCollection
             .collection-preview
-              .collection-description
-                != description.asHtml()
+              .collection-description!= description.asHtml()
 
               .collection-products
-                .swiper-container
-                  .swiper-wrapper
-                    for product in section.products
-                      .swiper-slide
-                        .product-name
-                          != product.getText('product.name')
+                if section.products.length > 1
+                  .swiper-container
+                    .swiper-wrapper
+                      for product in section.products
+                        .swiper-slide
+                          .product-name
+                            != product.getText('product.name')
+                            | &nbsp;
+                            != product.getText('product.frame')
+                            | &nbsp;
+                            != product.getText('product.lens')
+                          img.product-img(src='' + product.getImage('product.img').url)
 
-                        img.product-img(src='' + product.getImage('product.img').url)
+                    .swiper-pagination
+                else
+                  for product in section.products
+                    .product-name
+                      != product.getText('product.name')
+                      | &nbsp;
+                      != product.getText('product.frame')
+                      | &nbsp;
+                      != product.getText('product.lens')
+                    img.product-img(src='' + product.getImage('product.img').url)
 
-                  .swiper-pagination
-                a(href='/collections/supernatural') go to collection
+                a(href='/collections/#' + section.getText('home-section.collection')) go to collection
