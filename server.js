@@ -56,12 +56,11 @@ app.route('/').get(function(req, res){
 
         api.getByUID( 'home-section', uid)
         .then(function(homeSection) {
-          var collection = homeSection.getText('home-section.collection')
-          if( collection === null ) deferred.resolve(homeSection)
+          var collection = homeSection.tags
+          if( collection.length == 0 ) deferred.resolve(homeSection)
 
           api.query([
-            // prismic.Predicates.any('document.tags', [collection]),
-            prismic.Predicates.any('my.product.collection', [collection]),
+            prismic.Predicates.any('document.tags', collection),
             prismic.Predicates.at('document.type', 'product')
           ])
           .then(function(products){
