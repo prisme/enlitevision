@@ -1,0 +1,29 @@
+.collection-preview
+  .collection-description!= description.asHtml()
+
+  .collection-products
+    if section.products.length > 1
+      .swiper-container
+        .swiper-wrapper
+          for product in section.products
+            .swiper-slide
+              .product-name
+                != product.getText('product.name')
+                | &nbsp;
+                != product.getText('product.frame')
+                | &nbsp;
+                != product.getText('product.lens')
+              img.product-img(src='' + product.getImage('product.img').url)
+
+        .swiper-pagination
+    else
+      for product in section.products
+        .product-name
+          != product.getText('product.name')
+          | &nbsp;
+          != product.getText('product.frame')
+          | &nbsp;
+          != product.getText('product.lens')
+        img.product-img(src='' + product.getImage('product.img').url)
+
+    a(href='/collections/#' + section.getText('home-section.collection')) go to collection

@@ -5,14 +5,20 @@
 [x] dedupe swipers
 [x] prismic home
 [x] subtitle
-[] title color option
+[] title color
+    [x] static (.section-theopsy)
+    [] option in CMS
 [] menu
-
 [] product page
 [] router
 [] snipcart
 [] collections page
 
-[] responsive images
-[] newsletter => mailchimp
-[] loader / intro
+optims
+    [] responsive texts
+    [] responsive images
+    [] newsletter => mailchimp
+    [] loader / intro
+
+finitions
+    [] animate home-page

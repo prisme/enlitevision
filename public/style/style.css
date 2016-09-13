@@ -168,15 +168,6 @@ section {
     top: 85%;
 }
 
-.innovation .subtitle {
-    left: 8vw;
-    top: 80vh;
-}
-
-.portrait .innovation .subtitle {
-    top: 85%;
-}
-
 .frame {
     border: 30px solid black;
     border-top: none;
@@ -237,8 +228,7 @@ section {
 }
 
 
-/* featured*/
-
+/*
 .featured {
     overflow: hidden
 }
@@ -251,7 +241,22 @@ section {
 .featured .title {
     opacity: 0;
 }
+*/
 
+
+.section-innovation .subtitle {
+    left: 8vw;
+    text-align: left;
+    right: auto;
+}
+
+.portrait .section-innovation .subtitle {
+    top: 85%;
+}
+
+.section-theopsy .title{
+    color: #272525;
+}
 
 
 /* collections */
@@ -297,7 +302,7 @@ section {
 }
 
 .collection-products a {
-    color: black;
+    color: #272525;
     font-family: 'novecento-bold';
     text-decoration: none;
     text-transform: uppercase;
@@ -317,14 +322,14 @@ section {
 
 
 /*
-    .title{
-        bottom: calc(8vh + 30px);
-    }*/
+.title{
+    bottom: calc(8vh + 30px);
+}
 
 .supernatural .title > span {
     letter-spacing: 0.26em;
 }
-
+*/
 
 
 .video-prompt {
