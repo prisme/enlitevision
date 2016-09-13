@@ -115,38 +115,40 @@ docReady( function() {
   // home video
   var Vimeo = require('@vimeo/player')
   function initVideo(){
-      var videoPrompt = document.querySelector('.video-prompt')
-      var videoContainer = document.querySelector('.video-player')
-      if (videoContainer==null) return
+    var player
+    var videoPrompt = document.querySelector('.video-prompt')
+    var videoContainer = document.querySelector('.video-player')
+    var closePrompt = document.querySelector('.close-prompt')
+    var iframe = document.querySelector('iframe')
 
-      var closePrompt = videoContainer.querySelector('.close-prompt')
-      var iframe = videoContainer.querySelector('iframe');
-      var player = new Vimeo(iframe);
+    if (videoContainer === null) return
 
-      videoPrompt.addEventListener('click', videoOpen)
-      closePrompt.addEventListener('click', videoClose)
+    player = new Vimeo(iframe)
+    videoPrompt.addEventListener('click', videoOpen)
+    closePrompt.addEventListener('click', videoClose)
 
-      function videoOpen(){
-        TweenLite.to(videoContainer, 1, {autoAlpha: 1})
-        document.body.classList.add('noscroll')
-        player.on('ended', videoClose)
-        player.play()
+    function videoOpen(){
+      TweenLite.to(videoContainer, 1, {autoAlpha: 1})
+      document.body.classList.add('noscroll')
+      player.on('ended', videoClose)
+      player.play()
 
-        document.addEventListener('keydown', function(event) {
-          if(event.which == 27) {
-            videoClose()
-            document.removeEventListener('keydown')
-          }
-        })
+      function escKey(event) {
+        if(event.which == 27) {
+          videoClose()
+          document.removeEventListener('keydown', escKey)
+        }
       }
+      document.addEventListener('keydown', escKey)
+    }
 
-      function videoClose(){
-        TweenLite.to(videoContainer, .5, {autoAlpha: 0})
-        document.body.classList.remove('noscroll')
-        player.off('ended', videoClose)
-        player.pause()
-        player.setCurrentTime(0)
-      }
+    function videoClose(){
+      TweenLite.to(videoContainer, .5, {autoAlpha: 0})
+      document.body.classList.remove('noscroll')
+      player.off('ended', videoClose)
+      player.pause()
+      player.setCurrentTime(0)
+    }
   }
   initVideo()
 

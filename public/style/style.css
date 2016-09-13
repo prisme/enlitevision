@@ -154,6 +154,29 @@ section {
     top: 65%;
 }
 
+.portrait .title {
+     top: 70%;
+}
+
+.subtitle {
+    right: 10vw;
+    text-align: right;
+    top: 100vh;
+}
+
+.portrait .subtitle {
+    top: 85%;
+}
+
+.innovation .subtitle {
+    left: 8vw;
+    top: 80vh;
+}
+
+.portrait .innovation .subtitle {
+    top: 85%;
+}
+
 .frame {
     border: 30px solid black;
     border-top: none;
@@ -229,19 +252,6 @@ section {
     opacity: 0;
 }
 
-.portrait .featured .title {
-    /* top: 70%; */
-}
-
-.featured .subtitle {
-    right: 10vw;
-    text-align: right;
-    top: 100vh;
-}
-
-.portrait .featured .subtitle {
-    top: 85%;
-}
 
 
 /* collections */
@@ -315,14 +325,7 @@ section {
     letter-spacing: 0.26em;
 }
 
-.innovation .subtitle {
-    left: 8vw;
-    top: 80vh;
-}
 
-.portrait .innovation .subtitle {
-    top: 85%;
-}
 
 .video-prompt {
     z-index: 0;

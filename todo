@@ -3,15 +3,16 @@
 [x] splash swipers controls
 [x] prismic footer
 [x] dedupe swipers
-[] prismic home
+[x] prismic home
+[x] subtitle
+[] title color option
 [] menu
 
-[] router
 [] product page
+[] router
 [] snipcart
 [] collections page
 
 [] responsive images
 [] newsletter => mailchimp
-[] loader / intro
 [] loader / intro

@@ -11,11 +11,20 @@ block prepend body
 
       for section in pageContent
         section.home-section
-          .wrapper
-            .title.novecento-medium
-              != section.getStructuredText('home-section.title').asHtml()
+          - var title = section.getStructuredText('home-section.title')
+          - var subtitle = section.getStructuredText('home-section.subtitle')
+          - var slides = section.getGroup('home-section.slides')
+          - var video = section.get('home-section.video')
 
-            - var slides = section.getGroup('home-section.slides')
+          .wrapper
+            if title
+              .title.novecento-medium
+                != title.asHtml()
+
+            if subtitle
+              .subtitle.novecento-medium
+                != subtitle.asHtml()
+
             if slides
               if slides.toArray().length > 1
                 .prompt-left
@@ -29,6 +38,13 @@ block prepend body
 
               else
                 img.splash(src='' + slides.toArray()[0].getImage('img').url )
+
+            if (video != null)
+              .video-prompt
+              .video-player
+                .close-prompt ×
+                .embed-container
+                  != video.asHtml()
 
           - var description = section.getStructuredText('home-section.description')
           - var displayCollection = (description && section.products) != null && section.products.length > 0
