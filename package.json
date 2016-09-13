@@ -10,7 +10,7 @@
     "start": "devtool server.js -w & npm run watch",
     "watch": "watchify index.js -o public/bundle.js",
     "build:js": "browserify index.js | uglifyjs -m -c warnings=false > public/bundle.js",
-    "build:css": "postcss --use autoprefixer -b 'last 2 versions' < ./style.css | cssmin > public/style/style.min.css",
+    "build:css": "postcss --use autoprefixer -b 'last 2 versions' < public/style/style.css | cssmin > public/style/style.min.css",
     "build": "npm run build:js && npm run build:css",
     "publish": "npm run build && git commit -am 'publish' && git push heroku master"
   },

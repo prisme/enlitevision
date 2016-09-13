@@ -23,7 +23,7 @@ docReady( function() {
     // swipers
     if (splash !== null) {
       splash_swiper = new swiper (splash, {
-        loop: false,
+        loop: true,
         autoHeight: true,
         effect: 'slide',
         autoplay: 4000,
@@ -106,6 +106,7 @@ docReady( function() {
       promptDown.removeEventListener('click', promptDownListener)
     })
   }
+
 
 
 

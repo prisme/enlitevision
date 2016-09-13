@@ -66,10 +66,6 @@ app.route('/').get(function(req, res){
           ])
           .then(function(products){
             homeSection.products = products.results
-
-            console.log(collection)
-            homeSection.products.map(function(product){ console.log(product.uid) })
-
             deferred.resolve(homeSection)
           })
 
@@ -79,14 +75,13 @@ app.route('/').get(function(req, res){
       })
 
       Q.all(productsPromises).then(function(pageContent){
-        console.log(pageContent[2].products[0].getText('product.name'))
         hpDefered.resolve( pageContent )
       })
 
     })
 
     Q.all([ hpDefered.promise, footerDefered ]).then(function(blocks){
-      console.log(blocks)
+      console.log(blocks[0])
 
       res.render('index', {
         pageContent: blocks[0],
