@@ -1,0 +1,49 @@
+{
+  "Main" : {
+    "uid" : {
+      "type" : "UID",
+      "config" : {
+        "placeholder" : "meaningful-unique-identifier...",
+        "label" : "Unique ID"
+      }
+    },
+    "title" : {
+      "type" : "StructuredText",
+      "fieldset" : "title",
+      "config" : {
+        "placeholder" : "2 lines",
+        "multi" : "span"
+      }
+    },
+    "subtitle" : {
+      "type" : "StructuredText",
+      "fieldset" : "sub title",
+      "config" : {
+        "multi" : "span"
+      }
+    },
+    "slides" : {
+      "type" : "Group",
+      "fieldset" : "background image(s)",
+      "config" : {
+        "fields" : {
+          "img" : {
+            "type" : "Image"
+          }
+        }
+      }
+    },
+    "description" : {
+      "type" : "StructuredText",
+      "fieldset" : "description",
+      "config" : {
+        "multi" : "strong, paragraph",
+        "placeholder" : "collection description"
+      }
+    },
+    "video" : {
+      "type" : "Embed",
+      "fieldset" : "video link"
+    }
+  }
+}

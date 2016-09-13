@@ -1,0 +1,56 @@
+{
+  "Product" : {
+    "name" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Name"
+      }
+    },
+    "frame" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Frame Color"
+      }
+    },
+    "lens" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Lens Color"
+      }
+    },
+    "material" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Material"
+      }
+    },
+    "uid" : {
+      "type" : "UID",
+      "config" : {
+        "label" : "url",
+        "placeholder" : "unique-product-url"
+      }
+    },
+    "price" : {
+      "type" : "Number",
+      "config" : {
+        "label" : "Price"
+      }
+    },
+    "ref" : {
+      "type" : "Number",
+      "config" : {
+        "label" : "Reference"
+      }
+    },
+    "img" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : {
+          "width" : 840,
+          "height" : 340
+        }
+      }
+    }
+  }
+}
