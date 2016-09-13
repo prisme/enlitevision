@@ -78,8 +78,11 @@ docReady( function() {
 
 
   // scrollto btn
+  window.onbeforeunload = function(){
+    window.scrollTo(0,0)
+  }
+
   var scrollTo = require('lib/scrollTo')
-  var scrolltop = require('simple-scrolltop')
   var next = document.querySelector('.home-section + .home-section')
   var promptDown = document.querySelector('.prompt-down')
   var scrolledAway
@@ -93,22 +96,18 @@ docReady( function() {
     TweenMax.staggerFrom(titleText.words, 2.0, { alpha:0, rotationY:-15, rotationX: -20 }, 0.3)
   }
 
-  window.onload = function(){
-    if( scrolltop() !== 0 ) return
+  TweenLite.to(promptDown, 0.8, {autoAlpha: 1, delay: 2.5})
+  promptDown.addEventListener('click', promptDownListener)
 
-    TweenLite.to(promptDown, 0.8, {autoAlpha: 1, delay: 2.5})
-    promptDown.addEventListener('click', promptDownListener)
+  // hide prompt when user scrolls
+  TweenLite.delayedCall(1, function(){
 
-    // hide prompt if user scrolled to next
     scrolledAway = scrollMonitor.create( next )
     scrolledAway.enterViewport(function(){
       TweenLite.to(promptDown, 0.6, {autoAlpha: 0, y: 50})
       promptDown.removeEventListener('click', promptDownListener)
     })
-  }
-
-
-
+  })
 
 
   // home video
