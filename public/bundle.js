@@ -18,19 +18,34 @@ docReady( function() {
       titleIn,
       splashIn,
 
+    // title animation
+    title = section.querySelector('.title')
+    titleText = new split(title, {type: 'words, chars'})
+    tl.staggerFrom(titleText.words, 2.0, { alpha:0, rotationY:-15, rotationX: -20 }, 0.3)
+
+    titleIn = scrollMonitor.create( title )
+    titleIn.enterViewport(function(){ tl.restart() })
+
+    // swipers
     splash = section.querySelector('.wrapper .swiper-container')
     collection = section.querySelector('.collection-products .swiper-container')
 
-    // swipers
     if (splash !== null) {
       splash_swiper = new swiper (splash, {
         loop: true,
         autoHeight: true,
         effect: 'slide',
         autoplay: 4000,
-        speed: 2000,
+        speed: 1000,
         nextButton: section.querySelector('.prompt-right'),
-        prevButton: section.querySelector('.prompt-left')
+        prevButton: section.querySelector('.prompt-left'),
+        onSlideChangeStart : function(swiper){
+          var darkText = swiper.slides[ swiper.activeIndex ].classList.contains('dark')
+          if (darkText)
+            title.classList.add ('dark')
+          else
+            title.classList.remove('dark')
+        }
       })
 
       splashIn = scrollMonitor.create( splash )
@@ -50,13 +65,7 @@ docReady( function() {
       })
     }
 
-    // title animation
-    title = section.querySelector('.title')
-    titleText = new split(title, {type: 'words, chars'})
-    tl.staggerFrom(titleText.words, 2.0, { alpha:0, rotationY:-15, rotationX: -20 }, 0.3)
 
-    titleIn = scrollMonitor.create( title )
-    titleIn.enterViewport(function(){ tl.restart() })
   }
 
   var sections = document.querySelectorAll('.home-section')

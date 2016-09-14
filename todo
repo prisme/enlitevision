@@ -7,7 +7,9 @@
 [x] subtitle
 [] title color
     [x] static (.section-theopsy)
-    [] option in CMS
+    [x] option in CMS
+    [x] update onSlideStart
+
 [] menu
 [] product page
 [] router

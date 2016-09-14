@@ -29,6 +29,14 @@
         "fields" : {
           "img" : {
             "type" : "Image"
+          },
+          "textColor" : {
+            "type" : "Select",
+            "config" : {
+              "label" : "Text Color",
+              "placeholder": "( default - light )",
+              "options" : [ "dark", "light" ]
+            }
           }
         }
       }

@@ -9,6 +9,25 @@ block prepend body
       .frame
         .prompt-down
 
+      //- nav.menu
+      //-   span Menu
+
+      //-   h1 Collections
+
+      //-   h2 Sun
+      //-   a(href='#sun-supernatural') Supernatural
+      //-   a(href='#sun-acetate') Acetate
+
+      //-   h2 Optical
+      //-   a(href='#optical-supernatural') Supernatural
+
+      //-   h2 Collaborations
+      //-   a(href='#Theopsy') Theopsy
+      //-   a(href='#corsocomo') 10 Corso Como
+
+      //-   h2
+      //-     a(href='#innovation') Innovation
+
       for section in pageContent
         section(class='home-section '+ section.uid )
           - var title = section.getStructuredText('home-section.title')
@@ -18,12 +37,10 @@ block prepend body
 
           .wrapper
             if title
-              .title.novecento-medium
-                != title.asHtml()
+              .title!= title.asHtml()
 
             if subtitle
-              .subtitle.novecento-medium
-                != subtitle.asHtml()
+              .subtitle!= subtitle.asHtml()
 
             if slides
               if slides.toArray().length > 1
@@ -33,13 +50,18 @@ block prepend body
                 .swiper-container
                   .swiper-wrapper
                     for slide in slides.toArray()
-                      .swiper-slide
-                        img.splash(src='' + slide.getImage('img').url )
-
+                      - img = slide.getImage('img')
+                      - textColor = slide.getText('textColor')
+                      if img
+                        - var darkText = slide.getText('textColor')
+                        .swiper-slide(class= darkText ? darkText : '')
+                          img.splash(src='' + slide.getImage('img').url )
               else
-                img.splash(src='' + slides.toArray()[0].getImage('img').url )
+                - img = slides.toArray()[0].getImage('img')
+                if img
+                  img.splash(src='' + img.url )
 
-            if (video != null)
+            if video
               .video-prompt
               .video-player
                 .close-prompt ×
