@@ -34,7 +34,6 @@ docReady( function() {
         loop: true,
         autoHeight: true,
         effect: 'slide',
-        autoplay: 4000,
         speed: 1000,
         nextButton: section.querySelector('.prompt-right'),
         prevButton: section.querySelector('.prompt-left'),
@@ -46,10 +45,6 @@ docReady( function() {
             title.classList.remove('dark')
         }
       })
-
-      splashIn = scrollMonitor.create( splash )
-      splashIn.enterViewport( splash_swiper.startAutoplay )
-      splashIn.exitViewport( splash_swiper.stopAutoplay )
     }
 
     if (collection !== null) {
