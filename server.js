@@ -60,7 +60,7 @@ app.route('/').get(function(req, res){
           if( collection.length == 0 ) deferred.resolve(homeSection)
 
           api.query([
-            prismic.Predicates.any('document.tags', collection),
+            prismic.Predicates.at('document.tags', collection),
             prismic.Predicates.at('document.type', 'product')
           ])
           .then(function(products){
