@@ -35,6 +35,12 @@ body.noscroll{
     overflow: hidden;
 }
 
+.swiper-pagination{
+    top: 6vw;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 span.swiper-pagination-bullet,
 span.swiper-pagination-bullet-active {
     background: transparent;
@@ -53,6 +59,7 @@ span.swiper-pagination-bullet-active {
 .swiper-pagination-bullet {
     width: auto;
     height: auto;
+    margin: 0 5px;
 }
 
 
@@ -104,7 +111,6 @@ span.swiper-pagination-bullet-active {
 }
 
 section {
-    /*position: absolute;*/
     position: relative;
     top: 0;
     left: 0;
@@ -268,6 +274,7 @@ section {
     font-size: 0.9em;
     letter-spacing: 0.05em;
     text-transform: uppercase;
+    font-family: 'novecento-medium';
 }
 
 .collection-description p{
@@ -284,24 +291,29 @@ section {
 .collection-products {
     width: 55%;
     text-align: center;
+    position: relative;
+    padding: 8vw 0;
 }
 
 .collection-products .product-name {
-    font-family: 'novecento-bold';
-    font-size: 1.3em;
+    font-family: 'novecento-medium';
+    font-size: 0.9em;
     margin-top: 1em;
-    text-transform: lowercase;
-    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
-.collection-products a {
+.collection-products > a {
     color: #272525;
     font-family: 'novecento-bold';
     text-decoration: none;
     text-transform: uppercase;
     font-size: .7em;
     display: block;
-    margin: 1em 0 2em;
+    margin: 3em 0 2em;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .collection-products .swiper-slide {

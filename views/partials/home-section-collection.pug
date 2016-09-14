@@ -7,23 +7,24 @@
         .swiper-wrapper
           for product in section.products
             .swiper-slide
+              img.product-img(src='' + product.getImage('product.img').url)
               .product-name
                 != product.getText('product.name')
                 | &nbsp;
                 != product.getText('product.frame')
                 | &nbsp;
                 != product.getText('product.lens')
-              img.product-img(src='' + product.getImage('product.img').url)
 
-        .swiper-pagination
+      .swiper-pagination
+
     else
       for product in section.products
+        img.product-img(src='' + product.getImage('product.img').url)
         .product-name
           != product.getText('product.name')
           | &nbsp;
           != product.getText('product.frame')
           | &nbsp;
           != product.getText('product.lens')
-        img.product-img(src='' + product.getImage('product.img').url)
 
-    //- a(href='/collections/#' + section.getText('home-section.collection')) go to collection
+    a(href='/collections/#' + section.getText('home-section.collection')) go to collection
