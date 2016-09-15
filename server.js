@@ -80,7 +80,7 @@ app.route('/').get(function(req, res){
     })
 
     Q.all([ hpDefered.promise, footerDefered ]).then(function(blocks){
-      console.log(blocks[0])
+      // console.log(blocks[0])
 
       res.render('index', {
         pageContent: blocks[0],

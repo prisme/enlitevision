@@ -7,7 +7,7 @@ html,body,div,span,applet,object,iframe,h1,p,blockquote,pre,a,abbr,acronym,addre
 }
 
 strong {
-    font-weight: bold
+    font-weight: bold;
 }
 
 body,
@@ -163,7 +163,6 @@ section {
     right: 10vw;
     text-align: right;
     top: 100vh;
-
     font-size: 18px;
     letter-spacing: 0.28em;
     line-height: 1.25em;
@@ -255,11 +254,11 @@ section {
     /* left: 8vw; */
     /* text-align: left; */
     /* right: auto; */
-    /* top: 85vh; */
+    top: 90vh;
 }
 
 .portrait .section-innovation .subtitle {
-    top: 85%;
+    top: 75%;
 }
 
 
@@ -278,9 +277,10 @@ section {
     padding: 6vw;
     line-height: 1.2em;
     font-size: 0.9em;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.25em;
     text-transform: uppercase;
     font-family: 'novecento-medium';
+    /* font-weight: bold; */
 }
 
 .collection-description p{
@@ -291,6 +291,7 @@ section {
     letter-spacing: 0.1em;
     font-size: 1.4em;
     line-height: 1.2em;
+    font-family: 'novecento-medium';
 }
 
 
