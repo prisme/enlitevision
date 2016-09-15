@@ -35,6 +35,7 @@ docReady( function() {
         autoHeight: true,
         effect: 'slide',
         speed: 1000,
+        lazyLoading: true,
         nextButton: section.querySelector('.prompt-right'),
         prevButton: section.querySelector('.prompt-left'),
         onSlideChangeStart : function(swiper){
@@ -157,7 +158,7 @@ docReady( function() {
 
   // Resize
   var portrait = false
-  var ratio = 1.4
+  var ratio = 1.5
 
   var resizeHandler = function(){
     portrait = (window.innerWidth / window.innerHeight) < ratio

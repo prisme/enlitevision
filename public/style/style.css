@@ -35,10 +35,15 @@ body.noscroll{
     overflow: hidden;
 }
 
-.swiper-pagination{
-    top: 6vw;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.home-section .swiper-container-horizontal > .swiper-pagination-bullets{
+    /* top: 6vw; */
+    /* left: 50%; */
+    /* transform: translate(-50%, -50%); */
+    position: relative;
+    bottom: auto;
+    width: auto;
+    left: auto;
+    margin: 1em 0 0;
 }
 
 span.swiper-pagination-bullet,
@@ -247,9 +252,10 @@ section {
 
 
 .section-innovation .subtitle {
-    left: 8vw;
-    text-align: left;
-    right: auto;
+    /* left: 8vw; */
+    /* text-align: left; */
+    /* right: auto; */
+    /* top: 85vh; */
 }
 
 .portrait .section-innovation .subtitle {
@@ -269,7 +275,7 @@ section {
 
 .collection-description {
     width: 45%;
-    padding: 8vw;
+    padding: 6vw;
     line-height: 1.2em;
     font-size: 0.9em;
     letter-spacing: 0.05em;
@@ -292,7 +298,7 @@ section {
     width: 55%;
     text-align: center;
     position: relative;
-    padding: 8vw 0;
+    padding: 6vw 0;
 }
 
 .collection-products .product-name {
@@ -341,16 +347,22 @@ section {
     z-index: 0;
     border-radius: 100%;
     background: white;
-    width: 100px;
-    height: 100px;
-    position: absolute;
-    right: 5vw;
-    top: 80vh;
+    width: 80px;
+    height: 80px;
+    position: relative;
+    top: 1em;
     cursor: pointer;
+    display: inline-block;
+    margin: 0.8em;
+    opacity: 0.8;
+    transition: opacity 0.3s ease-out;
+}
+.video-prompt:hover{
+    opacity: 1;
 }
 
 .portrait .video-prompt {
-    top: 70%;
+    top: 85%;
     width: 60px;
     height: 60px;
 }
@@ -525,4 +537,3 @@ section {
 .main-footer button::-moz-focus-inner {
     border: 0;
     padding: 0;
-}

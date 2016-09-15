@@ -41,6 +41,12 @@ block prepend body
 
             if subtitle
               .subtitle!= subtitle.asHtml()
+                if video
+                  .video-prompt
+                  .video-player
+                    .close-prompt ×
+                    .embed-container
+                      != video.asHtml()
 
             if slides
               if slides.toArray().length > 1
@@ -61,12 +67,7 @@ block prepend body
                 if img
                   img.splash(src='' + img.url )
 
-            if video
-              .video-prompt
-              .video-player
-                .close-prompt ×
-                .embed-container
-                  != video.asHtml()
+
 
           - var description = section.getStructuredText('home-section.description')
           - var displayCollection = (description && section.products) != null && section.products.length > 0
