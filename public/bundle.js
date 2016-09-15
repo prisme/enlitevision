@@ -9,18 +9,21 @@ docReady( function() {
 
   function initSection( section ){
 
-    var tl = new TimelineMax({paused: true})
-    var collection,
-      splash,
+    var prod_swiper,
       splash_swiper,
+
       title,
       titleText,
-      titleIn,
-      splashIn,
-      imgDefer
+      tlTitle,
+      titleMonitor,
+
+      subtitle,
+      subtitleText,
+      subtlTitle,
+      subtitleMonitor
 
     // naive lazy load
-    imgDefer = section.querySelectorAll('.splash')
+    var imgDefer = section.querySelectorAll('.splash')
     for (var i = imgDefer.length - 1; i >= 0; i--) {
       if (imgDefer[i].dataset.src)
         imgDefer[i].src = imgDefer[i].dataset.src
@@ -28,17 +31,28 @@ docReady( function() {
 
     // title animation
     title = section.querySelector('.title')
-    titleText = new split(title, {type: 'words, chars'})
-    tl.staggerFrom(titleText.words, 2.0, { alpha:0, rotationY:-15, rotationX: -20 }, 0.3)
-    titleIn = scrollMonitor.create( title )
-    titleIn.enterViewport(function(){ tl.restart() })
+    if ( title !== null ) {
+      tlTitle = new TimelineMax({paused: true})
+      titleText = new split(title, {type: 'words, chars'})
+      tlTitle.staggerFrom(titleText.words, 2.0, { alpha:0, rotationY:-15, rotationX: -20 }, 0.3)
+      titleMonitor = scrollMonitor.create( title )
+      titleMonitor.enterViewport(function(){ tlTitle.restart() })
+    }
+
+
+    // subtitle animation
+    subtitle = section.querySelector('.subtitle')
+    if ( subtitle !== null ) {
+      subtlTitle = new TimelineMax({paused: true})
+      subtlTitle.from(subtitle, 0.6, { alpha:0, y : 30, ease: Power1.easeOut })
+      subtitleMonitor = scrollMonitor.create( subtitle )
+      subtitleMonitor.enterViewport(function(){ subtlTitle.restart() })
+    }
 
     // swipers
-    splash = section.querySelector('.wrapper .swiper-container')
-    collection = section.querySelector('.collection-products .swiper-container')
-
-    if (splash !== null) {
-      splash_swiper = new swiper (splash, {
+    splash_swiper = section.querySelector('.wrapper .swiper-container')
+    if ( splash_swiper !== null ) {
+      new swiper (splash_swiper, {
         loop: true,
         autoHeight: true,
         effect: 'slide',
@@ -55,8 +69,9 @@ docReady( function() {
       })
     }
 
-    if (collection !== null) {
-      new swiper (collection, {
+    prod_swiper = section.querySelector('.collection-products .swiper-container')
+    if ( prod_swiper !== null ) {
+      new swiper (prod_swiper, {
         loop: true,
         autoHeight: true,
         pagination: section.querySelector('.swiper-pagination'),

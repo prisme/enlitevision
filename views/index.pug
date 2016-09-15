@@ -35,13 +35,17 @@ block prepend body
           - var subtitle = section.getStructuredText('home-section.subtitle')
           - var slides = section.getGroup('home-section.slides')
           - var video = section.get('home-section.video')
+          - var darkText = slides.toArray()[0].getText('textColor')
 
           .wrapper
             if title
-              .title!= title.asHtml()
+              .title(class= darkText ? darkText : '' )
+                != title.asHtml()
 
             if subtitle
-              .subtitle!= subtitle.asHtml()
+              .subtitle
+                != subtitle.asHtml()
+
                 if video
                   .video-prompt
                   .video-player
@@ -60,7 +64,7 @@ block prepend body
                       - img = slide.getImage('img')
                       - textColor = slide.getText('textColor')
                       if img
-                        - var darkText = slide.getText('textColor')
+                        - darkText = slide.getText('textColor')
                         .swiper-slide(class= darkText ? darkText : '')
                           img.splash(src='data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=' data-src='' + img.url )
               else
