@@ -29,6 +29,7 @@ block prepend body
       //-     a(href='#innovation') Innovation
 
       for section in pageContent
+
         section(class='home-section '+ section.uid )
           - var title = section.getStructuredText('home-section.title')
           - var subtitle = section.getStructuredText('home-section.subtitle')
@@ -61,12 +62,14 @@ block prepend body
                       if img
                         - var darkText = slide.getText('textColor')
                         .swiper-slide(class= darkText ? darkText : '')
-                          img.splash(src='' + slide.getImage('img').url )
+                          img.splash(src='data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=' data-src='' + img.url )
               else
                 - img = slides.toArray()[0].getImage('img')
                 if img
-                  img.splash(src='' + img.url )
-
+                  if section.uid == 'section-welcome'
+                    img.splash(src='' + img.url )
+                  else
+                    img.splash(src='data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=' data-src='' + img.url )
 
 
           - var description = section.getStructuredText('home-section.description')

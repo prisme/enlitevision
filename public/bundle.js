@@ -17,12 +17,19 @@ docReady( function() {
       titleText,
       titleIn,
       splashIn,
+      imgDefer
+
+    // naive lazy load
+    imgDefer = section.querySelectorAll('.splash')
+    for (var i = imgDefer.length - 1; i >= 0; i--) {
+      if (imgDefer[i].dataset.src)
+        imgDefer[i].src = imgDefer[i].dataset.src
+    }
 
     // title animation
     title = section.querySelector('.title')
     titleText = new split(title, {type: 'words, chars'})
     tl.staggerFrom(titleText.words, 2.0, { alpha:0, rotationY:-15, rotationX: -20 }, 0.3)
-
     titleIn = scrollMonitor.create( title )
     titleIn.enterViewport(function(){ tl.restart() })
 
@@ -36,7 +43,6 @@ docReady( function() {
         autoHeight: true,
         effect: 'slide',
         speed: 1000,
-        lazyLoading: true,
         nextButton: section.querySelector('.prompt-right'),
         prevButton: section.querySelector('.prompt-left'),
         onSlideChangeStart : function(swiper){
@@ -45,9 +51,6 @@ docReady( function() {
             title.classList.add ('dark')
           else
             title.classList.remove('dark')
-        },
-        onLazyImageLoad : function(swiper, slide, image){
-          console.log(image)
         }
       })
     }
