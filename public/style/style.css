@@ -412,7 +412,7 @@ section {
     bottom: 30px;
     left: 30px;
     background: black;
-    z-index: 3;
+    z-index: 4;
 }
 
 .embed-container {
