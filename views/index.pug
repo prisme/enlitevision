@@ -48,10 +48,12 @@ block prepend body
 
                 if video
                   .video-prompt
-                  .video-player
-                    .close-prompt ×
-                    .embed-container
-                      != video.asHtml()
+
+            if video
+              .video-player
+                .close-prompt ×
+                .embed-container
+                  != video.asHtml()
 
             if slides
               if slides.toArray().length > 1
