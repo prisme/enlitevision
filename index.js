@@ -8,48 +8,38 @@ docReady( function() {
 
   function initSection( section ){
 
-    var prod_swiper,
-      splash_swiper,
-
-      title,
-      titleText,
-      tlTitle,
-      titleMonitor,
-
-      subtitle,
-      subtitleText,
-      subtlTitle,
-      subtitleMonitor
-
     // naive lazy load
     var imgDefer = section.querySelectorAll('.splash')
-    for (var i = imgDefer.length - 1; i >= 0; i--) {
+    for (var i = 0 ; i < imgDefer.length ; i++) {
       if (imgDefer[i].dataset.src)
         imgDefer[i].src = imgDefer[i].dataset.src
     }
 
     // title animation
+    var titleText, titleTl, titleMonitor,
     title = section.querySelector('.title')
+
     if ( title !== null ) {
-      tlTitle = new TimelineMax({paused: true})
+      titleTl = new TimelineMax({paused: true})
       titleText = new split(title, {type: 'words, chars'})
-      tlTitle.staggerFrom(titleText.words, 2.0, { alpha:0, rotationY:-15, rotationX: -20 }, 0.3)
+      titleTl.staggerFrom(titleText.words, 2.0, { alpha:0, rotationY:-15, rotationX: -20 }, 0.3)
       titleMonitor = scrollMonitor.create( title )
-      titleMonitor.enterViewport(function(){ tlTitle.restart() })
+      titleMonitor.enterViewport(function(){ titleTl.restart() })
     }
 
-
     // subtitle animation
+    var subTl, subtitleMonitor,
     subtitle = section.querySelector('.subtitle')
+
     if ( subtitle !== null ) {
-      subtlTitle = new TimelineMax({paused: true})
-      subtlTitle.from(subtitle, 0.6, { alpha:0, y : 30, ease: Power1.easeOut })
+      subTl = new TimelineMax({paused: true})
+      subTl.from(subtitle, 0.6, { alpha:0, y : 30, ease: Power1.easeOut })
       subtitleMonitor = scrollMonitor.create( subtitle )
-      subtitleMonitor.enterViewport(function(){ subtlTitle.restart() })
+      subtitleMonitor.enterViewport(function(){ subTl.restart() })
     }
 
     // swipers
-    splash_swiper = section.querySelector('.wrapper .swiper-container')
+    var splash_swiper = section.querySelector('.wrapper .swiper-container')
     if ( splash_swiper !== null ) {
       new swiper (splash_swiper, {
         loop: true,
@@ -68,7 +58,7 @@ docReady( function() {
       })
     }
 
-    prod_swiper = section.querySelector('.collection-products .swiper-container')
+    var prod_swiper = section.querySelector('.collection-products .swiper-container')
     if ( prod_swiper !== null ) {
       new swiper (prod_swiper, {
         loop: true,
@@ -80,13 +70,14 @@ docReady( function() {
         }
       })
     }
+
+    console.log(section.classList)
   }
 
   var sections = document.querySelectorAll('.home-section')
   for(var i = 0 ; i < sections.length ; i++) {
     initSection( sections[i] )
   }
-
 
   // logo animation
   var  logo = document.querySelector('.logo img')
@@ -125,7 +116,6 @@ docReady( function() {
 
   // hide prompt when user scrolls
   TweenLite.delayedCall(1, function(){
-
     scrolledAway = scrollMonitor.create( next )
     scrolledAway.enterViewport(function(){
       TweenLite.to(promptDown, 0.6, {autoAlpha: 0, y: 50})
