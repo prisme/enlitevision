@@ -115,13 +115,17 @@ span.swiper-pagination-bullet-active {
     transform: translateY(0px);
 }
 
-section {
+.home-section {
     position: relative;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     min-height: 100vh;
+}
+
+.portrait .home-section{
+    min-height: auto;
 }
 
 .wrapper {
@@ -412,7 +416,7 @@ section {
     bottom: 30px;
     left: 30px;
     background: black;
-    z-index: 4;
+    z-index: 3;
 }
 
 .embed-container {
