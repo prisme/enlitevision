@@ -491,9 +491,14 @@ span.swiper-pagination-bullet-active {
     line-height: 1.6em;
 
     display: flex;
+    flex-direction: row;
     justify-content: space-around;
     align-items: flex-start;
     padding:  50px;
+}
+
+.portrait .main-footer{
+  flex-direction: column;
 }
 
 .main-footer h2{
@@ -508,8 +513,10 @@ span.swiper-pagination-bullet-active {
     width: 20%;
 }
 
+.portrait .main-footer .col:first-child{
+    width: 100%;
+}
 .main-footer a{
-    display: block;
     color: white;
     text-decoration: none;
 }
