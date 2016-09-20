@@ -121,21 +121,35 @@ span.swiper-pagination-bullet-active {
     left: 0;
     right: 0;
     bottom: 0;
-    min-height: 100vh;
 }
 
-.portrait .home-section{
-    min-height: auto;
+/*
+.landscape .home-section{
+    min-height: 100vh;
 }
+*/
 
 .wrapper {
     position: relative;
 }
 
-.splash {
+.splash,
+.splash img {
+    /*position: relative;*/
     width: 100%;
     display: block;
 }
+
+/*
+.portrait .splash,
+.portrait .splash img {
+    height: 100%;
+    width: auto;
+    left: 50%;
+
+    transform: translateX(-50%);
+}
+*/
 
 .title,
 .subtitle {
@@ -277,6 +291,10 @@ span.swiper-pagination-bullet-active {
     background: white;
 }
 
+.portrait .collection-preview{
+    flex-direction: column;
+}
+
 .collection-description {
     width: 45%;
     padding: 6vw;
@@ -299,12 +317,26 @@ span.swiper-pagination-bullet-active {
     font-family: 'novecento-medium';
 }
 
+.portrait .collection-description strong {
+    font-weight: normal;
+}
+
+.portrait .collection-description p{
+    display: none;
+}
+.portrait .collection-description p:first-child{
+    display: block;
+}
 
 .collection-products {
     width: 55%;
     text-align: center;
     position: relative;
     padding: 6vw 0;
+}
+
+.portrait .collection-products{
+    width: 100%;
 }
 
 .collection-products .product-name {
@@ -447,6 +479,9 @@ span.swiper-pagination-bullet-active {
     padding: 0px 0.3em;
 }
 
+.portrait .menu {
+    display: none;
+}
 
 .menu{
     position: fixed;

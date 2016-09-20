@@ -47,18 +47,41 @@ block prepend body
                   .swiper-wrapper
                     for slide in slides.toArray()
                       - img = slide.getImage('img')
+                      - imgPortrait = slide.getImage('imgPortrait')
                       - textColor = slide.getText('textColor')
+
                       if img
                         - darkText = slide.getText('textColor')
                         .swiper-slide(class= darkText ? darkText : '')
-                          img.splash(src='data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=' data-src='' + img.url )
+                          if imgPortrait
+                            picture.splash
+                              source(srcset='' + img.url media="(min-width: 650px) and (orientation: landscape)")
+                              img(srcset='' + imgPortrait.url )
+                          else
+                            img.splash(src='data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=' data-src='' + img.url )
               else
                 - img = slides.toArray()[0].getImage('img')
+                - imgPortrait = slides.toArray()[0].getImage('imgPortrait')
+
                 if img
                   if section.uid == 'section-welcome'
-                    img.splash(src='' + img.url )
+
+                    if imgPortrait
+                      picture.splash
+                        source(srcset='' + img.url media="(min-width: 650px) and (orientation: landscape)")
+                        img(srcset='' + imgPortrait.url )
+                    else
+                      img.splash(src='' + img.url )
+
                   else
-                    img.splash(src='data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=' data-src='' + img.url )
+
+                    if imgPortrait
+                      picture.splash
+                        source(srcset='' + img.url media="(min-width: 650px) and (orientation: landscape)")
+                        img(srcset='' + imgPortrait.url )
+                    else
+                      img.splash(src='data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=' data-src='' + img.url )
+
 
 
           - var description = section.getStructuredText('home-section.description')
