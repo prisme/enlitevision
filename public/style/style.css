@@ -124,8 +124,8 @@ span.swiper-pagination-bullet-active {
 }
 
 /*
-.landscape .home-section{
-    min-height: 100vh;
+.large .home-section{
+    min-height: 90vh;
 }
 */
 
@@ -170,11 +170,16 @@ span.swiper-pagination-bullet-active {
     line-height: 1.25em;
 }
 
+.small .title{
+    font-size: 1.2em;
+    top: 50vh;
+}
+
 .title.dark{
     color: #272525;
 }
 
-.portrait .title {
+.large .title {
     top: 65%;
 }
 
@@ -187,10 +192,14 @@ span.swiper-pagination-bullet-active {
     line-height: 1.25em;
 }
 
-.portrait .subtitle {
+.large .subtitle {
     top: 85%;
 }
 
+.small.portrait .subtitle{
+    top: 80%;
+    font-size: 0.9em
+}
 
 
 .frame {
@@ -273,6 +282,10 @@ span.swiper-pagination-bullet-active {
     /* left: 8vw; */
     /* text-align: left; */
     /* right: auto; */
+    /* top: 90vh; */
+}
+
+.large .section-innovation .subtitle {
     top: 90vh;
 }
 
@@ -304,6 +317,11 @@ span.swiper-pagination-bullet-active {
     text-transform: uppercase;
     font-family: 'novecento-medium';
     /* font-weight: bold; */
+}
+
+.portrait .collection-description{
+    width: 100%;
+    font-size: 0.7em;
 }
 
 .collection-description p{

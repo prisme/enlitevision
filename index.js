@@ -185,16 +185,18 @@ docReady( function() {
 
   // Resize
   var portrait = false
-  var ratio = 1.5
+  var ratio = 1.0
 
   var resizeHandler = function(){
-    portrait = (window.innerWidth / window.innerHeight) < ratio
+    var portrait = (window.innerWidth / window.innerHeight) < ratio
+    var small = window.innerWidth < 650
 
-    flag = portrait ? 'portrait' : 'landscape'
-    if(document.body.classList.contains(flag)) return
+    var orientation = portrait ? 'portrait' : 'landscape'
+    var size = small ? 'small' : 'large'
 
-    document.body.classList.remove('portrait', 'landscape')
-    document.body.classList.add(flag)
+    document.body.classList.remove('portrait', 'landscape', 'small', 'large')
+    document.body.classList.add(orientation)
+    document.body.classList.add(size)
   }
 
   window.addEventListener('resize', resizeHandler)
