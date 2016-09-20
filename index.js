@@ -71,7 +71,6 @@ docReady( function() {
       })
     }
 
-    console.log(section.classList)
   }
 
   var sections = document.querySelectorAll('.home-section')
@@ -122,6 +121,19 @@ docReady( function() {
       promptDown.removeEventListener('click', promptDownListener)
     })
   })
+
+  //  menu scrollTo
+  var menuLinks = document.querySelectorAll('.menu a')
+  for (var i = 0; i < menuLinks.length; i++) {
+    menuLinks[i].addEventListener('click', function(event){
+      event.preventDefault()
+
+      var scrollToEl = document.querySelector('.'+ event.target.href.split('#').pop() )
+      if (scrollToEl)
+        scrollTo(scrollToEl)
+
+    })
+  }
 
 
   // home video

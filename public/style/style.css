@@ -450,26 +450,28 @@ span.swiper-pagination-bullet-active {
 
 .menu{
     position: fixed;
-    top: 3vw;
+    top: 45px;
     left: calc(3vw + 30px);
-    z-index: 1;
+    z-index: 2;
     color: black;
     font-family: 'novecento-medium';
     text-transform: uppercase;
-    line-height: 1.3;
+    line-height: 1.7em;
+    letter-spacing: 0.45em;
+    font-size: 0.65em;
 }
 
-.menu > span{
-
-}
-
-.menu h1{
-    font-weight: bold;
+.menu-toggle{
+    display: block;
+    font-size: .8em;
+    margin-bottom: 2em;
+    letter-spacing: 0.35em;
 }
 
 .menu h2{
     margin-bottom: 0;
     font-size: 1em;
+    letter-spacing: 0.45em;
 }
 .menu a{
     display: block;
