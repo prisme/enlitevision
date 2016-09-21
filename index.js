@@ -3,25 +3,42 @@ var gsap = require('gsap')
 var split = require('lib/SplitText')
 var scrollMonitor = require('scrollmonitor')
 var swiper = require('swiper')
+var flowtype = require('flowtype')
 
 docReady( function() {
 
-  function initSection( section ){
+  // Resize
+  var isPortrait,
+      isSmall
 
-    /*
-    // naive lazy load
-    var imgDefer = section.querySelectorAll('.splash')
-    for (var i = 0 ; i < imgDefer.length ; i++) {
-      if (imgDefer[i].dataset.src)
-        imgDefer[i].src = imgDefer[i].dataset.src
-    }
-    */
+  function resizeHandler(){
+    isPortrait = (window.innerWidth / window.innerHeight) < 1
+    isSmall = window.innerWidth < 700
+
+    var orientation = isPortrait ? 'portrait' : 'landscape'
+    var size = isSmall ? 'small' : 'large'
+
+    document.body.classList.remove('portrait', 'landscape', 'small', 'large')
+    document.body.classList.add(orientation)
+    document.body.classList.add(size)
+  }
+  resizeHandler()
+
+  window.addEventListener('resize', resizeHandler)
+  window.addEventListener('focus', resizeHandler)
+  window.addEventListener('orientationchange', resizeHandler)
+
+  // window.addEventListener('load', function(){
+  //   document.body.classList.add('loaded')
+  // })
+
+  function initSection( section ){
 
     // title animation
     var titleText, titleTl, titleMonitor,
     title = section.querySelector('.title')
 
-    if ( title !== null ) {
+    if ( title !== null && !isSmall) {
       titleTl = new TimelineMax({paused: true})
       titleText = new split(title, {type: 'words, chars'})
       titleTl.staggerFrom(titleText.words, 2.0, { alpha:0, rotationY:-15, rotationX: -20 }, 0.3)
@@ -33,7 +50,7 @@ docReady( function() {
     var subTl, subtitleMonitor,
     subtitle = section.querySelector('.subtitle')
 
-    if ( subtitle !== null ) {
+    if ( subtitle !== null && !isSmall) {
       subTl = new TimelineMax({paused: true})
       subTl.from(subtitle, 0.6, { alpha:0, y : 30, ease: Power1.easeOut })
       subtitleMonitor = scrollMonitor.create( subtitle )
@@ -41,9 +58,10 @@ docReady( function() {
     }
 
     // swipers
+    var splash_swiper
     var splash_swiper_el = section.querySelector('.wrapper .swiper-container')
     if ( splash_swiper_el !== null ) {
-      new swiper (splash_swiper_el, {
+      splash_swiper = new swiper (splash_swiper_el, {
         loop: true,
         autoHeight: true,
         effect: 'slide',
@@ -58,6 +76,10 @@ docReady( function() {
             title.classList.remove('dark')
         }
       })
+
+      window.addEventListener('load', splash_swiper.update)
+      window.addEventListener('orientationchange', splash_swiper.update)
+      // window.addEventListener('focus', splash_swiper.update)
     }
 
     var prod_swiper
@@ -73,9 +95,21 @@ docReady( function() {
         }
       })
 
-      window.addEventListener('load', prod_swiper.slideReset)
-
+      window.addEventListener('load', prod_swiper.update)
+      window.addEventListener('orientationchange', prod_swiper.update)
+      // window.addEventListener('focus', prod_swiper.update)
     }
+
+    // responsive text
+    /*
+    flowtype(title, {
+      maxWidth: '1900px', // can be a CSS value or a Number
+      minWidth: '320px',
+      lineRatio: 1.25,
+      min: 14,
+      max: 32
+    })
+    */
 
   }
 
@@ -100,6 +134,10 @@ docReady( function() {
   // scrollto btn
   window.addEventListener('beforeunload', function(){
     window.scrollTo(0,0)
+  })
+  window.addEventListener('load', function(){
+    if (document.documentElement.classList.contains('ios'))
+      setTimeout(function(){window.scrollTo(0,0)}, 1000)
   })
 
   var scrollTo = require('lib/scrollTo')
@@ -146,7 +184,7 @@ docReady( function() {
   var Vimeo = require('@vimeo/player')
   function initVideo(){
     var player
-    var videoPrompt = document.querySelector('.video-prompt')
+    var videoPrompt = document.querySelectorAll('.video-prompt, .section-innovation .subtitle')
     var videoContainer = document.querySelector('.video-player')
     var closePrompt = document.querySelector('.close-prompt')
     var iframe = document.querySelector('iframe')
@@ -154,7 +192,9 @@ docReady( function() {
     if (videoContainer === null) return
 
     player = new Vimeo(iframe)
-    videoPrompt.addEventListener('click', videoOpen)
+    for (var i = 0; i < videoPrompt.length; i++) {
+      videoPrompt[i].addEventListener('click', videoOpen)
+    }
     closePrompt.addEventListener('click', videoClose)
 
     function videoOpen(){
@@ -182,24 +222,5 @@ docReady( function() {
   }
   initVideo()
 
-
-  // Resize
-  var portrait = false
-  var ratio = 1.0
-
-  var resizeHandler = function(){
-    var portrait = (window.innerWidth / window.innerHeight) < ratio
-    var small = window.innerWidth < 650
-
-    var orientation = portrait ? 'portrait' : 'landscape'
-    var size = small ? 'small' : 'large'
-
-    document.body.classList.remove('portrait', 'landscape', 'small', 'large')
-    document.body.classList.add(orientation)
-    document.body.classList.add(size)
-  }
-
-  window.addEventListener('resize', resizeHandler)
-  resizeHandler()
 
 })

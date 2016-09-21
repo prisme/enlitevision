@@ -1,6 +1,6 @@
-[] menu
+[x] menu
 [x] lazy loading
-[] deploy beta
+[x] deploy beta
 
 [x] footer
 [x] scrollto
@@ -9,7 +9,7 @@
 [x] dedupe swipers
 [x] prismic home
 [x] subtitle
-[] title color
+[x] title color
     [x] static (.section-theopsy)
     [x] option in CMS
     [x] update onSlideStart
@@ -20,8 +20,10 @@
 [] collections page
 
 optims
-    [] responsive texts
-    [] responsive images
+    [] responsive
+        [x] images
+        [] texts
+
     [] newsletter => mailchimp
     [] loader / intro
     [] animations

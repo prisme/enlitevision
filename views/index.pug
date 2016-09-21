@@ -21,23 +21,6 @@ block prepend body
           - var darkText = slides.toArray()[0].getText('textColor')
 
           .wrapper
-            if title
-              .title(class= darkText ? darkText : '' )
-                != title.asHtml()
-
-            if subtitle
-              .subtitle
-                != subtitle.asHtml()
-
-                if video
-                  .video-prompt
-
-            if video
-              .video-player
-                .close-prompt ×
-                .embed-container
-                  != video.asHtml()
-
             if slides
               if slides.toArray().length > 1
                 .prompt-left
@@ -82,6 +65,22 @@ block prepend body
                     else
                       img.splash(src='data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=' data-src='' + img.url )
 
+            if title
+              .title(class= darkText ? darkText : '' )
+                != title.asHtml()
+
+            if subtitle
+              .subtitle
+                != subtitle.asHtml()
+
+                if video
+                  .video-prompt
+
+            if video
+              .video-player
+                .close-prompt ×
+                .embed-container
+                  != video.asHtml()
 
 
           - var description = section.getStructuredText('home-section.description')

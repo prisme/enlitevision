@@ -98,6 +98,10 @@ span.swiper-pagination-bullet-active {
     padding: 0 30px;
 }
 
+.small .content{
+    padding: 0
+}
+
 .logo {
     position: fixed;
     z-index: 2;
@@ -123,33 +127,20 @@ span.swiper-pagination-bullet-active {
     bottom: 0;
 }
 
-/*
-.large .home-section{
-    min-height: 90vh;
-}
-*/
-
 .wrapper {
+    position: relative;
+}
+
+.portrait .splash,
+.portrait .splash img{
     position: relative;
 }
 
 .splash,
 .splash img {
-    /*position: relative;*/
     width: 100%;
     display: block;
 }
-
-/*
-.portrait .splash,
-.portrait .splash img {
-    height: 100%;
-    width: auto;
-    left: 50%;
-
-    transform: translateX(-50%);
-}
-*/
 
 .title,
 .subtitle {
@@ -158,49 +149,88 @@ span.swiper-pagination-bullet-active {
 
     color: white;
     text-transform: uppercase;
+
 }
 
 .title {
     left: 8vw;
     top: 70vh;
     transition : color .3s ease-in-out;
-
     font-size: 28px;
     letter-spacing: 0.38em;
     line-height: 1.25em;
-}
-
-.small .title{
-    font-size: 1.2em;
-    top: 50vh;
+    text-shadow: rgba(0,0,0,0.2) 1px 0px 1px;
 }
 
 .title.dark{
     color: #272525;
+    text-shadow: rgba(255,255,255,1) 1px 0px 1px;
 }
+
+.small .title{
+    font-size: 1.2em;
+    bottom: 10%;
+    top: auto;
+    left: auto;
+    right: 6%;
+    text-align: right;
+}
+
+.small .section-welcome .title{
+    bottom: 28%;
+}
+
+.small .section-innovation .title{
+    bottom: 25%;
+    right: auto;
+    left: 6%;
+}
+.small.landscape .section-innovation .title{
+    bottom: 40%;
+}
+
+
+.small.portrait .section-sun-acetate .title{
+    left: 6%;
+	right: auto;
+	text-align: left;
+}
+
 
 .large .title {
     top: 65%;
 }
 
 .subtitle {
-    right: 10vw;
+    right: 10%;
     text-align: right;
-    top: 100vh;
+    /* top: 100vh; */
     font-size: 18px;
     letter-spacing: 0.28em;
     line-height: 1.25em;
 }
 
 .large .subtitle {
-    top: 85%;
+    bottom: 7%;
 }
 
-.small.portrait .subtitle{
-    top: 80%;
-    font-size: 0.9em
+.small .subtitle{
+    background: black;
+    font-size: 0.9em;
+    bottom: 0;
+    left: 0;
+    padding: 50px 6%;
+    top: auto;
+    right: 0;
+    position: relative;
+    /* opacity: 0; */
 }
 
+.small .frame,
+.portrit .frame
+{
+    display: none;
+}
 
 .frame {
     border: 30px solid black;
@@ -256,6 +286,17 @@ span.swiper-pagination-bullet-active {
     transform: rotate(-90deg) translateY(-50%);
 }
 
+.small.portrait .prompt-left{
+    left: 0;
+    transform: scale(0.7) rotate(90deg) translateY(-50%);
+}
+.small.portrait .prompt-right{
+    right: 0;
+    transform: scale(0.7) rotate(-90deg) translateY(-50%);
+
+}
+
+
 .prompt-left.swiper-button-disabled,
 .prompt-right.swiper-button-disabled{
     opacity: 0
@@ -278,19 +319,25 @@ span.swiper-pagination-bullet-active {
 */
 
 
-.section-innovation .subtitle {
-    /* left: 8vw; */
-    /* text-align: left; */
-    /* right: auto; */
-    /* top: 90vh; */
+.portrait .section-innovation .subtitle {
+    left: 8vw;
+    text-align: left;
+    right: auto;
+    top: 90vh;
 }
 
-.large .section-innovation .subtitle {
-    top: 90vh;
+.section-innovation .subtitle {
+    cursor: pointer;
 }
 
 .portrait .section-innovation .subtitle {
     top: 75%;
+}
+
+.small.portrait .section-innovation .subtitle{
+    top: auto;
+    left: auto;
+    text-align: right;
 }
 
 
@@ -319,9 +366,11 @@ span.swiper-pagination-bullet-active {
     /* font-weight: bold; */
 }
 
-.portrait .collection-description{
+.small.portrait .collection-description{
     width: 100%;
     font-size: 0.7em;
+    text-align: right;
+    padding: 50px 6% 0px;
 }
 
 .collection-description p{
@@ -345,6 +394,19 @@ span.swiper-pagination-bullet-active {
 .portrait .collection-description p:first-child{
     display: block;
 }
+/* nonsense…
+
+.portrait .section-optical-supernatural .collection-description p{
+    display: none;
+}
+.portrait .section-optical-supernatural .collection-description p:nth-child(2){
+    display: block;
+    letter-spacing: 0.1em;
+    font-size: 1.4em;
+    line-height: 1.2em;
+}
+
+*/
 
 .collection-products {
     width: 55%;
@@ -416,12 +478,28 @@ span.swiper-pagination-bullet-active {
 .video-prompt:hover{
     opacity: 1;
 }
-
-.portrait .video-prompt {
+/*
+.small .video-prompt {
     top: 85%;
     width: 60px;
     height: 60px;
 }
+*/
+
+.small .video-prompt{
+    position: absolute;
+    left: auto;
+    right: 5%;
+    top: -120%;
+    width: 60px;
+    height: 60px;
+}
+
+.small.landscape .video-prompt{
+    top: -100%;
+}
+
+
 
 .video-prompt:before {
     content: '';
@@ -497,7 +575,8 @@ span.swiper-pagination-bullet-active {
     padding: 0px 0.3em;
 }
 
-.portrait .menu {
+.portrait .menu,
+.small .menu {
     display: none;
 }
 
@@ -552,6 +631,8 @@ span.swiper-pagination-bullet-active {
     padding:  50px;
 }
 
+
+.small .main-footer,
 .portrait .main-footer{
   flex-direction: column;
 }
@@ -568,9 +649,16 @@ span.swiper-pagination-bullet-active {
     width: 20%;
 }
 
+.small .main-footer .col:first-child,
 .portrait .main-footer .col:first-child{
     width: 100%;
 }
+
+.small .main-footer .col,
+.portrait .main-footer .col{
+    margin-bottom: 2em;
+}
+
 .main-footer a{
     color: white;
     text-decoration: none;

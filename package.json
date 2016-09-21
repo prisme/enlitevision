@@ -47,8 +47,10 @@
     "budo": "^8.3.0",
     "components": "^0.1.0",
     "doc-ready": "^1.0.4",
+    "emitter": "0.0.5",
     "errorhandler": "^1.4.3",
     "express": "^4.14.0",
+    "flowtype": "^1.0.0",
     "gsap": "^1.19.0",
     "installify": "^1.0.3",
     "jade": "^1.11.0",
@@ -64,7 +66,8 @@
     "scrollmonitor": "^1.0.12",
     "serve-favicon": "^2.3.0",
     "simple-scrolltop": "^1.0.1",
-    "swiper": "^3.3.1"
+    "swiper": "^3.3.1",
+    "viewport": "^2.0.1"
   },
   "devDependencies": {
     "aliasify": "^2.0.0",
