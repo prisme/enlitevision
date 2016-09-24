@@ -159,7 +159,7 @@ span.swiper-pagination-bullet-active {
     font-size: 28px;
     letter-spacing: 0.38em;
     line-height: 1.25em;
-    text-shadow: rgba(0,0,0,0.2) 1px 0px 1px;
+    text-shadow: rgba(0,0,0,0.1) 1px 0px 1px;
 }
 
 .title.dark{

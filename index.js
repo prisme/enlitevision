@@ -3,7 +3,7 @@ var gsap = require('gsap')
 var split = require('lib/SplitText')
 var scrollMonitor = require('scrollmonitor')
 var swiper = require('swiper')
-var flowtype = require('flowtype')
+//var flowtype = require('flowtype')
 
 docReady( function() {
 
@@ -38,7 +38,7 @@ docReady( function() {
     var titleText, titleTl, titleMonitor,
     title = section.querySelector('.title')
 
-    if ( title !== null && !isSmall) {
+    if ( title !== null ) {
       titleTl = new TimelineMax({paused: true})
       titleText = new split(title, {type: 'words, chars'})
       titleTl.staggerFrom(titleText.words, 2.0, { alpha:0, rotationY:-15, rotationX: -20 }, 0.3)
