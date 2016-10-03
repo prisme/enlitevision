@@ -29,10 +29,6 @@ docReady( function() {
   window.addEventListener('focus', resizeHandler)
   window.addEventListener('orientationchange', resizeHandler)
 
-  // window.addEventListener('load', function(){
-  //   document.body.classList.add('loaded')
-  // })
-
   function initSection( section ){
 
     // title animation
