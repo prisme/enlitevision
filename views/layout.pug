@@ -1,9 +1,8 @@
 doctype html
 
-html
+html(lang='en')
   head
     meta(charset="UTF-8")
-    meta(name="google" value="notranslate")
     meta(name="viewport" content="width=device-width, shrink-to-fit=0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0")
 
     title ENΛITE
@@ -17,9 +16,9 @@ html
     link(rel="stylesheet" type="text/css" href="public/style/swiper.min.css")
     link(rel="stylesheet" type="text/css" href="public/style/style.css")
 
-  body
-    block body
 
-    include ./partials/footer
+  block body
 
-    script(src='public/bundle.js')
+  include ./partials/footer
+
+  script(src='public/bundle.js')

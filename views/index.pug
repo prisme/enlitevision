@@ -1,90 +1,89 @@
 extends ./layout
 
 block prepend body
-  body.index
 
-    .content
-      .logo
-        img(src='public/img/logo.png')
-      .frame
-        .prompt-down
+  .content
+    .logo
+      img(src='public/img/logo.png', alt='enlite logo')
+    .frame
+      .prompt-down
 
-      include ./partials/menu
+    include ./partials/menu
 
-      for section in pageContent
+    for section in pageContent
 
-        section(class='home-section '+ section.uid )
-          - var title = section.getStructuredText('home-section.title')
-          - var subtitle = section.getStructuredText('home-section.subtitle')
-          - var slides = section.getGroup('home-section.slides')
-          - var video = section.get('home-section.video')
-          - var darkText = slides.toArray()[0].getText('textColor')
+      section(class='home-section '+ section.uid )
+        - var title = section.getStructuredText('home-section.title')
+        - var subtitle = section.getStructuredText('home-section.subtitle')
+        - var slides = section.getGroup('home-section.slides')
+        - var video = section.get('home-section.video')
+        - var darkText = slides.toArray()[0].getText('textColor')
 
-          .wrapper
-            if slides
-              if slides.toArray().length > 1
-                .prompt-left
-                .prompt-right
+        .wrapper
+          if slides
+            if slides.toArray().length > 1
+              .prompt-left
+              .prompt-right
 
-                .swiper-container
-                  .swiper-wrapper
-                    for slide in slides.toArray()
-                      - img = slide.getImage('img')
-                      - imgPortrait = slide.getImage('imgPortrait')
-                      - textColor = slide.getText('textColor')
+              .swiper-container
+                .swiper-wrapper
+                  for slide in slides.toArray()
+                    - img = slide.getImage('img')
+                    - imgPortrait = slide.getImage('imgPortrait')
+                    - textColor = slide.getText('textColor')
 
-                      if img
-                        - darkText = slide.getText('textColor')
-                        .swiper-slide(class= darkText ? darkText : '')
-                          if imgPortrait
-                            picture.splash
-                              source(srcset='' + img.url media="(min-width: 650px) and (orientation: landscape)")
-                              img(srcset='' + imgPortrait.url )
-                          else
-                            img.splash(src='data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=' data-src='' + img.url )
-              else
-                - img = slides.toArray()[0].getImage('img')
-                - imgPortrait = slides.toArray()[0].getImage('imgPortrait')
+                    if img
+                      - darkText = slide.getText('textColor')
+                      .swiper-slide(class= darkText ? darkText : '')
+                        if imgPortrait
+                          picture.splash
+                            source(srcset='' + img.url media="(min-width: 650px) and (orientation: landscape)")
+                            img(src='' + imgPortrait.url, alt='' )
+                        else
+                          img.splash(src='data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=' data-src='' + img.url )
+            else
+              - img = slides.toArray()[0].getImage('img')
+              - imgPortrait = slides.toArray()[0].getImage('imgPortrait')
 
-                if img
-                  if section.uid == 'section-welcome'
+              if img
+                if section.uid == 'section-welcome'
 
-                    if imgPortrait
-                      picture.splash
-                        source(srcset='' + img.url media="(min-width: 650px) and (orientation: landscape)")
-                        img(srcset='' + imgPortrait.url )
-                    else
-                      img.splash(src='' + img.url )
-
+                  if imgPortrait
+                    picture.splash
+                      source(srcset='' + img.url media="(min-width: 650px) and (orientation: landscape)")
+                      img(src='' + imgPortrait.url, alt='' )
                   else
+                    img.splash(src='' + img.url )
 
-                    if imgPortrait
-                      picture.splash
-                        source(srcset='' + img.url media="(min-width: 650px) and (orientation: landscape)")
-                        img(srcset='' + imgPortrait.url )
-                    else
-                      img.splash(src='data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=' data-src='' + img.url )
+                else
 
-            if title
-              .title(class= darkText ? darkText : '' )
-                != title.asHtml()
+                  if imgPortrait
+                    picture.splash
+                      source(srcset='' + img.url media="(min-width: 650px) and (orientation: landscape)")
+                      img(src='' + imgPortrait.url, alt='' )
+                  else
+                    img.splash(src='data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=' data-src='' + img.url )
 
-            if subtitle
-              .subtitle
-                != subtitle.asHtml()
+          if title
+            .title(class= darkText ? darkText : '' )
+              != title.asHtml()
 
-                if video
-                  .video-prompt
+          if subtitle
+            .subtitle
+              != subtitle.asHtml()
 
-            if video
-              .video-player
-                .close-prompt ×
-                .embed-container
-                  != video.asHtml()
+              if video
+                .video-prompt
+
+          if video
+            .video-player
+              .close-prompt ×
+              .embed-container
+                != video.asHtml()
 
 
-          - var description = section.getStructuredText('home-section.description')
-          - var displayCollection = (description && section.products) != null && section.products.length > 0
+        - var description = section.getStructuredText('home-section.description')
+        - var displayCollection = (description && section.products) != null && section.products.length > 0
 
-          if displayCollection
-            include ./partials/home-section-collection
+        if displayCollection
+          include ./partials/home-section-collection
