@@ -20,6 +20,8 @@ module.exports = function() {
   app.use(methodOverride());
   app.use(errorHandler());
 
+  console.log('…')
+
   app.use('/public', express.static(path.join(__dirname, 'public')));
 
   return app;
