@@ -21,6 +21,7 @@ module.exports = function() {
   app.use(errorHandler());
 
   app.use('/public', express.static(path.join(__dirname, 'public')));
+  console.log('hey')
 
   return app;
 }();
