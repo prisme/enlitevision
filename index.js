@@ -1,6 +1,6 @@
 var docReady = require('doc-ready')
 var gsap = require('gsap')
-var split = require('lib/SplitText')
+var split = require('./public/lib/SplitText')
 var scrollMonitor = require('scrollmonitor')
 var swiper = require('swiper')
 //var flowtype = require('flowtype')
@@ -136,7 +136,7 @@ docReady( function() {
       setTimeout(function(){window.scrollTo(0,0)}, 1000)
   })
 
-  var scrollTo = require('lib/scrollTo')
+  var scrollTo = require('./public/lib/scrollTo')
   var next = document.querySelector('.home-section + .home-section')
   var promptDown = document.querySelector('.prompt-down')
   var scrolledAway
