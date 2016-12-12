@@ -1,0 +1,40 @@
+extends ./layout
+
+block prepend body
+  .content
+    .logo
+      img(src='/public/img/logo.png', alt='enlite logo')
+    .frame
+      .prompt-down
+
+    include ./partials/menu
+
+    .wrapper.product
+      - var image = productContent.getImage('product.img')
+      - var imageURL = image ? image.url : ""
+      - var ref = productContent.getNumber('product.ref')
+      - var price = productContent.getNumber('product.price')
+      - var name = productContent.getText('product.name')
+      - var frame = productContent.getText('product.frame')
+      - var lens = productContent.getText('product.lens')
+
+      .product-image
+        img(src=imageURL)
+      .product-info
+        .product-name
+          != name ? name + ' ' : ''
+          != frame ? frame + ' ' : ''
+          != lens ? lens : ''
+
+        .product-details
+          p
+            != frame ? 'frame: ' + frame : ''
+          p
+            != lens ? 'lens: ' + lens : ''
+          p
+            != ref ? 'article n°: ' + ref : ''
+
+        .product-price
+          != price ? "$" + price : ''
+
+        include ./partials/add-to-cart-button.pug

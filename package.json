@@ -52,7 +52,6 @@
     "flowtype": "^1.0.0",
     "gsap": "^1.19.0",
     "installify": "^1.0.3",
-    "jade": "^1.11.0",
     "lib": "^0.1.1",
     "method-override": "^2.3.6",
     "morgan": "^1.7.0",

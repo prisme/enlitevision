@@ -693,3 +693,8 @@ span.swiper-pagination-bullet-active {
 .main-footer button::-moz-focus-inner {
     border: 0;
     padding: 0;
+}
+
+.product{
+    background: white;
+}

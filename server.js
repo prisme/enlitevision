@@ -30,11 +30,71 @@ app.listen(PORT, function() {
 // preview functionality
 app.route('/preview').get(function(req, res) {
   api(req, res).then(function(api) {
-    return Prismic.preview(api, configuration.linkResolver, req, res)
+    return prismic.preview(api, configuration.linkResolver, req, res)
   }).catch(function(err) {
     handleError(err, req, res)
   })
 })
+
+// Query the site layout with every route
+/*
+app.route('*').get((req, res, next) => {
+  req.prismic.api.getSingle("layout").then(function(layoutContent){
+
+    // Give an error if no layout custom type is found
+    if (!layoutContent) {
+      handleError({status: 500, message: "No Layout custom type was found."}, req, res);
+    }
+
+    // Define the layout content
+    req.prismic.layoutContent = layoutContent
+    next()
+  })
+});
+*/
+
+// Route for the product pages
+app.route('/product/:uid').get(function(req, res) {
+
+  api(req, res)
+  .then(function(api) {
+    // Get the page url needed for snipcart
+    var pageUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+
+    // Define the UID from the url
+    var uid = req.params.uid;
+
+
+    // Query the product by its UID
+    api.getByUID('product', uid).then(function(productContent) {
+
+        console.log(productContent)
+      // Render the 404 page if this uid is found
+      if (!productContent) {
+        render404(req, res);
+      }
+
+      // // Collect all the related product IDs for this product
+      // var relatedProducts = productContent.getGroup('product.relatedProducts');
+      // var relatedArray = relatedProducts ? relatedProducts.toArray() : []
+      // var relatedIDs = relatedArray.map((relatedProduct) => relatedProduct.getLink('link').id);
+
+      // //Query the related products by their IDs
+      // api.getByIDs(relatedIDs).then(function(relatedProducts) {
+
+        // Render the product page
+        res.render('product', {
+          // layoutContent: req.prismic.layoutContent,
+          productContent: productContent,
+          // relatedProducts: relatedProducts,
+          pageUrl: pageUrl
+        });
+      // });
+    });
+  })
+
+
+});
 
 
 app.route('/').get(function(req, res){
@@ -50,7 +110,7 @@ app.route('/').get(function(req, res){
       var sections = homepage.results[0].getGroup('homepage.body').toArray()
       var productsPromises = []
 
-      sections.forEach( function(section) {
+      sections.forEach(function(section) {
         var deferred = Q.defer()
         var uid = section.getLink('section').uid
 
@@ -67,7 +127,6 @@ app.route('/').get(function(req, res){
             homeSection.products = products.results
             deferred.resolve(homeSection)
           })
-
         })
 
         productsPromises.push(deferred.promise)

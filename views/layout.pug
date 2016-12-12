@@ -3,7 +3,7 @@ doctype html
 html(lang='en')
   head
     meta(charset="UTF-8")
-    meta(name="viewport" content="width=device-width, shrink-to-fit=0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
 
     title ENΛITE
     meta(property="og:title" content="EnΛite")
@@ -11,14 +11,20 @@ html(lang='en')
     meta(property="og:image" content="http://enlitevision.herokuapp.com/public/img/share.jpg")
     meta(property="og:description" content="EnΛite")
 
-    script(src="public/lib/detection.js")
+    script(src="/public/lib/detection.js")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/picturefill/3.0.2/picturefill.min.js")
-    link(rel="stylesheet" type="text/css" href="public/style/swiper.min.css")
-    link(rel="stylesheet" type="text/css" href="public/style/style.css")
+    script(src="//code.jquery.com/jquery-2.1.1.min.js")
+    script#snipcart(src='https://cdn.snipcart.com/scripts/2.0/snipcart.js', data-api-key=ctx.snipcartKey, data-autopop="false")
+    link(rel='stylesheet', href='https://cdn.snipcart.com/themes/2.0/base/snipcart.min.css', type='text/css')
+    link(rel="stylesheet" type="text/css" href="/public/style/swiper.min.css")
+    link(rel="stylesheet" type="text/css" href="/public/style/style.css")
 
+    script
+      = ctx?"window.prismic = { endpoint: '" + ctx.endpoint + "' };":""
+    script(src="//static.cdn.prismic.io/prismic.min.js")
 
   block body
 
   include ./partials/footer
 
-  script(src='public/bundle.js')
+  script(src='/public/bundle.js')

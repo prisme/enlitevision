@@ -3,7 +3,6 @@ var gsap = require('gsap')
 var split = require('./public/lib/SplitText')
 var scrollMonitor = require('scrollmonitor')
 var swiper = require('swiper')
-//var flowtype = require('flowtype')
 
 docReady( function() {
 
@@ -95,18 +94,6 @@ docReady( function() {
       window.addEventListener('orientationchange', prod_swiper.update)
       // window.addEventListener('focus', prod_swiper.update)
     }
-
-    // responsive text
-    /*
-    flowtype(title, {
-      maxWidth: '1900px', // can be a CSS value or a Number
-      minWidth: '320px',
-      lineRatio: 1.25,
-      min: 14,
-      max: 32
-    })
-    */
-
   }
 
   var sections = document.querySelectorAll('.home-section')
