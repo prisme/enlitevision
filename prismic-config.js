@@ -5,7 +5,7 @@ module.exports = {
   // -- Access token if the Master is not open
   // accessToken: 'xxxxxx',
 
-  snipcartKey: 'ST_NmQ1M2M0ZTUtZDE5Ni00MTdmLWI0YTEtMjc2OTlkNjU5NTIxNjM2MTcxNDgwMDMyMDM5ODEw',
+  snipcartKey: 'Y2MxYjkyOWMtMTQ2ZS00NTBkLTg4NTgtZTY0YWU3YTJiMzJhNjM2MDgwNzgwOTc2NzAxNDk3',
 
 
   // -- Links resolution rules
