@@ -7,6 +7,10 @@ var swiper = require('swiper')
 
 docReady( function() {
 
+  if(document.querySelector('.page-home') == null) return;
+
+  // HOME
+
   // Resize
   var isPortrait,
       isSmall
@@ -116,9 +120,6 @@ docReady( function() {
 
 
   // scrollto btn
-  window.addEventListener('beforeunload', function(){
-    window.scrollTo(0,0)
-  })
   window.addEventListener('load', function(){
     if (document.documentElement.classList.contains('ios'))
       setTimeout(function(){window.scrollTo(0,0)}, 1000)
