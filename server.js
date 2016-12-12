@@ -7,10 +7,12 @@ var Q = require('q')
 function api(req, res) {
   res.locals.ctx = {
     endpoint: configuration.apiEndpoint,
+    snipcartKey: configuration.snipcartKey,
     linkResolver: configuration.linkResolver
   }
   return prismic.api(configuration.apiEndpoint, {
     accessToken: configuration.accessToken,
+    snipcartKey: configuration.snipcartKey,
     req: req
   })
 }

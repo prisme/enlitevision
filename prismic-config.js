@@ -5,10 +5,6 @@ module.exports = {
   // -- Access token if the Master is not open
   // accessToken: 'xxxxxx',
 
-  // OAuth
-  // clientId: 'xxxxxx',
-  // clientSecret: 'xxxxxx',
-
   snipcartKey: 'ST_NmQ1M2M0ZTUtZDE5Ni00MTdmLWI0YTEtMjc2OTlkNjU5NTIxNjM2MTcxNDgwMDMyMDM5ODEw',
 
 
