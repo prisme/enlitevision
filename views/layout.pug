@@ -13,16 +13,15 @@ html(lang='en')
 
     script(src="/public/lib/detection.js")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/picturefill/3.0.2/picturefill.min.js")
-    script(src="//code.jquery.com/jquery-2.2.2.min.js")
-    script#snipcart(src='https://cdn.snipcart.com/scripts/2.0/snipcart.js', data-api-key=ctx.snipcartKey, data-autopop="false")
-    link(rel='stylesheet', href='https://cdn.snipcart.com/themes/2.0/base/snipcart.min.css', type='text/css')
     link(rel="stylesheet" type="text/css" href="/public/style/swiper.min.css")
-    link(rel="stylesheet" type="text/css" href="/public/style/style.css")
-
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js")
+    script#snipcart(src="https://cdn.snipcart.com/scripts/2.0/snipcart.js",data-api-key="Y2MxYjkyOWMtMTQ2ZS00NTBkLTg4NTgtZTY0YWU3YTJiMzJhNjM2MDgwNzgwOTc2NzAxNDk3")
+    link(rel='stylesheet', href='https://cdn.snipcart.com/themes/2.0/base/snipcart.min.css', type='text/css')
     script
       = ctx?"window.prismic = { endpoint: '" + ctx.endpoint + "' };":""
     script(src="//static.cdn.prismic.io/prismic.min.js")
 
+    link(rel="stylesheet" type="text/css" href="/public/style/style.css")
   block body
 
   include ./partials/footer
