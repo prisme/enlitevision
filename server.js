@@ -38,23 +38,6 @@ app.route('/preview').get(function(req, res) {
   })
 })
 
-// Query the site layout with every route
-/*
-app.route('*').get((req, res, next) => {
-  req.prismic.api.getSingle("layout").then(function(layoutContent){
-
-    // Give an error if no layout custom type is found
-    if (!layoutContent) {
-      handleError({status: 500, message: "No Layout custom type was found."}, req, res);
-    }
-
-    // Define the layout content
-    req.prismic.layoutContent = layoutContent
-    next()
-  })
-});
-*/
-
 // Route for the product pages
 app.route('/product/:uid').get(function(req, res) {
 

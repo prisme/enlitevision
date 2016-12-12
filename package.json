@@ -49,6 +49,7 @@
     "emitter": "0.0.5",
     "errorhandler": "^1.4.3",
     "express": "^4.14.0",
+    "express-beautify": "^0.1.3",
     "flowtype": "^1.0.0",
     "gsap": "^1.19.0",
     "installify": "^1.0.3",

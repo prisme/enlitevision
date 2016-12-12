@@ -4,6 +4,7 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     methodOverride = require('method-override'),
     errorHandler = require('errorhandler'),
+    expressBeautify = require('express-beautify'),
     http = require('http'),
     path = require('path');
 
@@ -19,6 +20,7 @@ module.exports = function() {
   app.use(bodyParser());
   app.use(methodOverride());
   app.use(errorHandler());
+  app.use(expressBeautify());
 
   app.use('/public', express.static(path.join(__dirname, 'public')));
 
