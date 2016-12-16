@@ -702,6 +702,24 @@ span.swiper-pagination-bullet-active {
     font-family: 'novecento-medium';
     font-size: 1.2em;
     letter-spacing: 0.2em;
+    line-height: 1.3em;
+}
+
+.small .product,
+.portrait .product{
+    flex-direction: column-reverse;
+}
+
+.small .product-info,
+.portrait .product-info,
+.small .product-image,
+.portrait .product-image{
+    width: 100%;
+}
+
+.product-info{
+    padding-right: 5%;
+    min-width: 40%;
 }
 
 .page-product .frame,
@@ -723,30 +741,18 @@ span.swiper-pagination-bullet-active {
 
 .button.add-to-cart{
     border: 2px solid black;
-    padding: 15px;
+    padding: 3% 12%;
     text-transform: uppercase;
     font-family: 'novecento-bold';
     color: black;
     text-decoration: none;
     display: inline-block;
-    font-size: 0.7em;
+    font-size: 0.6em;
     text-align: center;
     letter-spacing: 0.3em;
     margin: 5% 0;
 }
 
-.product-info,
-.product-image{
-    flex-grow: 1;
-}
-
-.product-info{
-    padding-right: 5%;
-}
-
-.product-image {
-    width: 40%;
-}
 .product-image img{
     display: block;
     width: 100%;
