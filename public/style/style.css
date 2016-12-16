@@ -727,7 +727,9 @@ span.swiper-pagination-bullet-active {
     display: none;
 }
 .page-product.content{
-    padding: 0
+    padding: 0;
+    min-height: 100vh;
+    background: white;
 }
 
 .product-name,
@@ -757,4 +759,3 @@ span.swiper-pagination-bullet-active {
     display: block;
     width: 100%;
     height: auto;
-}
