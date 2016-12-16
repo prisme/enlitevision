@@ -6,10 +6,6 @@ var swiper = require('swiper')
 
 docReady( function() {
 
-  if(document.querySelector('.page-home') == null) return;
-
-  // HOME
-
   // Resize
   var isPortrait,
       isSmall
@@ -30,6 +26,9 @@ docReady( function() {
   window.addEventListener('resize', resizeHandler)
   window.addEventListener('focus', resizeHandler)
   window.addEventListener('orientationchange', resizeHandler)
+
+  // HOME
+  if(document.querySelector('.page-home') == null) return;
 
   function initSection( section ){
 

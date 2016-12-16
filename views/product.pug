@@ -18,8 +18,6 @@ block prepend body
       - var frame = productContent.getText('product.frame')
       - var lens = productContent.getText('product.lens')
 
-      .product-image
-        img(src=imageURL)
       .product-info
         .product-name
           != name ? name + ' ' : ''
@@ -38,3 +36,6 @@ block prepend body
           != price ? "$" + price : ''
 
         include ./partials/add-to-cart-button.pug
+
+      .product-image
+        img(src=imageURL)
