@@ -778,6 +778,33 @@ span.swiper-pagination-bullet-active {
     height: auto;
 }
 
+.landscape .page-product .related{
+    width: 50%;
+    box-sizing: border-box;
+    padding: 0 5%;
+}
+
+.page-product .related h2{
+    text-transform: uppercase;
+    font-size: 1em;
+}
+
+.recommended-wrapper{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.recommended-product{
+    box-sizing: border-box;
+    width: 50%;
+    padding: 1em 1.5em 0em 0;
+}
+.recommended-product img{
+    display: block;
+    width: 100%;
+}
+
 .page-collection{
     background: white;
     padding: 6em 2em;

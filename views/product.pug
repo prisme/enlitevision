@@ -48,3 +48,15 @@ block prepend body
       if imageURL
       .product-image
         img(src=imageURL)
+
+    if relatedProducts.results_size > 0
+      div.related
+        h2 More Colours
+        div.recommended-wrapper
+          for relatedProduct in relatedProducts.results
+            - var relatedImage = relatedProduct.getImage('product.img')
+            - var relatedImageURL = relatedImage ? relatedImage.url : ""
+
+            div.recommended-product
+              a(href=ctx.linkResolver(relatedProduct))
+                img.recommended-image(src=relatedImageURL)
