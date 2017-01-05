@@ -780,11 +780,15 @@ span.swiper-pagination-bullet-active {
 
 .page-collection{
     background: white;
-    padding: 4em 1em;
+    padding: 6em 2em;
+}
+
+.portrait .page-collection{
+    padding: 3em .5em;
 }
 
 .page-collection .title{
-    padding: 5%;
+    padding: 3em 2em 1em;
     font-family: novecento-bold;
     line-height: 1.3em;
     letter-spacing: .3em;
@@ -799,7 +803,7 @@ span.swiper-pagination-bullet-active {
 
 .page-collection .product{
     box-sizing: border-box;
-    padding: 1em 2em;
+    padding: 1.5em;
 }
 
 .landscape .page-collection .product{

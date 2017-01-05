@@ -46,23 +46,12 @@ block prepend body
               - imgPortrait = slides.toArray()[0].getImage('imgPortrait')
 
               if img
-                if section.uid == 'section-welcome'
-
-                  if imgPortrait
-                    picture.splash
-                      source(srcset='' + img.url media="(min-width: 650px) and (orientation: landscape)")
-                      img(src='' + imgPortrait.url, alt='' )
-                  else
-                    img.splash(src='' + img.url )
-
+                if imgPortrait
+                  picture.splash
+                    source(srcset='' + img.url media="(min-width: 650px) and (orientation: landscape)")
+                    img(src='' + imgPortrait.url, alt='' )
                 else
-
-                  if imgPortrait
-                    picture.splash
-                      source(srcset='' + img.url media="(min-width: 650px) and (orientation: landscape)")
-                      img(src='' + imgPortrait.url, alt='' )
-                  else
-                    img.splash(src='data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=' data-src='' + img.url )
+                  img.splash(src='data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=' data-src='' + img.url )
 
           if title
             .title(class= darkText ? darkText : '' )
