@@ -38,6 +38,7 @@ app.route('/preview').get(function(req, res) {
   })
 })
 
+
 // Route for the product pages
 app.route('/product/:uid').get(function(req, res) {
 
@@ -77,11 +78,62 @@ app.route('/product/:uid').get(function(req, res) {
       // });
     });
   })
-
-
 });
 
+// Route for the collection page
+app.route('/collections').get(function(req, res) {
+    api(req, res)
+    .then(function(api) {
 
+      var footerDefered =  api.getByUID('footer', 'footer')
+      var hpDefered = Q.defer()
+
+      api.query( prismic.Predicates.at('document.type', 'collection-page') )
+      .then(function(collectionPage){
+        var sections = collectionPage.results[0].getGroup('collection-page.body').toArray()
+        var productsPromises = []
+
+        sections.forEach(function(section) {
+          var deferred = Q.defer()
+          var uid = section.getLink('section').uid
+
+          api.getByUID( 'collection', uid)
+          .then(function(homeSection) {
+            var collection = homeSection.tags
+            if( collection.length == 0 ) deferred.resolve(homeSection)
+
+            api.query([
+              prismic.Predicates.at('document.tags', collection),
+              prismic.Predicates.at('document.type', 'product')
+            ])
+            .then(function(products){
+              homeSection.products = products.results
+              deferred.resolve(homeSection)
+            })
+          })
+
+          productsPromises.push(deferred.promise)
+        })
+
+        Q.all(productsPromises).then(function(pageContent){
+          hpDefered.resolve( pageContent )
+        })
+
+      })
+
+      Q.all([ hpDefered.promise, footerDefered ]).then(function(blocks){
+        console.log(blocks[0])
+
+        res.render('collection', {
+          pageContent: blocks[0],
+          footerContent: blocks[1]
+        })
+      })
+
+    })
+});
+
+// Route for the home page
 app.route('/').get(function(req, res){
 
   api(req, res)

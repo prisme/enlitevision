@@ -142,17 +142,15 @@ span.swiper-pagination-bullet-active {
     display: block;
 }
 
-.title,
-.subtitle {
+.page-home .title,
+.page-home .subtitle {
     position: absolute;
     z-index: 2;
-
     color: white;
     text-transform: uppercase;
-
 }
 
-.title {
+.page-home .title {
     left: 8vw;
     top: 70vh;
     transition : color .3s ease-in-out;
@@ -167,7 +165,7 @@ span.swiper-pagination-bullet-active {
     text-shadow: rgba(255,255,255,1) 1px 0px 1px;
 }
 
-.small .title{
+.small .page-home .title{
     font-size: 1.2em;
     bottom: 10%;
     top: auto;
@@ -197,7 +195,7 @@ span.swiper-pagination-bullet-active {
 }
 
 
-.large .title {
+.large .page-home .title {
     top: 65%;
 }
 
@@ -695,7 +693,7 @@ span.swiper-pagination-bullet-active {
     padding: 0;
 }
 
-.product{
+.page-product .product{
     background: white;
     display: flex;
     padding: 10% 5%;
@@ -705,8 +703,8 @@ span.swiper-pagination-bullet-active {
     line-height: 1.3em;
 }
 
-.small .product,
-.portrait .product{
+.small .page-product .product,
+.portrait .page-product .product{
     flex-direction: column-reverse;
 }
 
@@ -759,3 +757,35 @@ span.swiper-pagination-bullet-active {
     display: block;
     width: 100%;
     height: auto;
+}
+
+.page-collection{
+    background: white
+}
+
+.page-collection .title{
+    padding: 5%;
+}
+
+.page-collection .products{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: center;
+}
+
+.page-collection .product{
+    box-sizing: border-box;
+    padding: 1em;
+}
+
+.landscape .page-collection .product{
+    width: 33%;
+}
+.portrait .page-collection .product{
+    width: 100%;
+}
+.page-collection .product img{
+    display: block;
+    width: 100%;
+}

@@ -151,7 +151,7 @@ docReady( function() {
 
   //  menu scrollTo
   var menuLinks = document.querySelectorAll('.menu a')
-  for (var i = 0; i < menuLinks.length; i++) {
+  for (var i = 1; i < menuLinks.length; i++) {
     menuLinks[i].addEventListener('click', function(event){
       event.preventDefault()
 
