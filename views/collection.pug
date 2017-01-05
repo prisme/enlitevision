@@ -4,7 +4,8 @@ block prepend body
 
   .content.page-collection
     .logo
-      img(src='/public/img/logo.png', alt='enlite logo')
+      a(href='/')
+        img(src='/public/img/logo.png', alt='enlite logo')
 
     for section in pageContent
 
@@ -18,10 +19,11 @@ block prepend body
           .products
             for product in section.products
               .product
-                img.product-img(src='' + product.getImage('product.img').url, alt='')
-                .product-name
-                  != product.getText('product.name')
-                  | &nbsp;
-                  != product.getText('product.frame')
-                  | &nbsp;
-                  != product.getText('product.lens')
+                a(href=ctx.linkResolver(product))
+                  img.product-img(src='' + product.getImage('product.img').url, alt='')
+                  .product-name
+                    != product.getText('product.name')
+                    | &nbsp;
+                    != product.getText('product.frame')
+                    | &nbsp;
+                    != product.getText('product.lens')
