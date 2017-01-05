@@ -8,8 +8,8 @@ block prepend body
         img(src='/public/img/logo.png', alt='enlite logo')
 
     for section in pageContent
-
-      section(class='collection-section '+ section.uid )
+      a(id=section.uid)
+      section(class='collection-section' )
         - var title = section.getStructuredText('collection.title')
         if title
           .title
