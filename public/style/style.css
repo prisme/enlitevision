@@ -715,11 +715,13 @@ span.swiper-pagination-bullet-active {
 .page-product .product{
     background: white;
     display: flex;
-    padding: 20% 10% 5%;
+    padding: 13% 10% 5%;
     font-family: 'novecento-medium';
     font-size: 1.2em;
     letter-spacing: 0.2em;
     line-height: 1.3em;
+    max-width: 1200px;
+    margin: auto;
 }
 
 .small .page-product .product,
@@ -737,6 +739,11 @@ span.swiper-pagination-bullet-active {
 .product-info{
     padding-right: 5%;
     min-width: 40%;
+    padding-top: 4em;
+    position: relative;
+}
+.portrait  .product-info{
+    padding-top: 2em;
 }
 
 .page-product .frame,
@@ -747,6 +754,23 @@ span.swiper-pagination-bullet-active {
     padding: 0;
     min-height: 100vh;
     background: white;
+}
+
+.product-collection{
+    font-family: 'novecento-medium';
+    font-size: .9em;
+    line-height: 1.1em;
+    height: 2.2em;
+    position: absolute;
+    top: 30%;
+}
+
+.portrait .product-collection{
+    top: 10%;
+}
+
+.product-image{
+    padding-top: 3.5em;
 }
 
 .product-name,
@@ -779,9 +803,13 @@ span.swiper-pagination-bullet-active {
 }
 
 .landscape .page-product .related{
-    width: 50%;
+    width: 100%;
     box-sizing: border-box;
-    padding: 0% 10% 5%;
+    padding: 0% 50% 5% 10%;
+    margin: auto;
+    left: 0;
+    position: relative;
+    max-width: 1200px;
 }
 
 .page-product .related h2{
@@ -798,7 +826,7 @@ span.swiper-pagination-bullet-active {
 .recommended-product{
     box-sizing: border-box;
     width: 50%;
-    padding: 1em 1.5em 0em 0;
+    padding: 1em 1.5em 1em 0;
 }
 .recommended-product img{
     display: block;
@@ -857,5 +885,4 @@ span.swiper-pagination-bullet-active {
     letter-spacing: 0.3em;
     line-height: 1.4;
     font-weight: normal;
-    font-family: novecento-medium;
-    padding-top: 1.3em;
+    font-family: novecento-medium

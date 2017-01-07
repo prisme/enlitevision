@@ -21,10 +21,10 @@ block prepend body
       - var collection = productContent.tags.indexOf('sun') > -1 ? 'sun': 'optical'
       - var material = productContent.tags.indexOf('supernatural') > -1 ? 'supernatural' : productContent.tags.indexOf('acetate') > -1 ? 'acetate' : ''
 
+      .product-collection
+        != collection + ' collection'
+        != '<br>' + material
       .product-info
-        .product-collection
-          != collection + ' collection'
-          != '<br>' + material
 
 
         .product-name
