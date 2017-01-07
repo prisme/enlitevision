@@ -415,7 +415,7 @@ span.swiper-pagination-bullet-active {
 
 .collection-product a{
     color: black;
-    
+
 }
 
 .portrait .collection-products{
@@ -805,7 +805,7 @@ span.swiper-pagination-bullet-active {
 .landscape .page-product .related{
     width: 100%;
     box-sizing: border-box;
-    padding: 0% 50% 5% 10%;
+    padding: 0% 60% 5% 10%;
     margin: auto;
     left: 0;
     position: relative;
