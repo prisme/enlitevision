@@ -715,7 +715,7 @@ span.swiper-pagination-bullet-active {
 .page-product .product{
     background: white;
     display: flex;
-    padding: 10% 5%;
+    padding: 20% 10% 5%;
     font-family: 'novecento-medium';
     font-size: 1.2em;
     letter-spacing: 0.2em;
@@ -781,7 +781,7 @@ span.swiper-pagination-bullet-active {
 .landscape .page-product .related{
     width: 50%;
     box-sizing: border-box;
-    padding: 0 5%;
+    padding: 0% 10% 5%;
 }
 
 .page-product .related h2{
@@ -859,4 +859,3 @@ span.swiper-pagination-bullet-active {
     font-weight: normal;
     font-family: novecento-medium;
     padding-top: 1.3em;
-}
