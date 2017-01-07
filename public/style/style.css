@@ -225,7 +225,7 @@ span.swiper-pagination-bullet-active {
 }
 
 .small .frame,
-.portrit .frame
+.portrait .frame
 {
     display: none;
 }
@@ -766,7 +766,7 @@ span.swiper-pagination-bullet-active {
 }
 
 .portrait .product-collection{
-    top: 10%;
+    top: 12%;
 }
 
 .product-image{
@@ -810,6 +810,9 @@ span.swiper-pagination-bullet-active {
     left: 0;
     position: relative;
     max-width: 1200px;
+}
+.portrait .page-product .related{
+    padding-right: 0;
 }
 
 .page-product .related h2{
