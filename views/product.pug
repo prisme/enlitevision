@@ -24,8 +24,8 @@ block prepend body
       .product-collection
         != collection + ' collection'
         != '<br>' + material
-      .product-info
 
+      .product-info(data-wio-id=''+productContent.id)
 
         .product-name
           != name ? name + ' ' : ''
