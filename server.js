@@ -193,4 +193,7 @@ app.route('/').get(function(req, res){
 
 })
 
-
+// google verification
+app.get('/googlee9901ce5d5e46225.html', function(req,res){
+ res.sendfile(__dirname + '/googlee9901ce5d5e46225.html');
+});
