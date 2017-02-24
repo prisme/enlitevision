@@ -10,11 +10,11 @@ exports.config = {
   /**
    * Array of application names.
    */
-  app_name: ['Enlite Vision'],
+  app_name: ['My Application'],
   /**
    * Your New Relic license key.
    */
-  license_key: '9fbf170a2d565a65e0706c132193183bedc7e0ef',
+  license_key: 'license key here',
   logging: {
     /**
      * Level at which to log. 'trace' is most useful to New Relic when diagnosing
