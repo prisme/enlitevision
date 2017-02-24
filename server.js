@@ -1,3 +1,5 @@
+require('newrelic');
+
 var prismic = require('prismic-nodejs')
 var app = require('./express-config')
 var configuration = require('./prismic-config')
@@ -54,7 +56,7 @@ app.route('/product/:uid').get(function(req, res) {
     // Query the product by its UID
     api.getByUID('product', uid).then(function(productContent) {
 
-        console.log(productContent)
+        // console.log(productContent)
       // Render the 404 page if this uid is found
       if (!productContent) {
         render404(req, res);
@@ -125,7 +127,7 @@ app.route('/collections').get(function(req, res) {
       })
 
       Q.all([ hpDefered.promise, footerDefered ]).then(function(blocks){
-        console.log(blocks[0])
+        // console.log(blocks[0])
 
         res.render('collection', {
           pageContent: blocks[0],
@@ -156,7 +158,7 @@ app.route('/').get(function(req, res){
 
         api.getByUID( 'home-section', uid)
         .then(function(homeSection) {
-          console.log(homeSection)
+          // console.log(homeSection)
 
           var collection = homeSection.tags
           if( collection.length == 0 ) deferred.resolve(homeSection)
