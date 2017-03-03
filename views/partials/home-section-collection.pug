@@ -7,7 +7,7 @@
         .swiper-wrapper
           for product in section.products
             .swiper-slide
-              a(href=ctx.linkResolver(product))
+              a.product-link(href=ctx.linkResolver(product))
                 img.product-img(src='' + product.getImage('product.img').url, alt='')
                 .product-name
                   != product.getText('product.name')
@@ -20,7 +20,7 @@
 
     else
       for product in section.products
-        a(href=ctx.linkResolver(product))
+        a.product-link(href=ctx.linkResolver(product))
           img.product-img(src='' + product.getImage('product.img').url, alt='')
           .product-name
             != product.getText('product.name')

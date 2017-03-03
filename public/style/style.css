@@ -454,7 +454,7 @@ span.swiper-pagination-bullet-active {
     width: 80%;
 }
 
-.collection-products .swiper-slide a{
+.collection-products .product-link{
 	text-decoration: none;
 	font-weight: normal;
 }
