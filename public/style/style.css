@@ -443,8 +443,6 @@ span.swiper-pagination-bullet-active {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-
-    display: none;
 }
 
 .collection-products .swiper-slide {
