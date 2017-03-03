@@ -432,7 +432,7 @@ span.swiper-pagination-bullet-active {
     font-weight: normal;
 }
 
-.collection-products > a {
+.collection-products > a.collections {
     color: #272525;
     font-family: 'novecento-bold';
     text-decoration: none;
