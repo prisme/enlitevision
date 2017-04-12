@@ -7,26 +7,26 @@
         .swiper-wrapper
           for product in section.products
             .swiper-slide
-              a.product-link(href=ctx.linkResolver(product))
-                img.product-img(src='' + product.getImage('product.img').url, alt='')
-                .product-name
-                  != product.getText('product.name')
-                  | &nbsp;
-                  != product.getText('product.frame')
-                  | &nbsp;
-                  != product.getText('product.lens')
+              //- a.product-link(href=ctx.linkResolver(product))
+              img.product-img(src='' + product.getImage('product.img').url, alt='')
+              .product-name
+                != product.getText('product.name')
+                | &nbsp;
+                != product.getText('product.frame')
+                | &nbsp;
+                != product.getText('product.lens')
 
         .swiper-pagination
 
     else
       for product in section.products
-        a.product-link(href=ctx.linkResolver(product))
-          img.product-img(src='' + product.getImage('product.img').url, alt='')
-          .product-name
-            != product.getText('product.name')
-            | &nbsp;
-            != product.getText('product.frame')
-            | &nbsp;
-            != product.getText('product.lens')
+        //- a.product-link(href=ctx.linkResolver(product))
+        img.product-img(src='' + product.getImage('product.img').url, alt='')
+        .product-name
+          != product.getText('product.name')
+          | &nbsp;
+          != product.getText('product.frame')
+          | &nbsp;
+          != product.getText('product.lens')
 
     a.collections(href='/collections/#' + section.getText('home-section.collection')) go to collection
