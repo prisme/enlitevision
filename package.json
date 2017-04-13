@@ -6,8 +6,9 @@
   "license": "ISC",
   "main": "index.js",
   "scripts": {
+    "start": "node server.js",
     "budo": "budo index.js:public/bundle.js --live",
-    "start": "devtool server.js -w & npm run watch",
+    "dev": "devtool server.js -w & npm run watch",
     "watch": "watchify index.js -o public/bundle.js",
     "build:js": "browserify index.js | uglifyjs -m -c warnings=false > public/bundle.js",
     "build:css": "postcss --use autoprefixer -b 'last 2 versions' < public/style/style.css | cssmin > public/style/style.min.css",
