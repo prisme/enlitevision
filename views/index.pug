@@ -1,78 +1,93 @@
 extends ./layout
 
-block prepend body
+mixin intro(slice)
+  .slice.intro.clearfix.my4
+    .col.col-5
+      //- logo
+      .desc.novecento-condensed
+        != slice.nonRepeat.text.asHtml()
 
-  .content.page-home
-    .logo
-      img(src='/public/img/logo.png', alt='enlite logo')
-    .frame
-      .prompt-down
+    .col.col-1 &nbsp;
 
-    include ./partials/menu
+    .col.col-6.flex.justify-end
+      .swiper-container
+        .swiper-wrapper
 
-    for section in pageContent
+          each item in slice.repeat.toArray()
+            .swiper-slide
+              img(src= item.getImage('image').url, alt='' )
 
-      section(class='home-section '+ section.uid )
-        - var title = section.getStructuredText('home-section.title')
-        - var subtitle = section.getStructuredText('home-section.subtitle')
-        - var slides = section.getGroup('home-section.slides')
-        - var video = section.get('home-section.video')
-        - var darkText = slides.toArray()[0].getText('textColor')
-
-        .wrapper
-          if slides
-            if slides.toArray().length > 1
-              .prompt-left
-              .prompt-right
-
-              .swiper-container
-                .swiper-wrapper
-                  for slide in slides.toArray()
-                    - img = slide.getImage('img')
-                    - imgPortrait = slide.getImage('imgPortrait')
-                    - textColor = slide.getText('textColor')
-
-                    if img
-                      - darkText = slide.getText('textColor')
-                      .swiper-slide(class= darkText ? darkText : '')
-                        if imgPortrait
-                          picture.splash
-                            source(srcset='' + img.url media="(min-width: 650px) and (orientation: landscape)")
-                            img(src='' + imgPortrait.url, alt='' )
-                        else
-                          img.splash(src='data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=' data-src='' + img.url )
-            else
-              - img = slides.toArray()[0].getImage('img')
-              - imgPortrait = slides.toArray()[0].getImage('imgPortrait')
-
-              if img
-                if imgPortrait
-                  picture.splash
-                    source(srcset='' + img.url media="(min-width: 650px) and (orientation: landscape)")
-                    img(src='' + imgPortrait.url, alt='' )
-                else
-                  img.splash(src='data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=' data-src='' + img.url )
-
-          if title
-            .title(class= darkText ? darkText : '' )
-              != title.asHtml()
-
-          if subtitle
-            .subtitle
-              != subtitle.asHtml()
-
-              if video
-                .video-prompt
-
-          if video
-            .video-player
-              .close-prompt ×
-              .embed-container
-                != video.asHtml()
+        .swiper-pagination
 
 
-        - var description = section.getStructuredText('home-section.description')
-        - var displayCollection = (description && section.products) != null && section.products.length > 0
+mixin textLeft(slice)
+  .slice.text-left.clearfix.my4
+    .col.col-5
+      .title.novecento-bold
+        != slice.nonRepeat.title.asHtml()
+      .desc.novecento-condensed.my2
+        != slice.nonRepeat.description.asHtml()
+      a.collection-link.mb3(href='#')
+        | go to collection
+      video.cinegraph.mt1(autoplay='', muted='', loop='', preload='auto', playsinline='')
+        - var videoUrl = slice.nonRepeat.videoUrl ? slice.nonRepeat.videoUrl.value.url : ''
+        source(src= ''+videoUrl, type='video/mp4')
 
-        if displayCollection
-          include ./partials/home-section-collection
+    .col.col-1 &nbsp;
+
+    .col.col-6.flex.justify-end
+      .swiper-container
+        .swiper-wrapper
+          each item in slice.repeat.toArray()
+            .swiper-slide
+              img(src= item.getImage('image').url, alt='' )
+
+        .swiper-pagination
+
+mixin textRight(slice)
+  .slice.text-right.clearfix.my4
+    .col.col-6
+      .swiper-container
+        .swiper-wrapper
+          each item in slice.repeat.toArray()
+            .swiper-slide
+              img(src= item.getImage('image').url, alt='' )
+
+        .swiper-pagination
+
+    .col.col-1 &nbsp;
+
+    .col.col-5.pl4.mxn1
+      .title.novecento-bold
+        != slice.nonRepeat.title.asHtml()
+      .desc.novecento-condensed.my2
+        != slice.nonRepeat.description.asHtml()
+      a.collection-link.mb3(href='#')
+        | go to collection
+      video.cinegraph.mt1(autoplay='', muted='', loop='', preload='auto', playsinline='')
+        - var videoUrl = slice.nonRepeat.videoUrl ? slice.nonRepeat.videoUrl.value.url : ''
+        source(src= ''+videoUrl, type='video/mp4')
+
+block body
+
+  .content.home
+
+    div.max-width-4.mx-auto
+      header
+        .logo
+          img(src='/public/img/logo.png', alt='enlite logo')
+
+        a.menu(href= '#') Menu
+        a.shop(href= '#') Shop
+        //- include ./partials/menu
+
+      - var sliceZone = pageContent.getSliceZone('home-page.body') || {}
+      for slice in sliceZone.slices
+
+        case slice.sliceType
+          when 'intro'
+            + intro(slice)
+          when 'text-left'
+            + textLeft(slice)
+          when 'text-right'
+            + textRight(slice)

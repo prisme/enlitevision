@@ -1,29 +1,54 @@
-[x] menu
-[x] lazy loading
-[x] deploy beta
+home (index)
 
-[x] footer
-[x] scrollto
-[x] splash swipers controls
-[x] prismic footer
-[x] dedupe swipers
-[x] prismic home
-[x] subtitle
-[x] title color
-    [x] static (.section-theopsy)
-    [x] option in CMS
-    [x] update onSlideStart
+    prismic
+        ✓ content type
+        ✓ query
+        ✓ template
+        ✓ content
 
-[] product page
-[] router
-[] snipcart
-[] collections page
+    components
+        ✓ intro
+        ✓ txt-left
+        ✓ txt-right
+        header
+        footer
+        scrollTo menu
+        expand menu
+        video in view
+            github.com/hemanth/video-in-view || github.com/maxrolon/video-in-out.js
 
-optims
-    [] responsive
-        [x] images
-        [] texts
+    responsive
+        portrait : 1 column
 
-    [] newsletter => mailchimp
-    [] loader / intro
-    [] animations
+    effects
+        loader
+        scroll fade-in
+
+
+collection (list)
+
+    prismic
+        content type :
+            uid
+            header
+            products group || getProdByTags
+        query
+            collections route
+        template
+
+    components
+        header
+        grid
+
+    responsive
+
+
+product (item)
+    gallery
+    zoom
+
+Meta Tags / Social Cards
+
+(Js) page component by route
+
+Shop

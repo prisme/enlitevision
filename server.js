@@ -145,48 +145,17 @@ app.route('/').get(function(req, res){
     var footerDefered =  api.getByUID('footer', 'footer')
     var hpDefered = Q.defer()
 
-    api.query( prismic.Predicates.at('document.type', 'homepage') )
-    .then(function(homepage){
-      var sections = homepage.results[0].getGroup('homepage.body').toArray()
-      var productsPromises = []
+    api.query( prismic.Predicates.at('document.type', 'home-page') )
+    .then((pageContent) => {
+        if (pageContent) {
+        console.log(pageContent.results[0].getSliceZone('home-page.body').slices)
 
-      sections.forEach(function(section) {
-        var deferred = Q.defer()
-        var uid = section.getLink('section').uid
-
-        api.getByUID( 'home-section', uid)
-        .then(function(homeSection) {
-          console.log(homeSection)
-
-          var collection = homeSection.tags
-          if( collection.length == 0 ) deferred.resolve(homeSection)
-
-          api.query([
-            prismic.Predicates.at('document.tags', collection),
-            prismic.Predicates.at('document.type', 'product')
-          ])
-          .then(function(products){
-            homeSection.products = products.results
-            deferred.resolve(homeSection)
-          })
-        })
-
-        productsPromises.push(deferred.promise)
-      })
-
-      Q.all(productsPromises).then(function(pageContent){
-        hpDefered.resolve( pageContent )
-      })
-
-    })
-
-    Q.all([ hpDefered.promise, footerDefered ]).then(function(blocks){
-      // console.log(blocks[0])
-
-      res.render('index', {
-        pageContent: blocks[0],
-        footerContent: blocks[1]
-      })
+        res.render('index', {
+          pageContent : pageContent.results[0],
+        });
+      } else {
+        res.status(404).send('404 not found');
+      }
     })
 
   })

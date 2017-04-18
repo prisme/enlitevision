@@ -28,45 +28,11 @@ html {
 body {
     font-family: Arial;
     font-size: 16px;
-    background: black;
 }
 
 body.noscroll{
     overflow: hidden;
 }
-
-.home-section .swiper-container-horizontal > .swiper-pagination-bullets{
-    /* top: 6vw; */
-    /* left: 50%; */
-    /* transform: translate(-50%, -50%); */
-    position: relative;
-    bottom: auto;
-    width: auto;
-    left: auto;
-    margin: 1em 0 0;
-}
-
-span.swiper-pagination-bullet,
-span.swiper-pagination-bullet-active {
-    background: transparent;
-    font-family: 'novecento-bold';
-    font-size: 1.2em;
-}
-
-span.swiper-pagination-bullet {
-    opacity: 0.6
-}
-
-span.swiper-pagination-bullet-active {
-    opacity: 1
-}
-
-.swiper-pagination-bullet {
-    width: auto;
-    height: auto;
-    margin: 0 5px;
-}
-
 
 /* typography */
 
@@ -82,12 +48,23 @@ span.swiper-pagination-bullet-active {
     src: url('../fonts/novecento_medium.eot?#iefix') format('embedded-opentype'), url('../fonts/novecento_medium.woff2') format('woff2'), url('../fonts/novecento_medium.woff') format('woff'), url('../fonts/novecento_medium.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'novecento-condensed-book';
+    src: url('../fonts/novecento-condensed-book.eot');
+    src: url('../fonts/novecento-condensed-book.eot?#iefix') format('embedded-opentype'), url('../fonts/novecento-condensed-book.woff') format('woff'), url('../fonts/novecento-condensed-book.ttf') format('truetype');
+}
+
+
 .novecento-bold {
     font-family: 'novecento-bold'
 }
 
 .novecento-medium {
     font-family: 'novecento-medium'
+}
+
+.novecento-condensed {
+    font-family: 'novecento-condensed-book'
 }
 
 
@@ -119,14 +96,6 @@ span.swiper-pagination-bullet-active {
     transform: translateY(0px);
 }
 
-.home-section {
-    position: relative;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-}
-
 .wrapper {
     position: relative;
 }
@@ -134,6 +103,42 @@ span.swiper-pagination-bullet-active {
 .portrait .splash,
 .portrait .splash img{
     position: relative;
+}
+
+/* HOME
+*/
+
+.home .slice .collection-link{
+    display: block;
+    color: #9d9d9d;
+    font-family: 'novecento-condensed-book';
+    text-decoration: none;
+    font-size: 0.7em;
+}
+
+.home .slice .title h2{
+    margin: 0;
+    font-size: 1em;
+    font-weight: normal;
+}
+
+.home .slice .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background: black;
+    opacity: 1;
+}
+.home .slice .swiper-pagination-bullet {
+    opacity: .5;
+}
+
+/* OLD HOME
+*/
+
+.home-section {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 .splash,
@@ -294,11 +299,6 @@ span.swiper-pagination-bullet-active {
 
 }
 
-
-.prompt-left.swiper-button-disabled,
-.prompt-right.swiper-button-disabled{
-    opacity: 0
-}
 
 
 /*

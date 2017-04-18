@@ -1,0 +1,149 @@
+{
+  "Home Page" : {
+    "body" : {
+      "fieldset" : "page content",
+      "type" : "Slices",
+      "config" : {
+        "choices" : {
+          "intro" : {
+            "type" : "Slice",
+            "fieldset" : "Intro",
+            "non-repeat" : {
+              "logo" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : {
+                    "width" : 200,
+                    "height" : 50
+                  },
+                  "thumbnails" : [ ],
+                  "label" : "logo"
+                }
+              },
+              "text" : {
+                "type" : "StructuredText",
+                "fieldset" : "Text",
+                "config" : {
+                  "multi" : "paragraph",
+                  "label" : "text",
+                  "placeholder" : "intro text"
+                }
+              }
+            },
+            "repeat" : {
+              "image" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : {
+                    "width" : 541,
+                    "height" : 717
+                  },
+                  "thumbnails" : [ ],
+                  "label" : "gallery image"
+                }
+              }
+            }
+          },
+          "text-left" : {
+            "type" : "Slice",
+            "fieldset" : "Collection — Text Left",
+            "non-repeat" : {
+              "title" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading2",
+                  "placeholder" : "collection title"
+                }
+              },
+              "description" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph",
+                  "placeholder" : "collection description"
+                }
+              },
+              "collectionLink" : {
+                "type" : "Link",
+                "fieldset" : "Link to collection page",
+                "config" : {
+                  "select" : "document",
+                  "placeholder" : "Link to collection page"
+                }
+              },
+              "videoUrl" : {
+                "type" : "Link",
+                "fieldset" : "Link to collection video",
+                "config" : {
+                  "select" : "web",
+                  "placeholder" : "Video URL (mp4)"
+                }
+              }
+            },
+            "repeat" : {
+              "image" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : {
+                    "width" : 541,
+                    "height" : 717
+                  },
+                  "thumbnails" : [ ],
+                  "label" : "gallery image"
+                }
+              }
+            }
+          },
+          "text-right" : {
+            "type" : "Slice",
+            "fieldset" : "Collection — Text Right",
+            "non-repeat" : {
+              "title" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading2",
+                  "placeholder" : "collection title"
+                }
+              },
+              "description" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph",
+                  "placeholder" : "collection description"
+                }
+              },
+              "collectionLink" : {
+                "type" : "Link",
+                "fieldset" : "Link to collection page",
+                "config" : {
+                  "select" : "document",
+                  "placeholder" : "Link to collection page"
+                }
+              },
+              "videoUrl" : {
+                "type" : "Link",
+                "fieldset" : "Link to collection video",
+                "config" : {
+                  "select" : "web",
+                  "placeholder" : "Video URL (mp4)"
+                }
+              }
+            },
+            "repeat" : {
+              "image" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : {
+                    "width" : 541,
+                    "height" : 717
+                  },
+                  "thumbnails" : [ ],
+                  "label" : "gallery image"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
