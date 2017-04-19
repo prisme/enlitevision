@@ -43,6 +43,7 @@ docReady( function() {
         effect: 'slide',
         speed: 1000,
         pagination: pag,
+        paginationClickable: true
       })
     })
 
