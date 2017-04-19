@@ -54,7 +54,6 @@ body.noscroll{
     src: url('../fonts/novecento-condensed-book.eot?#iefix') format('embedded-opentype'), url('../fonts/novecento-condensed-book.woff') format('woff'), url('../fonts/novecento-condensed-book.ttf') format('truetype');
 }
 
-
 .novecento-bold {
     font-family: 'novecento-bold'
 }
@@ -78,7 +77,26 @@ body.noscroll{
 .small .content{
     padding: 0
 }
+.wrapper {
+    position: relative;
+}
 
+header.nav a{
+    color: black;
+    display: block;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: .9em;
+    letter-spacing: .15em;
+}
+
+header.nav .logo{
+    display: block;
+    width: 120px;
+    height: 20px;
+}
+
+/*
 .logo {
     position: fixed;
     z-index: 2;
@@ -96,14 +114,12 @@ body.noscroll{
     transform: translateY(0px);
 }
 
-.wrapper {
-    position: relative;
-}
-
 .portrait .splash,
 .portrait .splash img{
     position: relative;
 }
+*/
+
 
 /* HOME
 */
@@ -591,7 +607,7 @@ body.noscroll{
     font-size: 3em;
     padding: 0px 0.3em;
 }
-
+/*
 .portrait .menu,
 .small .menu {
     display: none;
@@ -609,7 +625,7 @@ body.noscroll{
     letter-spacing: 0.45em;
     font-size: 0.65em;
 }
-
+*/
 .menu-toggle{
     display: block;
     font-size: .8em;

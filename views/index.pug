@@ -19,7 +19,6 @@ mixin intro(slice)
 
         .swiper-pagination
 
-
 mixin textLeft(slice)
   .slice.text-left.clearfix.my4
     .col.col-5
@@ -73,11 +72,10 @@ block body
   .content.home
 
     div.max-width-4.mx-auto
-      header
-        .logo
-          img(src='/public/img/logo.png', alt='enlite logo')
-
+      header.nav.novecento-medium.flex.items-center.justify-between.my3
         a.menu(href= '#') Menu
+        a(href='/')
+          img.logo(src='/public/img/logo.svg', alt='enlite vision sunglasses')
         a.shop(href= '#') Shop
         //- include ./partials/menu
 
