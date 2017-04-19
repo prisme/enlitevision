@@ -41,7 +41,6 @@ docReady( function() {
         loop: true,
         autoHeight: true,
         effect: 'slide',
-        speed: 1000,
         pagination: pag,
         paginationClickable: true
       })
