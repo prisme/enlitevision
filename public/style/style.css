@@ -53,6 +53,11 @@ body.noscroll{
     src: url('../fonts/novecento-condensed-book.eot');
     src: url('../fonts/novecento-condensed-book.eot?#iefix') format('embedded-opentype'), url('../fonts/novecento-condensed-book.woff') format('woff'), url('../fonts/novecento-condensed-book.ttf') format('truetype');
 }
+@font-face {
+    font-family: 'novecento-normal';
+    src: url('../fonts/novecento-normal.eot');
+    src: url('../fonts/novecento-normal.eot?#iefix') format('embedded-opentype'), url('../fonts/novecento-normal.woff') format('woff'), url('../fonts/novecento-normal.ttf') format('truetype');
+}
 
 .novecento-bold {
     font-family: 'novecento-bold'
@@ -64,6 +69,10 @@ body.noscroll{
 
 .novecento-condensed {
     font-family: 'novecento-condensed-book'
+}
+
+.novecento-normal {
+    font-family: 'novecento-normal'
 }
 
 

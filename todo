@@ -14,6 +14,7 @@ home (index)
         ✓ txt-right
         ✓ header
             font : novecento normal
+            ✓ font : novecento normal
         footer
         scrollTo menu
         expand menu
