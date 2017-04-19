@@ -28,23 +28,25 @@ docReady( function() {
   window.addEventListener('orientationchange', resizeHandler)
 
 
-
   // HOME
-  if(document.querySelector('.home') == null) return;
+  if(document.querySelector('.home') !== null) {
 
-  var swipers = document.querySelectorAll('.swiper-container')
-  swipers.forEach(function(element, index){
-    var pag = element.querySelector('.swiper-pagination')
-    console.log(element)
-    console.log(pag)
+    var swipers = document.querySelectorAll('.swiper-container')
+    swipers.forEach(function(element, index){
+      var pag = element.querySelector('.swiper-pagination')
 
-    new swiper (element, {
-      loop: true,
-      autoHeight: true,
-      effect: 'slide',
-      speed: 1000,
-      pagination: pag,
+      if(element.querySelectorAll('.swiper-slide').length < 2) return
+
+      new swiper (element, {
+        loop: true,
+        autoHeight: true,
+        effect: 'slide',
+        speed: 1000,
+        pagination: pag,
+      })
     })
-  })
+
+  }
+
 
 })
