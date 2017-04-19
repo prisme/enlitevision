@@ -5,12 +5,15 @@ home (index)
         ✓ query
         ✓ template
         ✓ content
+        layout content type
+            ( dynamic content for header, footer, menu )
 
     components
         ✓ intro
         ✓ txt-left
         ✓ txt-right
-        header
+        ✓ header
+            font : novecento normal
         footer
         scrollTo menu
         expand menu
