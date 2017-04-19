@@ -10,10 +10,10 @@ home (index)
 
     components
         ✓ intro
+            ✓ logo field
         ✓ txt-left
         ✓ txt-right
         ✓ header
-            font : novecento normal
             ✓ font : novecento normal
         footer
         scrollTo menu

@@ -148,7 +148,7 @@ app.route('/').get(function(req, res){
     api.query( prismic.Predicates.at('document.type', 'home-page') )
     .then((pageContent) => {
         if (pageContent) {
-        console.log(pageContent.results[0].getSliceZone('home-page.body').slices)
+        // console.log(pageContent.results[0].getSliceZone('home-page.body').slices)
 
         res.render('index', {
           pageContent : pageContent.results[0],
