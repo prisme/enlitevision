@@ -27,10 +27,10 @@ mixin textLeft(slice)
         != slice.nonRepeat.title.asHtml()
       .desc.novecento-condensed.my2
         != slice.nonRepeat.description.asHtml()
-      a.Slice-collectionLink.mb3(href='#')
+      a.Slice-collectionLink.mb2(href='#')
         | go to collection
 
-      video.cinegraph.mt1(autoplay='', muted='', loop='', preload='auto', playsinline='')
+      video.cinegraph(autoplay='', muted='', loop='', preload='auto', playsinline='')
         - var videoUrl = slice.nonRepeat.videoUrl ? slice.nonRepeat.videoUrl.value.url : ''
         source(src= ''+videoUrl, type='video/mp4')
 
@@ -63,9 +63,9 @@ mixin textRight(slice)
         != slice.nonRepeat.title.asHtml()
       .desc.novecento-condensed.my2
         != slice.nonRepeat.description.asHtml()
-      a.Slice-collectionLink.mb3(href='#')
+      a.Slice-collectionLink.mb2(href='#')
         | go to collection
-      video.cinegraph.mt1(autoplay='', muted='', loop='', preload='auto', playsinline='')
+      video.cinegraph(autoplay='', muted='', loop='', preload='auto', playsinline='')
         - var videoUrl = slice.nonRepeat.videoUrl ? slice.nonRepeat.videoUrl.value.url : ''
         source(src= ''+videoUrl, type='video/mp4')
 

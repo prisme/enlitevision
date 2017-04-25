@@ -42,6 +42,7 @@ docReady( function() {
         loop: true,
         autoHeight: true,
         effect: 'slide',
+        speed: 800,
         pagination: paginElement,
         paginationClickable: true
       })
