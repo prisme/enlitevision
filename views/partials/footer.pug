@@ -1,7 +1,9 @@
 if layoutContent != null
-  footer.main-footer
-    div
-      != layoutContent.getText('layout.menuLabel')
-    //- each item in footerContent.getGroup('footer.footerColumns').toArray()
-    //-   .col
-    //-     != item.getStructuredText("column").asHtml(ctx.linkResolver)
+  footer.Footer.clearfix.py4
+    div.flex.justify-between
+      each item, index in layoutContent.getGroup('layout.footerColumns').toArray()
+        .col
+          != item.getStructuredText("column").asHtml(ctx.linkResolver)
+
+    .Footer-logo
+      img(src= layoutContent.getImage('layout.footerLogo').url, alt='enlite vision' )

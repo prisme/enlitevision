@@ -80,7 +80,7 @@ block body
             != layoutContent.getText('layout.menuLabel')
           //- include ./partials/menu
           a(href='/')
-            img.logo(src= layoutContent.getImage('layout.logo').url, alt='enlite vision' )
+            img.logo(src= layoutContent.getImage('layout.headerLogo').url, alt='enlite vision' )
           a.shop(href= '#')
             != layoutContent.getText('layout.shopLabel')
 
@@ -95,3 +95,5 @@ block body
             + textLeft(slice)
           when 'text-right'
             + textRight(slice)
+
+      include ./partials/footer

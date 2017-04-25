@@ -135,8 +135,8 @@ header.nav .logo{
 
 .home .Slice-collectionLink::before{
     content: '------> ';
-
 }
+
 .home .Slice-collectionLink{
     display: block;
     color: #555;
@@ -683,57 +683,72 @@ header.nav .logo{
 }
 
 
-.main-footer{
-    color: white;
+.Footer{
+    color: black;
     text-transform: uppercase;
     font-family: 'novecento-medium';
-    font-size: .7em;
-    letter-spacing: 0.25em;
+    font-size: 0.7em;
+    letter-spacing: 0.15em;
     line-height: 1.6em;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: flex-start;
-    padding:  50px;
+    position: relative;
+    /* display: flex; */
+    /* flex-direction: row; */
+    /* justify-content: space-around; */
+    /* align-items: center; */
+    /* padding:  50px; */
 }
 
 
-.small .main-footer,
-.portrait .main-footer{
+.small .Footer,
+.portrait .Footer{
   flex-direction: column;
 }
 
-.main-footer h2{
-    font-size: 1em;
-    margin: 2em 0 0.2em;
+.Footer-logo{
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin-top: -1.5em;
 }
-.main-footer h2:first-child{
+
+.Footer h2{
+    font-size: 1.2em;
+    margin: 2em 0 0.5em;
+    /* letter-spacing: normal; */
+}
+.Footer h2:first-child{
     margin-top: 0;
 }
 
-.main-footer .col:first-child{
-    width: 20%;
+.Footer .col{
+    padding-right: 3em;
 }
 
-.small .main-footer .col:first-child,
-.portrait .main-footer .col:first-child{
+.Footer .col:first-child{
+    width: 30%;
+}
+.Footer .col:last-child{
+    padding: 0;
+}
+
+.small .Footer .col:first-child,
+.portrait .Footer .col:first-child{
     width: 100%;
 }
 
-.small .main-footer .col,
-.portrait .main-footer .col{
+.small .Footer .col,
+.portrait .Footer .col{
     margin-bottom: 2em;
 }
 
-.main-footer a{
-    color: white;
+.Footer a{
+    color: black;
     text-decoration: none;
 }
-.main-footer a:hover{
+.Footer a:hover{
     text-decoration: underline;
 }
-.main-footer input[type=email]{
+.Footer input[type=email]{
     border: 0;
     line-height: 1.7em;
     padding: .5em;
@@ -741,7 +756,7 @@ header.nav .logo{
     margin: .2em 0
 }
 
-.main-footer input[type="submit"] {
+.Footer input[type="submit"] {
     background: none;
     border: 0;
     color: inherit;
@@ -756,8 +771,8 @@ header.nav .logo{
     padding-left: .5em;
 
 }
-.main-footer input::-moz-focus-inner,
-.main-footer button::-moz-focus-inner {
+.Footer input::-moz-focus-inner,
+.Footer button::-moz-focus-inner {
     border: 0;
     padding: 0;
 }
