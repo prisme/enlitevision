@@ -34,7 +34,7 @@ docReady( function() {
 
     var swipers = document.querySelectorAll('.swiper-container')
     swipers.forEach(function(element, index){
-      var pag = element.querySelector('.swiper-pagination')
+      var paginElement = element.previousElementSibling
 
       if(element.querySelectorAll('.swiper-slide').length < 2) return
 
@@ -42,7 +42,7 @@ docReady( function() {
         loop: true,
         autoHeight: true,
         effect: 'slide',
-        pagination: pag,
+        pagination: paginElement,
         paginationClickable: true
       })
     })

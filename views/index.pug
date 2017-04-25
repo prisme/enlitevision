@@ -1,8 +1,8 @@
 extends ./layout
 
 mixin intro(slice)
-  .slice.intro.clearfix.my4.pb4
-    .col.col-5
+  .Slice.Slice--intro.clearfix.my4.pb4
+    .Slice-text.col.col-5
       img.logo.mb1(src= slice.nonRepeat.logo.url, alt='' )
 
       .desc.novecento-condensed
@@ -10,7 +10,8 @@ mixin intro(slice)
 
     .col.col-1 &nbsp;
 
-    .col.col-6.flex.justify-end
+    .Slice-image.col.col-6
+      .swiper-pagination
       .swiper-container
         .swiper-wrapper
 
@@ -18,51 +19,51 @@ mixin intro(slice)
             .swiper-slide
               img(src= item.getImage('image').url, alt='' )
 
-        .swiper-pagination
 
 mixin textLeft(slice)
-  .slice.text-left.clearfix.my4.pb4
-    .col.col-5
+  .Slice.Slice--text-left.clearfix.my4.pb4
+    .Slice-text.col.col-5
       .title.novecento-bold
         != slice.nonRepeat.title.asHtml()
       .desc.novecento-condensed.my2
         != slice.nonRepeat.description.asHtml()
-      a.collection-link.mb3(href='#')
+      a.Slice-collectionLink.mb3(href='#')
         | go to collection
+
       video.cinegraph.mt1(autoplay='', muted='', loop='', preload='auto', playsinline='')
         - var videoUrl = slice.nonRepeat.videoUrl ? slice.nonRepeat.videoUrl.value.url : ''
         source(src= ''+videoUrl, type='video/mp4')
 
     .col.col-1 &nbsp;
 
-    .col.col-6.flex.justify-end
+    .Slice-image.col.col-6
+      .swiper-pagination
       .swiper-container
         .swiper-wrapper
           each item in slice.repeat.toArray()
             .swiper-slide
               img(src= item.getImage('image').url, alt='' )
 
-        .swiper-pagination
 
 mixin textRight(slice)
-  .slice.text-right.clearfix.my4.pb4
-    .col.col-6
+  .Slice.Slice--text-right.clearfix.my4.pb4
+    .Slice-image.col.col-6
+      .swiper-pagination
       .swiper-container
         .swiper-wrapper
           each item in slice.repeat.toArray()
             .swiper-slide
               img(src= item.getImage('image').url, alt='' )
 
-        .swiper-pagination
 
     .col.col-1 &nbsp;
 
-    .col.col-5.pl4.mxn1
+    .Slice-text.col.col-5.pl4.mxn1
       .title.novecento-bold
         != slice.nonRepeat.title.asHtml()
       .desc.novecento-condensed.my2
         != slice.nonRepeat.description.asHtml()
-      a.collection-link.mb3(href='#')
+      a.Slice-collectionLink.mb3(href='#')
         | go to collection
       video.cinegraph.mt1(autoplay='', muted='', loop='', preload='auto', playsinline='')
         - var videoUrl = slice.nonRepeat.videoUrl ? slice.nonRepeat.videoUrl.value.url : ''
@@ -73,12 +74,16 @@ block body
   .content.home
 
     div.max-width-4.mx-auto
-      header.nav.novecento-normal.flex.items-center.justify-between.my3
-        a.menu(href= '#') Menu
-        a(href='/')
-          img.logo(src='/public/img/logo.svg', alt='enlite vision sunglasses')
-        a.shop(href= '#') Shop
-        //- include ./partials/menu
+      if layoutContent != null
+        header.nav.novecento-normal.flex.items-center.justify-between.my3
+          a.menu(href= '#')
+            != layoutContent.getText('layout.menuLabel')
+          //- include ./partials/menu
+          a(href='/')
+            img.logo(src= layoutContent.getImage('layout.logo').url, alt='enlite vision' )
+          a.shop(href= '#')
+            != layoutContent.getText('layout.shopLabel')
+
 
       - var sliceZone = pageContent.getSliceZone('home-page.body') || {}
       for slice in sliceZone.slices

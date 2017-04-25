@@ -5,8 +5,8 @@ home (index)
         ✓ query
         ✓ template
         ✓ content
-        layout content type
-            ( dynamic content for header, footer, menu )
+        ✓ layout content type
+            repeatable => single
 
     components
         ✓ intro
@@ -15,8 +15,11 @@ home (index)
         ✓ txt-right
         ✓ header
             ✓ font : novecento normal
+        sliders
+            ✓ pagination clickable
+            pagination position
         footer
-        scrollTo menu
+        scroll indicator menu
         expand menu
         video in view
             github.com/hemanth/video-in-view || github.com/maxrolon/video-in-out.js
@@ -51,8 +54,12 @@ product (item)
     gallery
     zoom
 
+Newsletter > Mailchimp
+
 Meta Tags / Social Cards
 
 (Js) page component by route
 
 Shop
+
+update favicon

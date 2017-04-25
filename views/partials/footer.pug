@@ -1,5 +1,7 @@
-if footerContent != null
+if layoutContent != null
   footer.main-footer
-    each item in footerContent.getGroup('footer.footerColumns').toArray()
-      .col
-        != item.getStructuredText("column").asHtml(ctx.linkResolver)
+    div
+      != layoutContent.getText('layout.menuLabel')
+    //- each item in footerContent.getGroup('footer.footerColumns').toArray()
+    //-   .col
+    //-     != item.getStructuredText("column").asHtml(ctx.linkResolver)

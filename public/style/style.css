@@ -133,7 +133,7 @@ header.nav .logo{
 /* HOME
 */
 
-.home .slice .collection-link{
+.home .Slice-collectionLink{
     display: block;
     color: #9d9d9d;
     font-family: 'novecento-condensed-book';
@@ -141,18 +141,32 @@ header.nav .logo{
     font-size: 0.7em;
 }
 
-.home .slice .title h2{
+.home .Slice .title h2{
     margin: 0;
     font-size: 1em;
     font-weight: normal;
 }
 
-.home .slice .swiper-pagination-bullet.swiper-pagination-bullet-active {
+.home .Slice-image {
+    position: relative;
+}
+.home .Slice .swiper-pagination{
+    position: absolute;
+    bottom: -1.9em;
+    right: 0
+}
+
+.home .Slice .swiper-pagination-bullet.swiper-pagination-bullet-active {
     background: black;
     opacity: 1;
 }
-.home .slice .swiper-pagination-bullet {
+.home .Slice .swiper-pagination-bullet {
     opacity: .5;
+    margin: 0 0.5em;
+}
+
+.home .Slice .swiper-pagination-bullet:last-child{
+    margin-right: 0
 }
 
 /* OLD HOME
