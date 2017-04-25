@@ -16,10 +16,10 @@ home (index)
         ✓ typography css
         ✓ header
             ✓ font : novecento normal
-        sliders
+        ✓ sliders
             ✓ pagination clickable
             ✓ pagination position
-        footer
+        ✓ footer
         expand menu
         scroll indicator menu
         video in view
