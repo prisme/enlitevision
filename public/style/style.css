@@ -133,6 +133,22 @@ header.nav .logo{
 /* HOME
 */
 
+.home .Slice-text,
+.home .Slice-image {
+    min-height:720px;
+}
+
+.home .Slice-text{
+    font-size: 1.1em;
+    letter-spacing: 0.15em;
+    line-height: 1.2em;
+    position: relative;
+}
+
+.home .Slice-image {
+    position: relative;
+}
+
 .home .Slice-collectionLink::before{
     content: '------> ';
 }
@@ -152,15 +168,6 @@ header.nav .logo{
     font-weight: normal;
 }
 
-.home .Slice-text{
-    font-size: 1.1em;
-    letter-spacing: 0.15em;
-    line-height: 1.2em;
-}
-
-.home .Slice-image {
-    position: relative;
-}
 .home .Slice .swiper-pagination{
     position: absolute;
     bottom: -1.9em;
@@ -708,7 +715,7 @@ header.nav .logo{
     position: absolute;
     left: 0;
     top: 0;
-    margin-top: -1.5em;
+    margin-top: -1.4em;
 }
 
 .Footer h2{

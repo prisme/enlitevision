@@ -1,7 +1,7 @@
 extends ./layout
 
 mixin intro(slice)
-  .Slice.Slice--intro.clearfix.my4.pb4
+  .Slice.Slice--intro.clearfix.my4.pb4.flex.items-end
     .Slice-text.col.col-5
       img.logo.mb1(src= slice.nonRepeat.logo.url, alt='' )
 
@@ -21,7 +21,7 @@ mixin intro(slice)
 
 
 mixin textLeft(slice)
-  .Slice.Slice--text-left.clearfix.my4.pb4
+  .Slice.Slice--text-left.clearfix.my4.pb4.flex.items-end
     .Slice-text.col.col-5
       .title.novecento-bold
         != slice.nonRepeat.title.asHtml()
@@ -46,7 +46,7 @@ mixin textLeft(slice)
 
 
 mixin textRight(slice)
-  .Slice.Slice--text-right.clearfix.my4.pb4
+  .Slice.Slice--text-right.clearfix.my4.pb4.flex.items-end
     .Slice-image.col.col-6
       .swiper-pagination
       .swiper-container

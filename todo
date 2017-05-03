@@ -1,3 +1,19 @@
+global
+    prismic
+        ✓ layout content type
+
+    components
+        ✓ header
+            ✓ font : novecento normal
+            shop link ??
+        ✓ footer
+        X expand menu
+
+    X responsive portrait
+
+    shop index page ???
+
+
 home (index)
 
     prismic
@@ -5,8 +21,7 @@ home (index)
         ✓ query
         ✓ template
         ✓ content
-        ✓ layout content type
-            ✓ repeatable => single
+
 
     components
         ✓ intro
@@ -14,32 +29,26 @@ home (index)
         ✓ txt-left
         ✓ txt-right
         ✓ typography css
-        ✓ header
-            ✓ font : novecento normal
+
         ✓ sliders
             ✓ pagination clickable
             ✓ pagination position
-        ✓ footer
-        expand menu
-        scroll indicator menu
+
+        X scroll indicator menu
+
         video in view
             github.com/hemanth/video-in-view || github.com/maxrolon/video-in-out.js
 
-    responsive
-        portrait : 1 column
+    responsive portrait
 
     effects
         loader
         scroll fade-in
 
-
 collection (list)
 
     prismic
-        content type :
-            uid
-            header
-            products group || getProdByTags
+        content type
         query
             collections route
         template
