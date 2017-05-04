@@ -27,7 +27,7 @@ mixin textLeft(slice)
         != slice.nonRepeat.title.asHtml()
       .desc.novecento-condensed.my2
         != slice.nonRepeat.description.asHtml()
-      a.Slice-collectionLink(href='#')
+      a.Slice-collectionLink.mb2(href='#')
         | go to collection
 
       video.cinemagraph(autoplay='', muted='', loop='', preload='auto', playsinline='')
@@ -47,7 +47,21 @@ mixin textLeft(slice)
 
 mixin textRight(slice)
   .Slice.Slice--text-right.clearfix.my4.pb4.md-flex.items-stretch
-    .Slice-image.md-col.md-col-6
+
+    .Slice-text.md-col.md-col-5.order-2
+      .title.novecento-bold
+        != slice.nonRepeat.title.asHtml()
+      .desc.novecento-condensed.my2
+        != slice.nonRepeat.description.asHtml()
+      a.Slice-collectionLink.mb2(href='#')
+        | go to collection
+      video.cinemagraph(autoplay='', muted='', loop='', preload='auto', playsinline='')
+        - var videoUrl = slice.nonRepeat.videoUrl ? slice.nonRepeat.videoUrl.value.url : ''
+        source(src= ''+videoUrl, type='video/mp4')
+
+    .md-col.md-col-1.order-1 &nbsp;
+
+    .Slice-image.md-col.md-col-6.order-0
       .swiper-pagination
       .swiper-container
         .swiper-wrapper
@@ -55,19 +69,6 @@ mixin textRight(slice)
             .swiper-slide(style='background-image: url(' + item.getImage('image').url +')')
               img(src= item.getImage('image').url, alt='' )
 
-
-    .md-col.md-col-1 &nbsp;
-
-    .Slice-text.md-col.md-col-5.pl4.mxn1
-      .title.novecento-bold
-        != slice.nonRepeat.title.asHtml()
-      .desc.novecento-condensed.my2
-        != slice.nonRepeat.description.asHtml()
-      a.Slice-collectionLink(href='#')
-        | go to collection
-      video.cinemagraph(autoplay='', muted='', loop='', preload='auto', playsinline='')
-        - var videoUrl = slice.nonRepeat.videoUrl ? slice.nonRepeat.videoUrl.value.url : ''
-        source(src= ''+videoUrl, type='video/mp4')
 
 block body
 

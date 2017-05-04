@@ -210,9 +210,18 @@ header.nav .logo{
     font-weight: normal;
 }
 
+.large .home .Slice--text-right .Slice-text{
+    margin-left: -.5rem;
+    margin-right: -.5rem;
+    padding-left: 4rem;
+}
+
 .home .Slice .cinemagraph{
     position: absolute;
     bottom : 0;
+}
+.small .home .Slice .cinemagraph{
+    display: none;
 }
 
 .home .Slice .swiper-pagination{
