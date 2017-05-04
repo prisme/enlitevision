@@ -1,8 +1,8 @@
 if layoutContent != null
   footer.Footer.clearfix.py4
-    div.flex.justify-between
+    div.md-flex.justify-between
       each item, index in layoutContent.getGroup('layout.footerColumns').toArray()
-        .col
+        .Footer-col.m2
           != item.getStructuredText("column").asHtml(ctx.linkResolver)
 
     .Footer-logo

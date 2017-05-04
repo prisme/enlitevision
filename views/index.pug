@@ -1,28 +1,28 @@
 extends ./layout
 
 mixin intro(slice)
-  .Slice.Slice--intro.clearfix.my4.pb4.flex.items-end
-    .Slice-text.col.col-5
+  .Slice.Slice--intro.clearfix.my4.pb4.md-flex.items-stretch
+    .Slice-text.md-col.md-col-5
       img.logo.mb1(src= slice.nonRepeat.logo.url, alt='' )
 
       .desc.novecento-condensed
         != slice.nonRepeat.text.asHtml()
 
-    .col.col-1 &nbsp;
+    .md-col.md-col-1 &nbsp;
 
-    .Slice-image.col.col-6
+    .Slice-image.md-col.md-col-6
       .swiper-pagination
       .swiper-container
         .swiper-wrapper
 
           each item in slice.repeat.toArray()
-            .swiper-slide
+            .swiper-slide(style='background-image: url(' + item.getImage('image').url +')')
               img(src= item.getImage('image').url, alt='' )
 
 
 mixin textLeft(slice)
-  .Slice.Slice--text-left.clearfix.my4.pb4.flex.items-end
-    .Slice-text.col.col-5
+  .Slice.Slice--text-left.clearfix.my4.pb4.md-flex.items-stretch
+    .Slice-text.md-col.md-col-5
       .title.novecento-bold
         != slice.nonRepeat.title.asHtml()
       .desc.novecento-condensed.my2
@@ -34,31 +34,31 @@ mixin textLeft(slice)
         - var videoUrl = slice.nonRepeat.videoUrl ? slice.nonRepeat.videoUrl.value.url : ''
         source(src= ''+videoUrl, type='video/mp4')
 
-    .col.col-1 &nbsp;
+    .md-col.md-col-1 &nbsp;
 
-    .Slice-image.col.col-6
+    .Slice-image.md-col.md-col-6
       .swiper-pagination
       .swiper-container
         .swiper-wrapper
           each item in slice.repeat.toArray()
-            .swiper-slide
+            .swiper-slide(style='background-image: url(' + item.getImage('image').url +')')
               img(src= item.getImage('image').url, alt='' )
 
 
 mixin textRight(slice)
-  .Slice.Slice--text-right.clearfix.my4.pb4.flex.items-end
-    .Slice-image.col.col-6
+  .Slice.Slice--text-right.clearfix.my4.pb4.md-flex.items-stretch
+    .Slice-image.md-col.md-col-6
       .swiper-pagination
       .swiper-container
         .swiper-wrapper
           each item in slice.repeat.toArray()
-            .swiper-slide
+            .swiper-slide(style='background-image: url(' + item.getImage('image').url +')')
               img(src= item.getImage('image').url, alt='' )
 
 
-    .col.col-1 &nbsp;
+    .md-col.md-col-1 &nbsp;
 
-    .Slice-text.col.col-5.pl4.mxn1
+    .Slice-text.md-col.md-col-5.pl4.mxn1
       .title.novecento-bold
         != slice.nonRepeat.title.asHtml()
       .desc.novecento-condensed.my2
@@ -73,7 +73,11 @@ block body
 
   .content.home
 
+
+
     div.max-width-4.mx-auto
+
+      //- header
       if layoutContent != null
         header.nav.novecento-normal.flex.items-center.justify-between.my3
           include ./partials/menu
@@ -82,7 +86,7 @@ block body
           a.shop(href= '#')
             != layoutContent.getText('layout.shopLabel')
 
-
+      //- slices
       - var sliceZone = pageContent.getSliceZone('home-page.body') || {}
       for slice in sliceZone.slices
 

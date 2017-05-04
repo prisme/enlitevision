@@ -80,11 +80,11 @@ body.noscroll{
 
 .content {
     position: relative;
-    padding: 0 30px;
+    padding: 0 2em;
 }
 
 .small .content{
-    padding: 0
+    padding: 0 1em;
 }
 .wrapper {
     position: relative;
@@ -161,12 +161,13 @@ header.nav .logo{
 
 
 /* HOME
-*/
+
 
 .home .Slice-text,
 .home .Slice-image {
     min-height:720px;
 }
+*/
 
 .home .Slice-text{
     font-size: 1.1em;
@@ -177,6 +178,17 @@ header.nav .logo{
 
 .home .Slice-image {
     position: relative;
+}
+
+.home .Slice-image .swiper-slide{
+    background-position: center;
+    background-size: cover;
+}
+
+.home .Slice-image .swiper-slide img{
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
 }
 
 .home .Slice-collectionLink::before{
@@ -728,23 +740,24 @@ header.nav .logo{
     letter-spacing: 0.15em;
     line-height: 1.6em;
     position: relative;
-    /* display: flex; */
-    /* flex-direction: row; */
-    /* justify-content: space-around; */
-    /* align-items: center; */
-    /* padding:  50px; */
 }
 
-
-.small .Footer,
-.portrait .Footer{
-  flex-direction: column;
+.large .Footer-col:first-child{
+    margin-left: 0;
+}
+.large .Footer-col:last-child{
+    margin-right: 0;
 }
 
 .Footer-logo{
     position: absolute;
     left: 0;
     top: 0;
+    margin-top: -1.4em;
+}
+
+.small .Footer-logo{
+    margin: 1rem;
     margin-top: -1.4em;
 }
 
