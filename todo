@@ -39,7 +39,9 @@ home (index)
         video in view
             github.com/hemanth/video-in-view || github.com/maxrolon/video-in-out.js
 
-    responsive portrait
+    ✓ responsive portrait
+
+        inject videos only for large viewports
 
     effects
         loader
