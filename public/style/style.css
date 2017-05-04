@@ -99,6 +99,36 @@ header.nav a{
     letter-spacing: .15em;
 }
 
+.Menu-list{
+    position: absolute;
+    top: 0;
+    background: #ffffff;
+    z-index: 1;
+    line-height: 1.5;
+
+    overflow: hidden;
+}
+
+.Menu-list--open{
+    transition: all 0.4s ease-out;
+    height: 305px;
+}
+
+.Menu-list--closed{
+    transition: all 0.3s ease-in;
+    height: 0;
+}
+
+.Menu-list ul{
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.Menu-list h2{
+    font-size: 1em;
+    font-weight: normal;
+}
+
 header.nav .logo{
     display: block;
     width: 120px;

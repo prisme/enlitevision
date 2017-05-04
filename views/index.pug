@@ -76,9 +76,7 @@ block body
     div.max-width-4.mx-auto
       if layoutContent != null
         header.nav.novecento-normal.flex.items-center.justify-between.my3
-          a.menu(href= '#')
-            != layoutContent.getText('layout.menuLabel')
-          //- include ./partials/menu
+          include ./partials/menu
           a(href='/')
             img.logo(src= layoutContent.getImage('layout.headerLogo').url, alt='enlite vision' )
           a.shop(href= '#')

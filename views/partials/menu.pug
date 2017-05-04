@@ -1,19 +1,14 @@
-nav.menu
-  span.menu-toggle Menu
+if layoutContent != null
+  a.Menu-toggle(href= '#')
+    != layoutContent.getText('layout.menuLabel')
 
-  h2.collections
-    a(href='/collections') Collections
-
-  h2 Sun
-  a(href='#section-sun-supernatural') Supernatural
-  a(href='#section-sun-acetate') Acetate
-
-  h2 Optical
-  a(href='#section-optical-supernatural') Supernatural
-
-  h2 Collaborations
-  a(href='#section-theopsy') Theopsy
-  a(href='#section-corsocomo') 10 Corso Como
-
-  h2
-    a(href='#section-innovation') Innovation
+  nav.Menu-list.Menu-list--closed.mt3
+    ul.py2.pr4
+      each link in layoutContent.getGroup('layout.menuLinks').toArray()
+        li
+          if ( link.getLink("link").url(ctx.linkResolver) )
+            a(href=link.getLink("link").url(ctx.linkResolver))
+              != link.getText("label")
+          else
+            h2
+              != link.getText("label")

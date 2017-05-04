@@ -47,6 +47,14 @@ docReady( function() {
       })
     })
 
+    var menuToggle = document.querySelector('.Menu-toggle')
+    var menuList = document.querySelector('.Menu-list')
+
+    menuToggle.addEventListener('click', function(){
+      menuList.classList.toggle('Menu-list--closed')
+      menuList.classList.toggle('Menu-list--open')
+    })
+
   }
 
 
