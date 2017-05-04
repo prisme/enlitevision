@@ -210,6 +210,11 @@ header.nav .logo{
     font-weight: normal;
 }
 
+.home .Slice .cinemagraph{
+    position: absolute;
+    bottom : 0;
+}
+
 .home .Slice .swiper-pagination{
     position: absolute;
     bottom: -1.9em;
