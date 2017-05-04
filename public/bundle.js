@@ -13,7 +13,7 @@ docReady( function() {
 
   function resizeHandler(){
     isPortrait = (window.innerWidth / window.innerHeight) < 1
-    isSmall = window.innerWidth < 830
+    isSmall = window.innerWidth < 831
 
     var orientation = isPortrait ? 'portrait' : 'landscape'
     var size = isSmall ? 'small' : 'large'
