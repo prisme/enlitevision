@@ -135,6 +135,11 @@ header.nav .logo{
     height: 20px;
 }
 
+.small header.nav .logo{
+    width: 170px;
+    height: auto;
+}
+
 /*
 .logo {
     position: fixed;
@@ -176,8 +181,29 @@ header.nav .logo{
     position: relative;
 }
 
+.small .home .Slice-text{
+    width: 85%
+}
+.small .home .Slice--text-right .Slice-text{
+    margin-left: 15%
+}
+
+.small .home .Slice--text-left .Slice-text{
+    text-align : right;
+
+}
+
 .home .Slice-image {
     position: relative;
+}
+
+.small .home .Slice-image {
+    width: 85%;
+    margin-left: 15%;
+}
+
+.small .home .Slice--text-left .Slice-image {
+    margin-left: 0;
 }
 
 .home .Slice-image .swiper-slide{
@@ -216,6 +242,10 @@ header.nav .logo{
     padding-left: 4rem;
 }
 
+.small .home .Slice--intro .logo{
+    display: none;
+}
+
 .home .Slice .cinemagraph{
     position: absolute;
     bottom : 0;
@@ -228,6 +258,11 @@ header.nav .logo{
     position: absolute;
     bottom: -1.9em;
     right: 0
+}
+
+.small .home .Slice .swiper-pagination{
+    left: 0;
+    right: initial;
 }
 
 .home .Slice .swiper-pagination-bullet.swiper-pagination-bullet-active {

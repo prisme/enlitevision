@@ -2,15 +2,7 @@ extends ./layout
 
 mixin intro(slice)
   .Slice.Slice--intro.clearfix.my4.pb4.md-flex.items-stretch
-    .Slice-text.md-col.md-col-5
-      img.logo.mb1(src= slice.nonRepeat.logo.url, alt='' )
-
-      .desc.novecento-condensed
-        != slice.nonRepeat.text.asHtml()
-
-    .md-col.md-col-1 &nbsp;
-
-    .Slice-image.md-col.md-col-6
+    .Slice-image.sm-col.sm-col-11.md-col-6.order-2
       .swiper-pagination
       .swiper-container
         .swiper-wrapper
@@ -18,6 +10,16 @@ mixin intro(slice)
           each item in slice.repeat.toArray()
             .swiper-slide(style='background-image: url(' + item.getImage('image').url +')')
               img(src= item.getImage('image').url, alt='' )
+
+    .md-col.md-col-1.order-1 &nbsp;
+
+    .Slice-text.sm-col.sm-col-12.md-col-5.order-0
+      img.logo(src= slice.nonRepeat.logo.url, alt='' )
+
+      .desc.mt1.novecento-condensed
+        != slice.nonRepeat.text.asHtml()
+
+
 
 
 mixin textLeft(slice)
