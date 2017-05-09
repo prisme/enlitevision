@@ -184,10 +184,12 @@ header.nav .logo{
 .small .home .Slice-text{
     width: 85%
 }
-.small .home .Slice--text-right .Slice-text{
+.small .home .Slice--text-right .Slice-text,
+.small .home .Slice--intro .Slice-text{
     margin-left: 15%
 }
 
+.small .home .Slice--intro .Slice-text,
 .small .home .Slice--text-left .Slice-text{
     text-align : right;
 

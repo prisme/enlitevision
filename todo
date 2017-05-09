@@ -5,13 +5,13 @@ global
     components
         ✓ header
             ✓ font : novecento normal
-            shop link ??
+            responsive, portrait version
+            (shop link ??)
         ✓ footer
         ✓ expand menu
+            responsive, portrait version
 
-    X responsive portrait
-
-    shop index page ???
+    (shop index page ???)
 
 
 home (index)
@@ -40,8 +40,7 @@ home (index)
             github.com/hemanth/video-in-view || github.com/maxrolon/video-in-out.js
 
     ✓ responsive portrait
-
-        inject videos only for large viewports
+        inject videos only on large viewports
 
     effects
         loader
