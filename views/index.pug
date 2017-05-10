@@ -20,8 +20,6 @@ mixin intro(slice)
         != slice.nonRepeat.text.asHtml()
 
 
-
-
 mixin textLeft(slice)
   .Slice.Slice--text-left.clearfix.my4.pb4.md-flex.items-stretch
     .Slice-text.md-col.md-col-5
@@ -76,8 +74,6 @@ block body
 
   .content.home
 
-
-
     div.max-width-4.mx-auto
 
       //- header
@@ -86,7 +82,7 @@ block body
           include ./partials/menu
           a(href='/')
             img.logo(src= layoutContent.getImage('layout.headerLogo').url, alt='enlite vision' )
-          a.shop(href= '#')
+          a.nav-shop(href= '#')
             != layoutContent.getText('layout.shopLabel')
 
       //- slices

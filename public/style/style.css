@@ -84,10 +84,15 @@ body.noscroll{
 }
 
 .small .content{
-    padding: 0 1em;
+    padding: 0;
 }
 .wrapper {
     position: relative;
+}
+
+.small header.nav {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
 }
 
 header.nav a{
@@ -136,8 +141,14 @@ header.nav .logo{
 }
 
 .small header.nav .logo{
-    width: 170px;
+    width: 85px;
     height: auto;
+}
+.small header.nav .Menu-toggle,
+.small header.nav .nav-shop{
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
 }
 
 /*
@@ -165,14 +176,12 @@ header.nav .logo{
 */
 
 
-/* HOME
+/* HOME */
 
-
-.home .Slice-text,
-.home .Slice-image {
-    min-height:720px;
+.small .home .Slice{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
-*/
 
 .home .Slice-text{
     font-size: 1.1em;
@@ -202,6 +211,23 @@ header.nav .logo{
 .small .home .Slice-image {
     width: 85%;
     margin-left: 15%;
+}
+
+.small .home .swiper-slide {
+  position: relative;
+}
+.small .home .swiper-slide:before {
+  display: block;
+  content: "";
+  width: 100%;
+  padding-top: 131%;
+}
+.small .home .swiper-slide > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .small .home .Slice--text-left .Slice-image {
