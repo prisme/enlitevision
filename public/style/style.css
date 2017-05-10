@@ -839,6 +839,11 @@ header.nav .logo{
     text-decoration: underline;
 }
 
+.small .Footer{
+    font-size: 0.4em;
+    width: 60%;
+    padding-top: 2.5rem;
+}
 
 .Footer{
     color: black;
@@ -866,7 +871,11 @@ header.nav .logo{
 
 .small .Footer-logo{
     margin: 1rem;
-    margin-top: -1.4em;
+    margin-top: 0em;
+    
+}
+.small .Footer-logo img{
+    width: 60%;
 }
 
 .Footer h2{
