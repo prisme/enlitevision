@@ -91,8 +91,7 @@ body.noscroll{
 }
 
 .small header.nav {
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.4rem;
 }
 
 header.nav a{
@@ -181,6 +180,11 @@ header.nav .logo{
 .small .home .Slice{
     margin-top: 2rem;
     margin-bottom: 2rem;
+    padding-bottom: 0.7rem;
+}
+.small .home .Slice--intro{
+    margin-top: 0;
+    padding-bottom: 0;
 }
 
 .home .Slice-text{
@@ -191,11 +195,17 @@ header.nav .logo{
 }
 
 .small .home .Slice-text{
-    width: 85%
+    width: 85%;
+    font-size: 0.6em;
 }
-.small .home .Slice--text-right .Slice-text,
-.small .home .Slice--intro .Slice-text{
+.small .home .Slice--text-right .Slice-text{
     margin-left: 15%
+}
+.small .home .Slice--intro .Slice-text{
+    margin-left: 32%;
+    width: initial;
+    padding-right: 1em;
+    margin-top: 1.2em;
 }
 
 .small .home .Slice--intro .Slice-text,
@@ -220,7 +230,7 @@ header.nav .logo{
   display: block;
   content: "";
   width: 100%;
-  padding-top: 131%;
+  padding-top: 131.5%;
 }
 .small .home .swiper-slide > img {
   position: absolute;
@@ -249,6 +259,10 @@ header.nav .logo{
     content: '------> ';
 }
 
+.small .home .Slice-collectionLink{
+    margin-bottom: 0;
+}
+
 .home .Slice-collectionLink{
     display: block;
     color: #555;
@@ -262,6 +276,15 @@ header.nav .logo{
     margin: 0;
     font-size: 1em;
     font-weight: normal;
+}
+
+.small .home .Slice .title h2{
+    font-size: .8em;
+}
+
+.small .home .Slice .desc{
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
 }
 
 .large .home .Slice--text-right .Slice-text{
@@ -285,17 +308,25 @@ header.nav .logo{
 .home .Slice .swiper-pagination{
     position: absolute;
     bottom: -1.9em;
-    right: 0
+    right: 0;
+}
+.small .home .Slice .swiper-pagination{
+    bottom: -1em;
 }
 
-.small .home .Slice .swiper-pagination{
-    left: 0;
+.small .home .Slice--intro .swiper-pagination,
+.small .home .Slice--text-right .swiper-pagination{
+    left: -0.5em;
     right: initial;
 }
 
 .home .Slice .swiper-pagination-bullet.swiper-pagination-bullet-active {
     background: black;
     opacity: 1;
+}
+.small .home .Slice .swiper-pagination-bullet{
+    width: 4px;
+    height: 4px;
 }
 .home .Slice .swiper-pagination-bullet {
     opacity: .5;
@@ -1080,5 +1111,4 @@ header.nav .logo{
     letter-spacing: 0.3em;
     line-height: 1.4;
     font-weight: normal;
-    font-family: novecento-medium;
-}
+    font-family: novecento-medi
