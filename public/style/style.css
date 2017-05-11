@@ -106,10 +106,9 @@ header.nav a{
 .Menu-list{
     position: absolute;
     top: 0;
-    background: #ffffff;
+    /* background: #ffffff; */
     z-index: 2;
     line-height: 1.5;
-
     overflow: hidden;
 }
 
@@ -124,8 +123,8 @@ header.nav a{
 }
 
 .Menu-list ul{
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
+    /* border-top: 1px solid black; */
+    /* border-bottom: 1px solid black; */
 }
 
 .Menu-list h2{
