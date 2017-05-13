@@ -27,6 +27,15 @@ docReady( function() {
   window.addEventListener('focus', resizeHandler)
   window.addEventListener('orientationchange', resizeHandler)
 
+  // dropdown Menu
+  var menuToggle = document.querySelector('.Menu-toggle')
+  var menuList = document.querySelector('.Menu-list')
+
+  menuToggle.addEventListener('click', function(e){
+    menuList.classList.toggle('Menu-list--closed')
+    menuList.classList.toggle('Menu-list--open')
+    e.preventDefault()
+  })
 
   // HOME
   if(document.querySelector('.home') !== null) {
@@ -45,14 +54,6 @@ docReady( function() {
         pagination: paginElement,
         paginationClickable: true
       })
-    })
-
-    var menuToggle = document.querySelector('.Menu-toggle')
-    var menuList = document.querySelector('.Menu-list')
-
-    menuToggle.addEventListener('click', function(){
-      menuList.classList.toggle('Menu-list--closed')
-      menuList.classList.toggle('Menu-list--open')
     })
 
   }
