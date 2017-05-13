@@ -119,9 +119,6 @@ app.route('/collections').get(function(req, res) {
           .then(function(collectionSection) {
             var collectionTags = collectionSection.tags
 
-            console.log('tags: ')
-            console.log(collectionTags)
-
             if( collectionTags.length == 0 ) deferred.resolve(collectionSection)
 
             // get collection products by tag
@@ -145,8 +142,7 @@ app.route('/collections').get(function(req, res) {
       })
 
       Q.all([ collectionsPageDefered.promise, layoutDefered ]).then(function(blocks){
-        console.log(blocks[0])
-        console.log(blocks[1])
+        // console.log(blocks[0])
 
         res.render('collection', {
           pageContent: blocks[0],
