@@ -3,27 +3,30 @@ extends ./layout
 block prepend body
 
   .content.page-collection
-    .logo
-      a(href='/')
-        img(src='/public/img/logo.png', alt='enlite logo')
+    div.max-width-4.mx-auto
+      include ./partials/header
 
-    for section in pageContent
-      a(id=section.uid)
-      section(class='collection-section' )
-        - var title = section.getStructuredText('collection.title')
-        if title
-          .title
-            != title.asHtml()
+      for section in pageContent
+        a(id=section.uid)
 
-        if section.products.length > 0
-          .products
-            for product in section.products
-              .product
-                a(href=ctx.linkResolver(product))
-                  img.product-img(src='' + product.getImage('product.img').url, alt='')
-                  .product-name
-                    != product.getText('product.name')
-                    | &nbsp;
-                    != product.getText('product.frame')
-                    | &nbsp;
-                    != product.getText('product.lens')
+        section.collection-section
+          - var title = section.getStructuredText('collection.title')
+          if title
+            .title
+              != title.asHtml()
+
+          - var header = section.getImage('collection.header')
+          if header
+            .header-img
+              img(src= header.url, alt='' )
+
+          if section.products.length > 0
+            .products
+              for product in section.products
+                .product
+                  a(href=ctx.linkResolver(product))
+                    img.product-img(src='' + product.getImage('product.img').url, alt='')
+                    .product-name
+                      != product.getText('product.fullName')
+
+      include ./partials/footer

@@ -76,16 +76,8 @@ block body
 
     div.max-width-4.mx-auto
 
-      //- header
-      if layoutContent != null
-        header.nav.novecento-normal.flex.items-center.justify-between.my3
-          include ./partials/menu
-          a(href='/')
-            img.logo(src= layoutContent.getImage('layout.headerLogo').url, alt='enlite vision' )
-          a.nav-shop(href= '#')
-            != layoutContent.getText('layout.shopLabel')
+      include ./partials/header
 
-      //- slices
       - var sliceZone = pageContent.getSliceZone('home-page.body') || {}
       for slice in sliceZone.slices
 
