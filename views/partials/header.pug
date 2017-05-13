@@ -3,5 +3,5 @@ if layoutContent != null
     include ./menu
     a(href='/')
       img.logo(src= layoutContent.getImage('layout.headerLogo').url, alt='enlite vision' )
-    a.nav-shop(href= '#')
+    a.nav-shop(href= '/collections')
       != layoutContent.getText('layout.shopLabel')

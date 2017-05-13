@@ -1,4 +1,6 @@
-global
+- Global
+    ✓ CSS, typography
+
     prismic
         ✓ layout content type
 
@@ -6,15 +8,13 @@ global
         ✓ header
             ✓ font : novecento normal
             responsive, portrait version
-            (shop link ??)
+            ✓ shop link
         ✓ footer
+            ✓ responsive, portrait version
         ✓ expand menu
             responsive, portrait version
 
-    (shop index page ???)
-
-
-home (index)
+- Home
 
     prismic
         ✓ content type
@@ -22,13 +22,10 @@ home (index)
         ✓ template
         ✓ content
 
-
     components
         ✓ intro
-            ✓ logo field
         ✓ txt-left
         ✓ txt-right
-        ✓ typography css
 
         ✓ sliders
             ✓ pagination clickable
@@ -36,41 +33,56 @@ home (index)
 
         X scroll indicator menu
 
-        video in view
+        video in view : restart
             github.com/hemanth/video-in-view || github.com/maxrolon/video-in-out.js
 
     ✓ responsive portrait
-        inject videos only on large viewports
+        X inject videos only on large viewports
 
     effects
+        X scroll fade-in
         loader
-        scroll fade-in
+            ✓ temp patch : sections min-height
+            loading animation
 
-collection (list)
+- Shop / All collections
 
-    prismic
-        content type
-        query
+    ✓ prismic
+        ✓ content type
+        ✓ query
             collections route
-        template
+        ✓ template
 
     components
-        header
-        grid
+        ✓ header
+        grid (basscss version)
 
     responsive
 
+X Meta Tags / Social Cards
+X Google Analytics
 
-product (item)
+- Product
     gallery
     zoom
 
+individual collection page
+    prismic
+        content type
+            instead of being linked to products by tags,
+            each collection should contain a product group.
+            thus enabling manual ordering
+
+            homepage sections should link to collection by document Link, instead of Text (collection.uid)
+
 Newsletter > Mailchimp
 
-Meta Tags / Social Cards
+
+
+
 
 (Js) page component by route
 
-Shop
+
 
 update favicon
