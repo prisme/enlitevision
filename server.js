@@ -17,47 +17,62 @@ function api(req, res) {
   })
 }
 
-function handleError(err, req, res) {
-  if (err.status == 404) {
-    res.status(404).send('404 not found')
-  } else {
-    res.status(500).send('Error 500: ' + err.message)
-  }
-}
-
 app.listen(PORT, function() {
   console.log('Express server listening on port ' + PORT)
 })
 
-// preview functionality
+
+// Prismic Preview
 app.route('/preview').get(function(req, res) {
   api(req, res).then(function(api) {
     return prismic.preview(api, configuration.linkResolver, req, res)
   }).catch(function(err) {
-    handleError(err, req, res)
+    if (err.status == 404) {
+      res.status(404).send('404 not found')
+    } else {
+      res.status(500).send('Error 500: ' + err.message)
+    }
   })
 })
 
 
-// Route for the product pages
+// Product pages Route
 app.route('/product/:uid').get(function(req, res) {
 
   api(req, res)
   .then(function(api) {
-    // Get the page url needed for snipcart
+    // for snipcart
     var pageUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
-
-    // Define the UID from the url
     var uid = req.params.uid;
 
-
-    // Query the product by its UID
     api.getByUID('product', uid).then(function(productContent) {
 
-        console.log(productContent)
-      // Render the 404 page if this uid is found
-      if (!productContent) {
-        render404(req, res);
+      var relatedProducts,
+          relatedArray,
+          relatedIDs
+
+      if (productContent) {
+        // Collect all the related product IDs for this product
+        relatedProducts = productContent.getGroup('product.relatedProducts');
+        relatedArray = relatedProducts ? relatedProducts.toArray() : [];
+        relatedIDs = relatedArray.map((relatedProduct) => {
+          var link = relatedProduct.getLink('link');
+          return link ? link.id : null;
+        }).filter((id) => id != null);
+
+        // //Query the related products by their IDs
+        api.getByIDs(relatedIDs).then(function(relatedProducts) {
+          // Render the product page
+          res.render('product', {
+            // layoutContent: req.prismic.layoutContent,
+            productContent: productContent,
+            relatedProducts: relatedProducts,
+            pageUrl: pageUrl
+          })
+        })
+
+      } else {
+        res.status(404).send('404 not found');
       }
 
       // Collect all the related product IDs for this product
@@ -136,14 +151,11 @@ app.route('/collections').get(function(req, res) {
     })
 });
 
-// Route for the home page
+// Home page Route
 app.route('/').get(function(req, res){
 
   api(req, res)
   .then(function(api) {
-
-    var footerDefered =  api.getByUID('footer', 'footer')
-    var hpDefered = Q.defer()
 
     api.query( prismic.Predicates.at('document.type', 'home-page') )
     .then((pageContent) => {
