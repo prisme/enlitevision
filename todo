@@ -7,12 +7,21 @@
     components
         ✓ header
             ✓ font : novecento normal
-            responsive, portrait version
+            responsive
             ✓ shop link
         ✓ footer
-            ✓ responsive, portrait version
+            ✓ responsive
         ✓ expand menu
-            responsive, portrait version
+            responsive
+
+    X Meta Tags / Social Cards
+
+    X Google Analytics
+
+    X Newsletter > Mailchimp
+
+    Favicon update
+    (Js) page component by route
 
 - Home
 
@@ -36,7 +45,7 @@
         video in view : restart
             github.com/hemanth/video-in-view || github.com/maxrolon/video-in-out.js
 
-    ✓ responsive portrait
+    ✓ responsive
         X inject videos only on large viewports
 
     effects
@@ -44,6 +53,7 @@
         loader
             ✓ temp patch : sections min-height
             loading animation
+
 
 - Shop / All collections
 
@@ -55,34 +65,25 @@
 
     components
         ✓ header
-        grid (basscss version)
+        grid (bassCSS version)
 
     responsive
 
-X Meta Tags / Social Cards
-X Google Analytics
 
 - Product
+    responsive, bassCSS
+
     gallery
     zoom
 
-individual collection page
-    prismic
-        content type
-            instead of being linked to products by tags,
-            each collection should contain a product group.
-            thus enabling manual ordering
 
-            homepage sections should link to collection by document Link, instead of Text (collection.uid)
+(
+    - Individual Collection pages
+        prismic
+            content type
+                instead of being linked to products by tags,
+                each collection should contain a product group.
+                thus enabling manual ordering
 
-Newsletter > Mailchimp
-
-
-
-
-
-(Js) page component by route
-
-
-
-update favicon
+                homepage sections should link to collection by document Link, instead of Text (collection.uid)
+)
