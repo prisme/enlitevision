@@ -873,7 +873,7 @@ header.nav .logo{
 .small .Footer-logo{
     margin: 1rem;
     margin-top: 0em;
-    
+
 }
 .small .Footer-logo img{
     width: 60%;
@@ -1070,8 +1070,8 @@ header.nav .logo{
 }
 
 .page-collection{
-    background: white;
-    padding: 6em 2em;
+    /* background: white; */
+    /* padding: 6em 2em; */
 }
 
 .portrait .page-collection{
