@@ -1125,8 +1125,15 @@ header.nav .logo{
 
 
 .page-collection .product-name{
-    font-size: .8em;
+    font-size: 0.9em;
     letter-spacing: 0.3em;
     line-height: 1.4;
     font-weight: normal;
     font-family: novecento-medium;
+    color: #333;
+}
+
+.small .product-name{
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}

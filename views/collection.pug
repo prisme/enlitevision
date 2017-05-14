@@ -28,7 +28,7 @@ block prepend body
                 - var front = product.getImage('product.img')
                 - var side = product.getImage('product.side-img')
 
-                .product.sm-col.sm-col-12.md-col-6.lg-col-4.py2
+                .product.sm-col.sm-col-6.md-col-4.py2
                   a(href=ctx.linkResolver(product))
 
                     if side != null
@@ -37,7 +37,7 @@ block prepend body
                       if front != null
                         img.product-img(src = front.url, alt = name)
                     if name
-                      .product-name.my2
+                      .product-name.my3
                         != name
 
       include ./partials/footer
