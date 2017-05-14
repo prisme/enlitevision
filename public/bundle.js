@@ -32,11 +32,13 @@ docReady( function() {
   var menuToggle = document.querySelector('.Menu-toggle')
   var menuList = document.querySelector('.Menu-list')
 
-  menuToggle.addEventListener('click', function(e){
-    menuList.classList.toggle('Menu-list--closed')
-    menuList.classList.toggle('Menu-list--open')
-    e.preventDefault()
-  })
+  if( menuToggle && menuList ){
+    menuToggle.addEventListener('click', function(e){
+      e.preventDefault()
+      menuList.classList.toggle('Menu-list--closed')
+      menuList.classList.toggle('Menu-list--open')
+    })
+  }
 
   // HOME
   if(document.querySelector('.home') !== null) {

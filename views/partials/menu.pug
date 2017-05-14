@@ -6,9 +6,16 @@ if layoutContent != null
     ul.py2.pr4
       each link in layoutContent.getGroup('layout.menuLinks').toArray()
         li
-          if ( link.getLink("link").url(ctx.linkResolver) )
-            a(href=link.getLink("link").url(ctx.linkResolver))
-              != link.getText("label")
+          - var label = link.getText("label")
+          - var url = link.getLink("link").url(ctx.linkResolver)
+          - var collectionUID = link.getText("collection_uid")
+
+          if collectionUID
+            - url = '/collections#' + collectionUID
+
+          if url
+            a( href = url )
+              != label
           else
             h2
-              != link.getText("label")
+              != label
