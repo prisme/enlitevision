@@ -45,56 +45,60 @@ app.route('/product/:uid').get(function(req, res) {
     var pageUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
     var uid = req.params.uid;
 
-    api.getByUID('product', uid).then(function(productContent) {
+    api.query( prismic.Predicates.at('document.type', 'layout') )
+    .then(function(layoutContent) {
+      api.getByUID('product', uid)
+      .then(function(productContent) {
 
-      var relatedProducts,
-          relatedArray,
-          relatedIDs
+        var relatedProducts,
+            relatedArray,
+            relatedIDs
 
-      if (productContent) {
+        if (productContent) {
+          // Collect all the related product IDs for this product
+          relatedProducts = productContent.getGroup('product.relatedProducts');
+          relatedArray = relatedProducts ? relatedProducts.toArray() : [];
+          relatedIDs = relatedArray.map((relatedProduct) => {
+            var link = relatedProduct.getLink('link');
+            return link ? link.id : null;
+          }).filter((id) => id != null);
+
+          // //Query the related products by their IDs
+          api.getByIDs(relatedIDs).then(function(relatedProducts) {
+            // Render the product page
+            res.render('product', {
+              layoutContent: layoutContent.results[0],
+              productContent: productContent,
+              relatedProducts: relatedProducts,
+              pageUrl: pageUrl
+            })
+          })
+
+        } else {
+          res.status(404).send('404 not found');
+        }
+
         // Collect all the related product IDs for this product
-        relatedProducts = productContent.getGroup('product.relatedProducts');
-        relatedArray = relatedProducts ? relatedProducts.toArray() : [];
-        relatedIDs = relatedArray.map((relatedProduct) => {
+        var relatedProducts = productContent.getGroup('product.relatedProducts');
+        var relatedArray = relatedProducts ? relatedProducts.toArray() : [];
+        var relatedIDs = relatedArray.map((relatedProduct) => {
           var link = relatedProduct.getLink('link');
           return link ? link.id : null;
         }).filter((id) => id != null);
 
         // //Query the related products by their IDs
         api.getByIDs(relatedIDs).then(function(relatedProducts) {
+
           // Render the product page
           res.render('product', {
             // layoutContent: req.prismic.layoutContent,
             productContent: productContent,
             relatedProducts: relatedProducts,
             pageUrl: pageUrl
-          })
-        })
-
-      } else {
-        res.status(404).send('404 not found');
-      }
-
-      // Collect all the related product IDs for this product
-      var relatedProducts = productContent.getGroup('product.relatedProducts');
-      var relatedArray = relatedProducts ? relatedProducts.toArray() : [];
-      var relatedIDs = relatedArray.map((relatedProduct) => {
-        var link = relatedProduct.getLink('link');
-        return link ? link.id : null;
-      }).filter((id) => id != null);
-
-      // //Query the related products by their IDs
-      api.getByIDs(relatedIDs).then(function(relatedProducts) {
-
-        // Render the product page
-        res.render('product', {
-          // layoutContent: req.prismic.layoutContent,
-          productContent: productContent,
-          relatedProducts: relatedProducts,
-          pageUrl: pageUrl
+          });
         });
-      });
-    });
+      })
+    })
   })
 });
 
@@ -163,10 +167,10 @@ app.route('/').get(function(req, res){
   api(req, res)
   .then(function(api) {
 
-    api.query( prismic.Predicates.at('document.type', 'home-page') )
-    .then((pageContent) => {
-      api.query( prismic.Predicates.at('document.type', 'layout') )
-      .then(function(layoutContent) {
+    api.query( prismic.Predicates.at('document.type', 'layout') )
+    .then(function(layoutContent) {
+      api.query( prismic.Predicates.at('document.type', 'home-page') )
+      .then((pageContent) => {
         if (pageContent && layoutContent) {
           console.log(pageContent)
 
