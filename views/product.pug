@@ -7,7 +7,8 @@ block body
 
         .wrapper.product
           - var image = productContent.getImage('product.img')
-          - var imageURL = image ? image.url : ""
+          - var side_image = productContent.getImage('product.side-img')
+
           - var ref = productContent.getNumber('product.ref')
           - var price = productContent.getNumber('product.price')
           - var name = productContent.getText('product.fullName')
@@ -38,9 +39,13 @@ block body
 
             include ./partials/add-to-cart-button.pug
 
-          if imageURL
-          .product-image
-            img(src=imageURL)
+          if image
+            .product-image
+              img(src=image.url)
+
+          if side_image
+            .product-image-side
+              img(src = side_image.url)
 
         if relatedProducts.results_size > 0
           div.related

@@ -30,10 +30,12 @@ block prepend body
 
                 .product
                   a(href=ctx.linkResolver(product))
-                    if front != null
-                      img.product-img(src = front.url, alt = name)
+
                     if side != null
                       img.product-img--side(src = side.url, alt = name)
+                    else
+                      if front != null
+                        img.product-img(src = front.url, alt = name)
                     if name
                       .product-name
                         != name
