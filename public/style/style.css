@@ -1075,13 +1075,19 @@ header.nav .logo{
     /* padding: 6em 2em; */
 }
 
+.page-collection .header-img img{
+    display: block;
+    width: 100%;
+    
+}
+
 .portrait .page-collection{
     padding: 3em .5em;
 }
 
 .page-collection .title{
-    padding: 3em 2em 1em;
-    font-family: novecento-bold;
+    /* padding: 3em 2em 1em; */
+    font-family: novecento-medium;
     line-height: 1.3em;
     letter-spacing: .3em;
 }
@@ -1094,15 +1100,15 @@ header.nav .logo{
 }
 
 .page-collection .product{
-    box-sizing: border-box;
-    padding: 1.5em;
+    /* box-sizing: border-box; */
+    /* padding: 1.5em; */
 }
 
 .landscape .page-collection .product{
-    width: 33%;
+    /* width: 33%; */
 }
 .portrait .page-collection .product{
-    width: 100%;
+    /* width: 100%; */
 }
 .page-collection .product img{
     display: block;
@@ -1122,4 +1128,4 @@ header.nav .logo{
     letter-spacing: 0.3em;
     line-height: 1.4;
     font-weight: normal;
-    font-family: novecento-medi
+    font-family: novecento-medium;
