@@ -855,6 +855,7 @@ header.nav .logo{
     letter-spacing: 0.15em;
     line-height: 1.6em;
     position: relative;
+    margin-top: 4rem;
 }
 
 .large .Footer-col:first-child{
@@ -1072,7 +1073,7 @@ header.nav .logo{
 
 .page-collection{
     /* background: white; */
-    /* padding: 6em 2em; */
+    padding: 0 1em;
 }
 
 .page-collection .header-img img{
@@ -1081,8 +1082,8 @@ header.nav .logo{
     
 }
 
-.portrait .page-collection{
-    padding: 3em .5em;
+.small .page-collection{
+    padding: 0 .5em;
 }
 
 .page-collection .title{
