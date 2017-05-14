@@ -110,9 +110,9 @@ app.route('/collections').get(function(req, res) {
       var layoutDefered =  api.query( prismic.Predicates.at('document.type', 'layout') )
       var collectionsPageDefered = Q.defer()
 
-      api.query( prismic.Predicates.at('document.type', 'collections-page') )
+      api.query( prismic.Predicates.at('document.type', 'collection-page') )
       .then(function(collectionPage){
-        var sections = collectionPage.results[0].getGroup('collections-page.collections').toArray()
+        var sections = collectionPage.results[0].getGroup('collection-page.collections').toArray()
         var productsPromises = []
 
         sections.forEach(function(section) {
