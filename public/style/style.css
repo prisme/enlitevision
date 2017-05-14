@@ -84,7 +84,7 @@ body.noscroll{
 }
 
 .small .content{
-    padding: 0;
+    padding: 0 1em;
 }
 .wrapper {
     position: relative;
@@ -949,8 +949,8 @@ header.nav .logo{
 
 .page-product .product{
     background: white;
-    display: flex;
-    padding: 13% 10% 5%;
+    /* display: flex; */
+    /* padding: 13% 10% 5%; */
     font-family: 'novecento-medium';
     font-size: 1.2em;
     letter-spacing: 0.2em;
@@ -972,13 +972,13 @@ header.nav .logo{
 }
 
 .product-info{
-    padding-right: 5%;
-    min-width: 40%;
-    padding-top: 4em;
+    /* padding-right: 5%; */
+    /* min-width: 40%; */
+    /* padding-top: 4em; */
     position: relative;
 }
 .portrait  .product-info{
-    padding-top: 2em;
+    /* padding-top: 2em; */
 }
 
 .page-product .frame,
@@ -986,7 +986,7 @@ header.nav .logo{
     display: none;
 }
 .page-product.content{
-    padding: 0;
+    /* padding: 0; */
     min-height: 100vh;
     background: white;
 }
@@ -996,8 +996,8 @@ header.nav .logo{
     font-size: .9em;
     line-height: 1.1em;
     height: 2.2em;
-    position: absolute;
-    top: 30%;
+    /* position: absolute; */
+    /* top: 30%; */
 }
 
 .portrait .product-collection{
@@ -1005,7 +1005,7 @@ header.nav .logo{
 }
 
 .product-image{
-    padding-top: 3.5em;
+    /* padding-top: 3.5em; */
 }
 
 .product-name,
@@ -1031,6 +1031,7 @@ header.nav .logo{
     margin: 5% 0;
 }
 
+.product-image-side img,
 .product-image img{
     display: block;
     width: 100%;
@@ -1134,6 +1135,6 @@ header.nav .logo{
 }
 
 .small .product-name{
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
