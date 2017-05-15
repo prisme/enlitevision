@@ -24,7 +24,8 @@ mixin textLeft(slice)
   .Slice.Slice--text-left.clearfix.my4.pb4.md-flex.items-stretch
     .Slice-text.md-col.md-col-5
       .title.novecento-bold
-        != slice.nonRepeat.title.asHtml()
+        a(href = slice.nonRepeat.collectionUID ? '/collections/#' + slice.nonRepeat.collectionUID.value : '#' )
+          != slice.nonRepeat.title.asHtml()
       .desc.novecento-condensed.my2
         != slice.nonRepeat.description.asHtml()
       a.Slice-collectionLink.mb2(href= slice.nonRepeat.collectionUID ? '/collections/#' + slice.nonRepeat.collectionUID.value : '#')
@@ -42,6 +43,7 @@ mixin textLeft(slice)
         .swiper-wrapper
           each item in slice.repeat.toArray()
             .swiper-slide(style='background-image: url(' + item.getImage('image').url +')')
+              a(href = slice.nonRepeat.collectionUID ? '/collections/#' + slice.nonRepeat.collectionUID.value : '#' )
               img(src= item.getImage('image').url, alt='' )
 
 
@@ -50,11 +52,13 @@ mixin textRight(slice)
 
     .Slice-text.md-col.md-col-5.order-2
       .title.novecento-bold
-        != slice.nonRepeat.title.asHtml()
+        a(href = slice.nonRepeat.collectionUID ? '/collections/#' + slice.nonRepeat.collectionUID.value : '#' )
+          != slice.nonRepeat.title.asHtml()
       .desc.novecento-condensed.my2
         != slice.nonRepeat.description.asHtml()
       a.Slice-collectionLink.mb2(href= slice.nonRepeat.collectionUID ? '/collections/#' + slice.nonRepeat.collectionUID.value : '#')
         | go to collection
+
       video.cinemagraph(autoplay='', muted='', loop='', preload='auto', playsinline='')
         - var videoUrl = slice.nonRepeat.videoUrl ? slice.nonRepeat.videoUrl.value.url : ''
         source(src= ''+videoUrl, type='video/mp4')
@@ -67,6 +71,7 @@ mixin textRight(slice)
         .swiper-wrapper
           each item in slice.repeat.toArray()
             .swiper-slide(style='background-image: url(' + item.getImage('image').url +')')
+              a(href = slice.nonRepeat.collectionUID ? '/collections/#' + slice.nonRepeat.collectionUID.value : '#' )
               img(src= item.getImage('image').url, alt='' )
 
 
