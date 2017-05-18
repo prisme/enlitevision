@@ -51,9 +51,10 @@ docReady( function() {
 
       new swiper (element, {
         loop: true,
-        autoHeight: true,
-        effect: 'slide',
-        speed: 800,
+        // autoHeight: true,
+        // autoplay: 3500,
+        // effect : 'coverflow',
+        speed: 1000,
         pagination: paginElement,
         paginationClickable: true
       })

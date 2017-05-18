@@ -9,16 +9,21 @@ block prepend body
       for section in pageContent
         a(id=section.uid)
 
-        section.collection-section.pt4
+        section.collection-section.pt4.clearfix
           - var title = section.getStructuredText('collection.title')
+          - var description = section.getStructuredText('collection.description')
           - var header = section.getImage('collection.header')
 
           if title
-            .title.mb1
+            .title.mb1.col-12
               != title.asHtml()
 
+          if description
+            .description.mb1.col-7.mb2
+              != description.asHtml()
+
           if header
-            .header-img.pb3
+            .header-img.pb3.col-12
               img(src= header.url, alt='' )
 
           if section.products.length > 0

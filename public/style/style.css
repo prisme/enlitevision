@@ -1103,6 +1103,12 @@ header.nav .logo{
     letter-spacing: .3em;
 }
 
+.page-collection .description{
+    font-family: novecento-condensed-book;
+    line-height: 1.3em;
+    letter-spacing: .1em;
+}
+
 .page-collection .products{
     display: flex;
     flex-wrap: wrap;
