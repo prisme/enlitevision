@@ -8,8 +8,10 @@ mixin intro(slice)
         .swiper-wrapper
 
           each item in slice.repeat.toArray()
-            .swiper-slide(style='background-image: url(' + item.getImage('image').url +')')
-              img(src= item.getImage('image').url, alt='' )
+            - var img = item.getImage('image')
+            if img
+              .swiper-slide(style='background-image: url(' + img.url +')')
+                img(src= img.url, alt='' )
 
     .md-col.md-col-1.order-1 &nbsp;
 
@@ -42,9 +44,11 @@ mixin textLeft(slice)
       .swiper-container
         .swiper-wrapper
           each item in slice.repeat.toArray()
-            .swiper-slide(style='background-image: url(' + item.getImage('image').url +')')
-              a(href = slice.nonRepeat.collectionUID ? '/collections/#' + slice.nonRepeat.collectionUID.value : '#' )
-              img(src= item.getImage('image').url, alt='' )
+            - var img = item.getImage('image')
+            if img
+              .swiper-slide(style='background-image: url(' + img.url +')')
+                a(href = slice.nonRepeat.collectionUID ? '/collections/#' + slice.nonRepeat.collectionUID.value : '#' )
+                img(src= img.url, alt='' )
 
 
 mixin textRight(slice)
@@ -70,9 +74,11 @@ mixin textRight(slice)
       .swiper-container
         .swiper-wrapper
           each item in slice.repeat.toArray()
-            .swiper-slide(style='background-image: url(' + item.getImage('image').url +')')
-              a(href = slice.nonRepeat.collectionUID ? '/collections/#' + slice.nonRepeat.collectionUID.value : '#' )
-              img(src= item.getImage('image').url, alt='' )
+            - var img = item.getImage('image')
+            if img
+              .swiper-slide(style='background-image: url(' + img.url +')')
+                a(href = slice.nonRepeat.collectionUID ? '/collections/#' + slice.nonRepeat.collectionUID.value : '#' )
+                img(src= img.url, alt='' )
 
 
 block body
