@@ -1,11 +1,11 @@
 extends ./layout
 
 block body
-  .content.page-product
+  .content.Product
     div.max-width-4.mx-auto
         include ./partials/header
 
-        .product.clearfix.py4.my4
+        .Product-wrapper.clearfix.md-flex.py4.my4
           - var image = productContent.getImage('product.img')
           - var side_image = productContent.getImage('product.side-img')
 
@@ -17,17 +17,29 @@ block body
           - var collection = productContent.tags.indexOf('sun') > -1 ? 'sun': 'optical'
           - var material = productContent.tags.indexOf('supernatural') > -1 ? 'supernatural' : productContent.tags.indexOf('acetate') > -1 ? 'acetate' : ''
 
-          .col.col-6
-            .product-collection
+          .sm-col.sm-col-12.md-col-6.relative.order-1
+            .swiper-pagination
+            .swiper-container.Product-images
+              .swiper-wrapper
+                if image
+                  .swiper-slide
+                    img(src=image.url)
+
+                if side_image
+                  .swiper-slide
+                    img(src = side_image.url)
+
+          .Product-description.sm-col.sm-col-12.md-col-6.order-0
+            .Product-collection
               != collection + ' collection'
               != '<br>' + material
 
-            .product-info(data-wio-id=''+productContent.id)
+            .Product-info(data-wio-id=''+productContent.id)
 
-              .product-name
+              .Product-name
                 != name ? name + ' ' : ''
 
-              .product-details
+              .Product-details
                 p
                   != frame ? 'frame: ' + frame : ''
                 p
@@ -35,22 +47,16 @@ block body
                 p
                   != ref ? 'article n°: ' + ref : ''
 
-              .product-price
+              .Product-price
                 != price ? "€" + price : ''
 
               //- include ./partials/add-to-cart-button.pug
 
-          .col.col-6
-            if image
-              .product-image
-                img(src=image.url)
 
-            if side_image
-              .product-image-side.mt4
-                img(src = side_image.url)
+
 
         if relatedProducts.results_size > 0
-          div.related
+          div.Product-related
             h2 More Colours
             div.recommended-wrapper
               for relatedProduct in relatedProducts.results

@@ -41,7 +41,7 @@ docReady( function() {
   }
 
   // HOME
-  if(document.querySelector('.home') !== null) {
+  if(document.querySelector('.Home') !== null) {
 
     var swipers = document.querySelectorAll('.swiper-container')
     swipers.forEach(function(element, index){
@@ -59,6 +59,24 @@ docReady( function() {
         paginationClickable: true
       })
     })
+
+  }
+
+  // PRODUCT
+  if(document.querySelector('.Product') !== null){
+    console.log('product')
+    if(document.querySelectorAll('.swiper-slide').length > 1) {
+
+      new swiper ('.swiper-container', {
+        autoplay: 6000,
+        loop: true,
+        speed: 800,
+        pagination: '.swiper-pagination',
+        paginationClickable: true
+      })
+
+    }
+
 
   }
 
