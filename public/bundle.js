@@ -64,7 +64,7 @@ docReady( function() {
 
   // PRODUCT
   if(document.querySelector('.Product') !== null){
-    console.log('product')
+
     if(document.querySelectorAll('.swiper-slide').length > 1) {
 
       new swiper ('.swiper-container', {
