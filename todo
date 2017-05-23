@@ -7,7 +7,7 @@
     components
         ✓ header
             ✓ font : novecento normal
-            responsive
+            ✓ responsive
             ✓ shop link
         ✓ footer
             ✓ responsive
@@ -49,30 +49,29 @@
         X inject videos only on large viewports
 
     effects
-        X scroll fade-in
+        scroll fade-in
         loader
-            ✓ temp patch : sections min-height
-            loading animation
 
 
-- Shop / All collections
+✓  Shop / All collections
 
     ✓ prismic
         ✓ content type
         ✓ query
-            collections route
+            ✓ collections route
         ✓ template
 
     components
         ✓ header
-        grid (bassCSS version)
+        ✓ grid (bassCSS version)
 
-    responsive
+    ✓ responsive
 
 
 - Product
-    responsive, bassCSS
+    ✓ responsive, bassCSS
 
+    related products
     gallery
     zoom
 
