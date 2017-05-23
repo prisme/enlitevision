@@ -78,25 +78,6 @@ app.route('/product/:uid').get(function(req, res) {
           res.status(404).send('404 not found');
         }
 
-        // Collect all the related product IDs for this product
-        var relatedProducts = productContent.getGroup('product.relatedProducts');
-        var relatedArray = relatedProducts ? relatedProducts.toArray() : [];
-        var relatedIDs = relatedArray.map((relatedProduct) => {
-          var link = relatedProduct.getLink('link');
-          return link ? link.id : null;
-        }).filter((id) => id != null);
-
-        // //Query the related products by their IDs
-        api.getByIDs(relatedIDs).then(function(relatedProducts) {
-
-          // Render the product page
-          res.render('product', {
-            // layoutContent: req.prismic.layoutContent,
-            productContent: productContent,
-            relatedProducts: relatedProducts,
-            pageUrl: pageUrl
-          });
-        });
       })
     })
   })
