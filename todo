@@ -12,18 +12,20 @@
         ✓ footer
             ✓ responsive
         ✓ expand menu
-            responsive
+            X responsive
 
-    X Meta Tags / Social Cards
+    XX Meta Tags / Social Cards
 
     X Google Analytics
 
     X Newsletter > Mailchimp
 
     Favicon update
-    (Js) page component by route
+    X (Js) page component by route
 
 - Home
+
+    X Fluid Type
 
     prismic
         ✓ content type
@@ -53,12 +55,14 @@
         loader
 
 
-✓  Shop / All collections
+✓  All Collections Page
+
+    XX update the menu title
+        "shop" => "collections"
 
     ✓ prismic
         ✓ content type
         ✓ query
-            ✓ collections route
         ✓ template
 
     components
@@ -66,14 +70,17 @@
         ✓ grid (bassCSS version)
 
     ✓ responsive
+        XX mobile texts columns width
 
 
 - Product
     ✓ responsive, bassCSS
 
-    related products
-    gallery
+    X related products
+    ✓ gallery
     zoom
+
+    XXX Buy Now => Snipcart configuration
 
 
 (
