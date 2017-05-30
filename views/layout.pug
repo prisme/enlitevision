@@ -12,6 +12,15 @@ html(lang='en')
     meta(property="og:description" content="EnΛite")
     meta(name="google-site-verification" content="7XnT4G6HIxMmknFOX3cnC0nOte4umY84lgowlJTpMPA")
 
+    // Google Tag Manager
+    script.
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-MZZ559C');
+    // End Google Tag Manager
+
     script(src="/public/lib/detection.js")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/picturefill/3.0.2/picturefill.min.js")
     link(rel="stylesheet" type="text/css" href="/public/style/swiper.min.css")
@@ -27,3 +36,8 @@ html(lang='en')
   block body
 
   script(src='/public/bundle.js')
+
+  // Google Tag Manager (noscript)
+  noscript
+    iframe(src='https://www.googletagmanager.com/ns.html?id=GTM-MZZ559C', height='0', width='0', style='display:none;visibility:hidden')
+  // End Google Tag Manager (noscript)
