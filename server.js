@@ -139,8 +139,8 @@ app.route('/collections').get(function(req, res) {
 });
 
 // Unique Collection Page
-app.route('/collection/:uid').get(function(req, res) {
-});
+// app.route('/collection/:uid').get(function(req, res) {
+// });
 
 // Home Page Route
 app.route('/').get(function(req, res){

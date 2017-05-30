@@ -3,7 +3,7 @@
     "uid" : {
       "type" : "UID",
       "config" : {
-        "placeholder" : "meaningful-unique-identifier...",
+        "placeholder" : "unique-identifier",
         "label" : "Unique ID"
       }
     },
@@ -28,13 +28,22 @@
       "config" : {
         "fields" : {
           "img" : {
-            "type" : "Image"
+            "type" : "Image",
+            "config" : {
+              "placeholder" : "landscape"
+            }
+          },
+          "imgPortrait" : {
+            "type" : "Image",
+            "config" : {
+              "placeholder" : "portrait"
+            }
           },
           "textColor" : {
             "type" : "Select",
             "config" : {
               "label" : "Text Color",
-              "placeholder": "( default - light )",
+              "placeholder" : "( default - light )",
               "options" : [ "dark", "light" ]
             }
           }
@@ -52,6 +61,12 @@
     "video" : {
       "type" : "Embed",
       "fieldset" : "video link"
+    },
+    "collection" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "collection"
+      }
     }
   }
 }
