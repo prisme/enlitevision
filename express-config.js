@@ -23,6 +23,7 @@ module.exports = function() {
   app.use(expressBeautify());
 
   app.use('/public', express.static(path.join(__dirname, 'public')));
+  app.use('/googlef9a3f7af3a6fba0b.html ', express.static(path.join(__dirname, 'googlef9a3f7af3a6fba0b.html')));
   app.use('/', express.static(path.join(__dirname)));
 
   return app;
