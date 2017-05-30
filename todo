@@ -57,7 +57,7 @@
 
 ✓  All Collections Page
 
-    XX update the menu title
+    ✓ update the menu title
         "shop" => "collections"
 
     ✓ prismic
