@@ -5,5 +5,8 @@ if layoutContent != null
         .Footer-col.m2
           != item.getStructuredText("column").asHtml(ctx.linkResolver)
 
-    .Footer-logo
-      img(src= layoutContent.getImage('layout.footerLogo').url, alt='enlite vision' )
+    - var logo = layoutContent.getImage('layout.footerLogo')
+
+    if logo
+      .Footer-logo
+        img(src= logo.url, alt='enlite vision' )
