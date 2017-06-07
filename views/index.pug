@@ -6,7 +6,6 @@ mixin intro(slice)
       .swiper-pagination
       .swiper-container
         .swiper-wrapper
-
           each item in slice.repeat.toArray()
             - var img = item.getImage('image')
             if img
@@ -16,7 +15,9 @@ mixin intro(slice)
     .md-col.md-col-1.order-1 &nbsp;
 
     .Slice-text.sm-col.sm-col-12.md-col-5.order-0
-      img.logo(src= slice.nonRepeat.logo.url, alt='' )
+
+      if slice.nonRepeat.logo
+        img.logo(src= slice.nonRepeat.logo.url, alt='' )
 
       .desc.mt1.novecento-condensed
         != slice.nonRepeat.text.asHtml()
