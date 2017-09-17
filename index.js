@@ -1,7 +1,7 @@
 var docReady = require('doc-ready')
 var gsap = require('gsap')
 var split = require('./public/lib/SplitText')
-var scrollMonitor = require('scrollmonitor')
+// var scrollMonitor = require('scrollmonitor')
 var swiper = require('swiper')
 
 docReady( function() {
@@ -73,11 +73,54 @@ docReady( function() {
         pagination: '.swiper-pagination',
         paginationClickable: true
       })
-
     }
-
-
   }
+
+  // SNIPCART
+  var shoppingCart = document.querySelector('.shopping-cart')
+  var cartCount = document.querySelector('.cart-count')
+
+  // Function to remove the cart count and reset the cart color
+  function defaultCart() {
+      cartCount.classList.remove('active')
+      shoppingCart.classList.remove('active')
+  }
+
+  // Function to show the cart count and change the color of the cart to green
+  function highlightCart() {
+      cartCount.classList.add('active')
+      shoppingCart.classList.add('active')
+  }
+
+  // If there is nothing in the cart on page load, don't display a number
+  Snipcart.subscribe('cart.ready', function (data) {
+    var cartCount = data.order ? data.order.items.length : 0;
+    if (cartCount > 0) {
+      highlightCart()
+    }
+  });
+
+  // If an item is added to the cart, set to highlighted cart
+  Snipcart.subscribe('item.added', function (ev, item, items) {
+    highlightCart()
+    // $("html, body").animate({ scrollTop: 0 }, "slow");
+    // $('.added-to-cart').stop(true, false).slideDown('slow').delay(2000).slideUp('slow');
+    return false;
+  });
+
+  // If all items are removed, set to default cart
+  Snipcart.subscribe('item.removed', function (ev, item, items) {
+    var cartCount = Snipcart.api.items.count();
+    if (cartCount == 0) {
+      defaultCart()
+    }
+  });
+
+  // If an order is completed, set to default cart
+  Snipcart.subscribe('order.completed', function (data) {
+    defaultCart()
+  });
+
 
 
 })
