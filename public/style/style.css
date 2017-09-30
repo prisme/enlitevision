@@ -132,6 +132,12 @@ header.nav a {
 	letter-spacing: .15em;
 }
 
+.small header.nav a.nav-home{
+    position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+}
+
 .Menu-list {
 	position: absolute;
 	top: 0;
@@ -976,11 +982,16 @@ header.nav{
 
 header.nav .snipcart-checkout {
   position: absolute;
-  right: -10px;
+  right: 0px;
   top: 30px;
   opacity: 1;
 }
-
+.small header.nav .snipcart-checkout{
+	top: 0;
+}
+.small .shopping-cart{
+	width: 14px;
+}
 .shopping-cart {
   width: 20px;
   height: 20px;
