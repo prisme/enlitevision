@@ -62,9 +62,15 @@ block body
               for relatedProduct in relatedProducts.results
                 - var relatedImage = relatedProduct.getImage('product.img')
                 - var relatedImageURL = relatedImage ? relatedImage.url : ""
+                - var relatedSide_image = productContent.getImage('product.side-img')
+                - var relatedSide_imageURL = relatedSide_image ? relatedSide_image.url : ""
 
                 div.recommended-product
                   a(href=ctx.linkResolver(relatedProduct))
-                    img.recommended-image(src=relatedImageURL)
+                    if relatedImage
+                      img.recommended-image(src=relatedImageURL)
+                    else
+                      img.recommended-image(src=relatedSide_imageURL)
+
 
         include ./partials/footer
