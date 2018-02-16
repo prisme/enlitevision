@@ -228,6 +228,10 @@ header.nav .logo {
 	position: relative;
 }
 
+.Home .Slice-text p{
+    margin: 1em 0;
+}
+
 .small .Home .Slice-text {
 	width: 85%;
 	font-size: 0.6em;
