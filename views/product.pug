@@ -17,7 +17,7 @@ block body
           - var collection = productContent.tags.indexOf('sun') > -1 ? 'sun': 'optical'
           - var material = productContent.tags.indexOf('supernatural') > -1 ? 'supernatural' : productContent.tags.indexOf('acetate') > -1 ? 'acetate' : ''
 
-          .sm-col.sm-col-12.md-col-6.relative.order-1
+          .Product-gallery.sm-col.sm-col-12.md-col-6.relative.order-1
             .swiper-pagination
             .swiper-container.Product-images
               .swiper-wrapper
@@ -31,8 +31,7 @@ block body
 
           .Product-description.sm-col.sm-col-12.md-col-6.order-0
             .Product-collection
-              != collection + ' collection'
-              != '<br>' + material
+              != collection + ' collection ' + material
 
             .Product-info(data-wio-id=''+productContent.id)
 
@@ -44,8 +43,8 @@ block body
                   != frame ? 'frame: ' + frame : ''
                 p
                   != lens ? 'lens: ' + lens : ''
-                p
-                  != ref ? 'article n°: ' + ref : ''
+                // p
+                //   != ref ? 'article n°: ' + ref : ''
 
               .Product-price
                 != price ? "€" + price : ''

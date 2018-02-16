@@ -31,7 +31,7 @@ mixin textLeft(slice)
           != slice.nonRepeat.title.asHtml()
       //- .desc.novecento-condensed.my2
       //-   != slice.nonRepeat.description.asHtml()
-      a.Slice-collectionLink.py2(href= slice.nonRepeat.collectionUID ? '/collections/#' + slice.nonRepeat.collectionUID.value : '#')
+      a.Slice-collectionLink.py1(href= slice.nonRepeat.collectionUID ? '/collections/#' + slice.nonRepeat.collectionUID.value : '#')
         | go to collection
 
       video.cinemagraph(autoplay='', muted='', loop='', preload='auto', playsinline='')
