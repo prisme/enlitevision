@@ -709,7 +709,9 @@ header.nav .logo {
 	position: relative;
 	margin-top: 4rem;
 }
-
+.Footer-col > p {
+    margin-top: 0;
+}
 .large .Footer-col:first-child {
 	margin-left: 0;
 }
