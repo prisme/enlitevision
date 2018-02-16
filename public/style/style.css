@@ -138,6 +138,7 @@ header.nav a {
         transform: translateX(-50%);
 }
 
+
 .Menu-list {
 	position: absolute;
 	top: 0;
@@ -1022,6 +1023,7 @@ header.nav .logo {
 
 header.nav{
     position: relative;
+    justify-content: center;
 }
 
 header.nav .snipcart-checkout {
