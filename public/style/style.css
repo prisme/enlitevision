@@ -223,13 +223,18 @@ header.nav .logo {
 
 .Home .Slice-text {
 	font-size: 1.1em;
-	letter-spacing: 0.15em;
-	line-height: 1.2em;
-	position: relative;
+    letter-spacing: 0.12em;
+    line-height: 1.2em;
+    position: relative;
+    word-spacing: 0.12em;
 }
 
 .Home .Slice-text p{
     margin: 1em 0;
+}
+
+.Home .Slice-text a{
+    color: inherit;
 }
 
 .small .Home .Slice-text {
