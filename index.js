@@ -44,6 +44,7 @@ docReady( function() {
 
     var swipers = document.querySelectorAll('.swiper-container')
     swipers.forEach(function(element, index){
+
       var paginElement = element.previousElementSibling
 
       if(element.querySelectorAll('.swiper-slide').length < 2) return
@@ -51,9 +52,9 @@ docReady( function() {
       new swiper (element, {
         loop: true,
         // autoHeight: true,
-        // autoplay: 3500,
-        // effect : 'coverflow',
-        speed: 1000,
+        autoplay: 3500 + (Math.random() * 1000),
+        effect : 'fade',
+        speed: 800,
         pagination: paginElement,
         paginationClickable: true
       })

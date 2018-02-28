@@ -112,11 +112,11 @@ body.noscroll {
 /* globals */
 .content {
 	position: relative;
-	padding: 0 2em;
+	padding: 4em 4em;
 }
 
 .small .content {
-	padding: 0 1em;
+	padding: 2em 2em 12em;
 }
 
 .wrapper {
@@ -215,8 +215,8 @@ header.nav .logo {
 */
 /* HOME */
 .small .Home .Slice {
-	margin-top: 2rem;
-	margin-bottom: 2rem;
+	margin-top: 3rem;
+	margin-bottom: 3rem;
 	padding-bottom: 0.7rem;
 }
 
@@ -234,11 +234,21 @@ header.nav .logo {
 }
 
 .Home .Slice-text p{
-    margin: 1em 0;
+    margin: 0;
 }
 
 .Home .Slice-text a{
     color: inherit;
+    text-decoration: none;
+}
+
+.small .Home .Slice-text .desc{
+	
+}
+
+.Home .Slice-text .desc{
+	font-size: .7em;
+	line-height: 1.3em;
 }
 
 .small .Home .Slice-text {
@@ -251,7 +261,7 @@ header.nav .logo {
 }
 
 .small .Home .Slice--intro .Slice-text {
-	margin-left: 32%;
+	margin-left: 40%;
 	width: initial;
 	padding-right: 1em;
 	margin-top: 1.4em;
@@ -957,18 +967,13 @@ header.nav .logo {
 	width: 100%;
 }
 
-.page-collection {
-	/* background: white; */
-	padding: 0 1em;
-}
-
 .page-collection .header-img img {
 	display: block;
 	width: 100%;
 }
 
 .small .page-collection {
-	padding: 0 1em;
+	padding-top: 4em;
 }
 
 .page-collection .title {
@@ -1037,8 +1042,11 @@ header.nav .logo {
 }
 
 header.nav{
-    position: relative;
+    position: fixed;
     justify-content: center;
+    width: 100%;
+    top: 0;
+    z-index: 2;
 }
 
 header.nav .snipcart-checkout {

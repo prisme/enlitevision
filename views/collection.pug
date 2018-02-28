@@ -1,10 +1,11 @@
 extends ./layout
 
 block prepend body
+  include ./partials/header
 
   .content.page-collection
     div.max-width-4.mx-auto
-      include ./partials/header
+
 
       for section in pageContent
         a(id=section.uid)

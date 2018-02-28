@@ -29,10 +29,11 @@ mixin textLeft(slice)
       .title.novecento-bold
         a(href = slice.nonRepeat.collectionUID ? '/collections/#' + slice.nonRepeat.collectionUID.value : '#' )
           != slice.nonRepeat.title.asHtml()
-      //- .desc.novecento-condensed.my2
-      //-   != slice.nonRepeat.description.asHtml()
-      a.Slice-collectionLink.py1(href= slice.nonRepeat.collectionUID ? '/collections/#' + slice.nonRepeat.collectionUID.value : '#')
-        | go to collection
+      .desc.novecento-condensed.my2
+        a(href= slice.nonRepeat.collectionUID ? '/collections/#' + slice.nonRepeat.collectionUID.value : '#')
+          != slice.nonRepeat.description.asHtml()
+      //- a.Slice-collectionLink.py1(href= slice.nonRepeat.collectionUID ? '/collections/#' + slice.nonRepeat.collectionUID.value : '#')
+      //-   | go to collection
 
       video.cinemagraph(autoplay='', muted='', loop='', preload='auto', playsinline='')
         - var videoUrl = slice.nonRepeat.videoUrl ? slice.nonRepeat.videoUrl.value.url : ''
@@ -59,10 +60,11 @@ mixin textRight(slice)
       .title.novecento-bold
         a(href = slice.nonRepeat.collectionUID ? '/collections/#' + slice.nonRepeat.collectionUID.value : '#' )
           != slice.nonRepeat.title.asHtml()
-      //- .desc.novecento-condensed.my2
-      //-   != slice.nonRepeat.description.asHtml()
-      a.Slice-collectionLink.py2(href= slice.nonRepeat.collectionUID ? '/collections/#' + slice.nonRepeat.collectionUID.value : '#')
-        | go to collection
+      .desc.novecento-condensed.my2
+        a(href= slice.nonRepeat.collectionUID ? '/collections/#' + slice.nonRepeat.collectionUID.value : '#')
+          != slice.nonRepeat.description.asHtml()
+      //- a.Slice-collectionLink.py2(href= slice.nonRepeat.collectionUID ? '/collections/#' + slice.nonRepeat.collectionUID.value : '#')
+      //-   | go to collection
 
       video.cinemagraph(autoplay='', muted='', loop='', preload='auto', playsinline='')
         - var videoUrl = slice.nonRepeat.videoUrl ? slice.nonRepeat.videoUrl.value.url : ''
@@ -83,12 +85,13 @@ mixin textRight(slice)
 
 
 block body
+  include ./partials/header
 
   .content.Home
 
     div.max-width-4.mx-auto
 
-      include ./partials/header
+
 
       - var sliceZone = pageContent.getSliceZone('home-page.body') || {}
       for slice in sliceZone.slices

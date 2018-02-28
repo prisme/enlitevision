@@ -2,7 +2,7 @@ if layoutContent != null
   footer.Footer.clearfix.py4
     div.md-flex.justify-between
       each item, index in layoutContent.getGroup('layout.footerColumns').toArray()
-        .Footer-col.m2
+        .Footer-col.my2
           != item.getStructuredText("column").asHtml(ctx.linkResolver)
 
     - var logo = layoutContent.getImage('layout.footerLogo')

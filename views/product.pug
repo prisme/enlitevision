@@ -1,9 +1,10 @@
 extends ./layout
 
 block body
+  include ./partials/header
+
   .content.Product
     div.max-width-4.mx-auto
-        include ./partials/header
 
         .Product-wrapper.clearfix.md-flex.py4.my4
           - var image = productContent.getImage('product.img')
