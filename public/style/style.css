@@ -243,7 +243,7 @@ header.nav .logo {
 }
 
 .small .Home .Slice-text .desc{
-	
+
 }
 
 .Home .Slice-text .desc{
@@ -1039,17 +1039,26 @@ header.nav .logo {
 }
 
 .page-collection .product-name {
-	font-size: 0.9em;
-	letter-spacing: 0.2em;
-	line-height: 1.4;
-	font-weight: normal;
-	font-family: novecento-medium;
-	color: #333;
+    font-size: 1.0em;
+    letter-spacing: 0.2em;
+    line-height: 1.4;
+    font-weight: normal;
+    font-family: novecento-medium;
+    color: #333;
 }
 
 .small .product-name {
-	margin-top: 1rem;
-	margin-bottom: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.page-collection .product-stock {
+	font-size: 0.8em;
+	letter-spacing: 0.2em;
+	line-height: 2.0;
+	font-weight: normal;
+	font-family: novecento-medium;
+	color: #777;
 }
 
 header.nav{
