@@ -70,7 +70,8 @@ docReady( function() {
       new swiper ('.swiper-container', {
         autoplay: 6000,
         loop: true,
-        speed: 800,
+        speed: 600,
+        effect : 'fade',
         pagination: '.swiper-pagination',
         paginationClickable: true
       })

@@ -124,7 +124,7 @@ body.noscroll {
 }
 
 .small header.nav {
-	margin-bottom: 1.4rem;
+	/* margin-bottom: 1.4rem; */
 }
 
 header.nav a {
@@ -859,6 +859,10 @@ header.nav .logo {
 	position: relative;
 }
 
+.small.Product.content{
+	padding: 2em 1em 12em;
+}
+
 .Product.content {
 	min-height: 100vh;
 	background: white;
@@ -910,7 +914,14 @@ header.nav .logo {
 	font-size: 0.8em;
 }
 
+.small .Product .button.add-to-cart {
+	bottom: 0;
+}
+
 .Product .button.add-to-cart {
+	position: relative;
+	bottom: -5em;
+
 	border: 2px solid black;
 	padding: 3% 12%;
 	text-transform: uppercase;
