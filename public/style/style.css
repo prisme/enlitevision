@@ -1088,7 +1088,7 @@ header.nav .snipcart-checkout {
   margin-left: 5px;
   background: #FFFFFF center center no-repeat;
   background-size: 100%;
-  background-image: url('https:icon.now.sh/shopping_cart/000000');
+  background-image: url('https://icon.now.sh/shopping_cart/000000');
   opacity: 0;
   transition: opacity .3s ease-in-out;
   pointer-events: none;
