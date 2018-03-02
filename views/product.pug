@@ -32,7 +32,8 @@ block body
 
           .Product-description.sm-col.sm-col-12.md-col-6.order-0
             .Product-collection
-              != collection + ' collection ' + material
+              a(href='/collections')
+                != collection + ' collection ' + material
 
             .Product-info(data-wio-id=''+productContent.id)
 
