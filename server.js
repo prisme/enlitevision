@@ -110,7 +110,8 @@ app.route('/collections').get(function(req, res) {
             api.query([
               prismic.Predicates.at('document.type', 'product'),
               prismic.Predicates.at('document.tags', collectionTags)
-            ])
+            ],
+              { pageSize : 100 })
             .then(function(products){
               collectionSection.products = products.results
               deferred.resolve(collectionSection)
