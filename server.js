@@ -107,11 +107,12 @@ app.route('/collections').get(function(req, res) {
             if( collectionTags.length == 0 ) deferred.resolve(collectionSection)
 
             // get collection products by tag
-            api.query([
-              prismic.Predicates.at('document.type', 'product'),
-              prismic.Predicates.at('document.tags', collectionTags)
-            ],
-              { pageSize : 100 })
+            api.query(
+              [
+                prismic.Predicates.at('document.type', 'product'),
+                prismic.Predicates.at('document.tags', collectionTags)
+              ],
+              { pageSize : 100 }, orderings : '[document.name]')
             .then(function(products){
               collectionSection.products = products.results
               deferred.resolve(collectionSection)
