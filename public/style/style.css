@@ -1007,10 +1007,16 @@ header.nav .logo {
 	justify-content: flex-start;
 }
 
-.page-collection .product {
-	/* box-sizing: border-box; */
-	/* padding: 1.5em; */
+.page-collection .header-img {
+    /*max-height: 402px;*/
+    /*overflow: hidden;*/
 }
+.page-collection .product.soldout {
+    opacity: .8;
+/*    cursor: default;
+    pointer-events: none;*/
+}
+.page-collection .product {}
 
 .landscape .page-collection .product {
 	/* width: 33%; */
@@ -1039,12 +1045,12 @@ header.nav .logo {
 }
 
 .page-collection .product-name {
-    font-size: 1.0em;
-    letter-spacing: 0.2em;
+    font-size: 0.9em;
+    letter-spacing: 0.1em;
     line-height: 1.4;
     font-weight: normal;
     font-family: novecento-medium;
-    color: #333;
+    color: #444;
 }
 
 .small .product-name {

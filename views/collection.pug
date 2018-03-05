@@ -30,27 +30,31 @@ block prepend body
           if section.products.length > 0
             .products
               for product in section.products
-                - var name = product.getText('product.fullName')
                 - var front = product.getImage('product.img')
                 - var side = product.getImage('product.side-img')
+
+                //- - var front = product.getImageView('product.img', 'SD').url
+                //- - var side = product.getImageView('product.side-img', 'SD').url
+
+                - var name = product.getText('product.fullName')
                 - var displayed = product.getText('product.displayed') == "yes" ? true : false
-                - var stock = product.getText('product.stock')
+                - var stock = product.getText('product.stock') == "in stock" ? true : false
+                - var soldoutClass = !stock ? ' soldout' : ''
 
                 if displayed
-                  .product.sm-col.sm-col-6.md-col-4.py2
+                  div(class='product sm-col sm-col-6 md-col-4 py2' + soldoutClass )
                     a(href=ctx.linkResolver(product))
 
                       if side != null
                         img.product-img-side(src = side.url, alt = name)
-                      else
-                        if front != null
+                      else if front != null
                           img.product-img(src = front.url, alt = name)
                       if name
                         .product-name.mt3
                           != name
 
-                      if stock != "in stock"
+                      if !stock
                         .product-stock.mb3
-                          != stock
+                          != "out of stock"
 
       include ./partials/footer

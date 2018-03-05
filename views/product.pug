@@ -18,6 +18,9 @@ block body
           - var collection = productContent.tags.indexOf('sun') > -1 ? 'sun': 'optical'
           - var material = productContent.tags.indexOf('supernatural') > -1 ? 'supernatural' : productContent.tags.indexOf('clip-on') > -1 ? 'beta-titanium' : productContent.tags.indexOf('acetate') > -1 ? 'acetate' : ''
 
+          - var stock = productContent.getText('product.stock') == "in stock" ? true : false
+
+
           .Product-gallery.sm-col.sm-col-12.md-col-6.relative.order-1
             .swiper-pagination
             .swiper-container.Product-images
@@ -51,10 +54,8 @@ block body
               .Product-price
                 != price ? "€" + price : ''
 
-              include ./partials/add-to-cart-button.pug
-
-
-
+              if stock
+                include ./partials/add-to-cart-button.pug
 
         if relatedProducts.results_size > 0
           div.Product-related
