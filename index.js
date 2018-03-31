@@ -60,6 +60,19 @@ docReady( function() {
       })
     })
 
+
+    var videos
+    if( document.querySelector('.mobile') == null ){
+        videos = document.querySelectorAll('.cinemagraph')
+        videos = Array.apply(null, videos)
+
+        videos.forEach(function(video){
+            var source = document.createElement('source')
+            source.src = video.dataset["url"]
+            video.appendChild(source)
+        })
+    }
+
   }
 
   // PRODUCT

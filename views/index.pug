@@ -35,9 +35,9 @@ mixin textLeft(slice)
       //- a.Slice-collectionLink.py1(href= slice.nonRepeat.collectionUID ? '/collections/#' + slice.nonRepeat.collectionUID.value : '#')
       //-   | go to collection
 
-      video.cinemagraph(autoplay='', muted='', loop='', preload='auto', playsinline='')
-        - var videoUrl = slice.nonRepeat.videoUrl ? slice.nonRepeat.videoUrl.value.url : ''
-        source(src= ''+videoUrl, type='video/mp4')
+      - var videoUrl = slice.nonRepeat.videoUrl ? slice.nonRepeat.videoUrl.value.url : ''
+      video.cinemagraph(autoplay='', muted='', loop='', preload='auto', playsinline='', data-url=''+videoUrl)
+        //- source(src= ''+videoUrl, type='video/mp4')
 
     .md-col.md-col-1 &nbsp;
 
@@ -66,9 +66,9 @@ mixin textRight(slice)
       //- a.Slice-collectionLink.py2(href= slice.nonRepeat.collectionUID ? '/collections/#' + slice.nonRepeat.collectionUID.value : '#')
       //-   | go to collection
 
+      - var videoUrl = slice.nonRepeat.videoUrl ? slice.nonRepeat.videoUrl.value.url : ''
       video.cinemagraph(autoplay='', muted='', loop='', preload='auto', playsinline='')
-        - var videoUrl = slice.nonRepeat.videoUrl ? slice.nonRepeat.videoUrl.value.url : ''
-        source(src= ''+videoUrl, type='video/mp4')
+        //- source(src= ''+videoUrl, type='video/mp4')
 
     .md-col.md-col-1.order-1 &nbsp;
 
