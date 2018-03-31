@@ -67,7 +67,7 @@ mixin textRight(slice)
       //-   | go to collection
 
       - var videoUrl = slice.nonRepeat.videoUrl ? slice.nonRepeat.videoUrl.value.url : ''
-      video.cinemagraph(autoplay='', muted='', loop='', preload='auto', playsinline='')
+      video.cinemagraph(autoplay='', muted='', loop='', preload='auto', playsinline='', data-url=''+videoUrl)
         //- source(src= ''+videoUrl, type='video/mp4')
 
     .md-col.md-col-1.order-1 &nbsp;
@@ -90,8 +90,6 @@ block body
   .content.Home
 
     div.max-width-4.mx-auto
-
-
 
       - var sliceZone = pageContent.getSliceZone('home-page.body') || {}
       for slice in sliceZone.slices

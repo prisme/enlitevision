@@ -15,7 +15,7 @@ block body
           - var name = productContent.getText('product.fullName')
           - var frame = productContent.getText('product.frame')
           - var lens = productContent.getText('product.lens')
-          - var collection = productContent.tags.indexOf('sun') > -1 ? 'sun': 'optical'
+          - var collection = productContent.tags.indexOf('theopsy') > -1 ? 'theopsy': productContent.tags.indexOf('sun') > -1 ? 'sun': 'optical'
           - var material = productContent.tags.indexOf('supernatural') > -1 ? 'supernatural' : productContent.tags.indexOf('clip-on') > -1 ? 'beta-titanium' : productContent.tags.indexOf('acetate') > -1 ? 'acetate' : ''
 
           - var stock = productContent.getText('product.stock') == "in stock" ? true : false
@@ -35,7 +35,8 @@ block body
 
           .Product-description.sm-col.sm-col-12.md-col-6.order-0
             .Product-collection
-              a(href='/collections')
+              - var anchor = material != '' ? collection+'-'+material : collection
+              a(href='/collections#'+anchor)
                 != collection + ' collection ' + material
 
             .Product-info(data-wio-id=''+productContent.id)

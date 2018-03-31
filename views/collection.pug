@@ -39,10 +39,10 @@ block prepend body
                 - var name = product.getText('product.fullName')
                 - var displayed = product.getText('product.displayed') == "yes" ? true : false
                 - var stock = product.getText('product.stock') == "in stock" ? true : false
-                - var soldoutClass = !stock ? ' soldout' : ''
+                - var stockClass = !stock ? ' soldout' : ''
 
                 if displayed
-                  div(class='product sm-col sm-col-6 md-col-4 py2' + soldoutClass )
+                  div(class='product sm-col sm-col-6 md-col-6 py2' + stockClass )
                     a(href=ctx.linkResolver(product))
 
                       if side != null
