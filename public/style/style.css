@@ -418,13 +418,16 @@ header.nav .logo {
 }
 
 .small .swiper-pagination-bullet {
-	width: 4px;
-	height: 4px;
+	width: 5px;
+	height: 5px;
 }
 
 .swiper-pagination-bullet {
 	opacity: .5;
 	margin: 0 0.5em;
+	border: 1px solid white;
+	width: 8px;
+	height: 8px;
 }
 
 .Home .Slice .swiper-pagination-bullet:last-child {
@@ -932,7 +935,8 @@ header.nav .logo {
   font-size: 24px;
 }
 
-.Product-name, .Product-price {
+.Product-name,
+.Product-price {
 	font-family: 'novecento-bold';
 	font-size: 0.8em;
 }
@@ -997,7 +1001,8 @@ header.nav .logo {
 
 .Product .Product-related h2 {
 	text-transform: uppercase;
-	font-size: 1em;
+    letter-spacing: 0.2em;
+    font-size: 0.8em;
 }
 
 .recommended-wrapper {

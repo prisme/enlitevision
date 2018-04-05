@@ -25,16 +25,20 @@ block prepend body
 
           if header
             .header-img.pb3.col-12
-              img(src= header.url, alt='' )
+              img(src= header.url, alt='')
 
           if section.products.length > 0
             .products
-              for product in section.products
-                - var front = product.getImage('product.img')
-                - var side = product.getImage('product.side-img')
 
-                //- - var front = product.getImageView('product.img', 'SD').url
-                //- - var side = product.getImageView('product.side-img', 'SD').url
+              for product in section.products
+                //- - var front = product.getImage('product.img')
+                //- - var side = product.getImage('product.side-img')
+
+                - var front_hd = product.getImageView('product.img', 'main')
+                - var front_sd = product.getImageView('product.img', 'thumb')
+
+                - var side_hd = product.getImageView('product.side-img', 'main')
+                - var side_sd = product.getImageView('product.side-img', 'thumb')
 
                 - var name = product.getText('product.fullName')
                 - var displayed = product.getText('product.displayed') == "yes" ? true : false
@@ -45,10 +49,19 @@ block prepend body
                   div(class='product sm-col sm-col-6 md-col-6 py2' + stockClass )
                     a(href=ctx.linkResolver(product))
 
-                      if side != null
-                        img.product-img-side(src = side.url, alt = name)
-                      else if front != null
-                          img.product-img(src = front.url, alt = name)
+                      if side_hd || side_sd
+                        if side_sd
+                          img.product-img-side(src = side_sd.url, alt = name)
+                        else
+                          img.product-img-side(src = side_hd.url, alt = name)
+
+                      else
+                        if front_sd
+                          img.product-img(src = front_sd.url, alt = name)
+                        else if front_hd
+                          img.product-img(src = front_hd.url, alt = name)
+
+
                       if name
                         .product-name.mt3
                           != name

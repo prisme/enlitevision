@@ -8,7 +8,14 @@ block body
 
         .Product-wrapper.clearfix.md-flex.py4.my4
           - var image = productContent.getImage('product.img')
-          - var side_image = productContent.getImage('product.side-img')
+          if image
+            - var image_hd = image.getView('main')
+            - var image_sd = image.getView('thumb')
+
+          - var side = productContent.getImage('product.side-img')
+          if side
+            - var side_hd = side.getView('main')
+            - var side_sd = productContent.getImage('product.side-img').getView('thumb')
 
           - var ref = productContent.getNumber('product.ref')
           - var price = productContent.getNumber('product.price')
@@ -25,13 +32,25 @@ block body
             .swiper-pagination
             .swiper-container.Product-images
               .swiper-wrapper
-                if image
+                if image_sd
+                  .swiper-slide
+                    if image_hd
+                      a(href=image_hd.url, target='_blank')
+                        img(src=image_sd.url)
+                    else
+                      img(src=image_sd.url)
+                else if image
                   .swiper-slide
                     img(src=image.url)
 
-                if side_image
+
+                if side_sd
                   .swiper-slide
-                    img(src = side_image.url)
+                    if side_hd
+                      a(href=side_hd.url, target='_blank')
+                        img(src=side_sd.url)
+                    else
+                      img(src=side_sd.url)
 
           .Product-description.sm-col.sm-col-12.md-col-6.order-0
             .Product-collection
