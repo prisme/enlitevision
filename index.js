@@ -69,9 +69,9 @@ docReady( function() {
         videos = Array.apply(null, videos)
 
         videos.forEach(function(video){
-            var source = document.createElement('source')
-            source.src = video.dataset["url"]
-            video.appendChild(source)
+          var source = document.createElement('source')
+          source.src = video.dataset["url"]
+          video.appendChild(source)
         })
     }
 
