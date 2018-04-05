@@ -106,18 +106,6 @@ docReady( function() {
       var parent = document.querySelector('.Product-zoom')
       var img = parent.querySelector('img')
 
-      function hide(){
-        tohide.classList.remove('hidden')
-        parent.classList.remove('active')
-        document.body.style.overflow = 'visible';
-      }
-
-      function show(){
-        tohide.classList.add('hidden')
-        parent.classList.add('active')
-        document.body.style.overflow = 'hidden';
-      }
-
       if (img != null)
           show()
 
@@ -130,6 +118,27 @@ docReady( function() {
       }
 
       img.addEventListener("click", hide)
+
+
+      function hide(){
+        tohide.classList.remove('hidden')
+        parent.classList.remove('active')
+        document.body.style.overflow = 'visible'
+        document.removeEventListener('keydown', escKey)
+      }
+
+      function show(){
+        tohide.classList.add('hidden')
+        parent.classList.add('active')
+        document.body.style.overflow = 'hidden'
+        document.addEventListener('keydown', escKey)
+      }
+
+      function escKey(event){
+        console.log("escKey")
+        if (event.key === 'Escape' || event.keyCode === 27)
+          hide()
+      }
 
     })
 
