@@ -234,7 +234,7 @@ header.nav .logo {
 }
 
 .Home .Slice-text p{
-    margin: 0;
+    margin: 0 0 1em 0;
 }
 
 .Home .Slice-text a{
@@ -247,13 +247,17 @@ header.nav .logo {
 }
 
 .Home .Slice-text .desc{
-	font-size: .7em;
+	font-size: 0.7em;
 	line-height: 1.3em;
+
+}
+.Home .Slice--text-left .desc{
+	/* max-width: 372px; */
 }
 
 .small .Home .Slice-text {
 	width: 85%;
-	font-size: 0.6em;
+	font-size: 0.8em;
 }
 
 .small .Home .Slice--text-right .Slice-text {
@@ -345,6 +349,7 @@ header.nav .logo {
 	margin: 0;
 	font-size: 1em;
 	font-weight: normal;
+	letter-spacing: 0.2em;
 }
 
 .Home .Slice .title a {
@@ -375,11 +380,21 @@ header.nav .logo {
 .Home .Slice .cinemagraph {
 	position: absolute;
 	bottom : 0;
+	bottom: 0;
+	/* width: 100%; */
 }
 
 .small .Home .Slice .cinemagraph {
 	display: none;
 	/* position: relative; */
+}
+
+.Home .Slice--text-right .cinemagraph{
+	/* right: 0; */
+}
+
+.Home .Slice--text-left .cinemagraph{
+	/* left: 0; */
 }
 
 .Home .Slice .swiper-pagination {
@@ -881,13 +896,13 @@ header.nav .logo {
 .Product-collection a{
     color: black;
     text-decoration: none;
-    transition: all 0.8s;
+    transition: all 0.6s;
     position: absolute;
 }
 .Product-collection a:hover,
 .Product-collection a:active{
     color: #666;
-    transform: translateY(-2px);
+    transform: translateY(1px);
 }
 
 .wio-link {
@@ -946,6 +961,17 @@ header.nav .logo {
 	text-align: center;
 	letter-spacing: 0.3em;
 	margin: 5% 0;
+
+	background-color: white;
+	color: black;
+
+	transition: all .6s cubic-bezier(0.03, 0.61, 0.63, 0.99);
+}
+
+.Product .button.add-to-cart:hover,
+.Product .button.add-to-cart:active{
+	background-color: black;
+	color: white;
 }
 
 
@@ -1002,15 +1028,17 @@ header.nav .logo {
 
 .page-collection .title {
 	/* padding: 3em 2em 1em; */
-	font-family: novecento-medium;
+	font-family: novecento-bold;
 	line-height: 1.3em;
-	letter-spacing: .3em;
+	letter-spacing: 0.25em;
+	font-size: 1.1em;
 }
 
 .page-collection .description {
 	font-family: novecento-condensed-book;
 	line-height: 1.3em;
-	letter-spacing: .1em;
+	letter-spacing: .17em;
+	font-size: 0.78em;
 }
 
 .page-collection .products {
@@ -1025,7 +1053,7 @@ header.nav .logo {
     /*overflow: hidden;*/
 }
 .page-collection .product.soldout {
-    opacity: .8;
+    opacity: 0.6;
     cursor: default;
     pointer-events: none;
 }
