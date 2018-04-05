@@ -7,6 +7,8 @@ block body
     div.max-width-4.mx-auto
 
         .Product-wrapper.clearfix.md-flex.py4.my4
+          .Product-zoom
+
           - var image = productContent.getImage('product.img')
           if image
             - var image_hd = image.getView('main')
@@ -35,7 +37,7 @@ block body
                 if image_sd
                   .swiper-slide
                     if image_hd
-                      a(href=image_hd.url, target='_blank')
+                      a.Product-gallery-zoom(href=image_hd.url, target='_blank')
                         img(src=image_sd.url)
                     else
                       img(src=image_sd.url)

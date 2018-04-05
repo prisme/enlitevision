@@ -985,6 +985,37 @@ header.nav .logo {
 	height: auto;
 }
 
+.Product-zoom{
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    overflow: hidden;
+    text-align: center;
+
+    background-color: white;
+    z-index: 2;
+    cursor: pointer;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-out;
+}
+
+.Product-zoom.active{
+    opacity: 1;
+    pointer-events: all;
+    transition: opacity 0.3s ease-in;
+    cursor: zoom-out;
+}
+
+.Product-gallery-zoom{
+    cursor: zoom-in;
+}
+
+.Product-zoom img{
+    height: 100vh;
+    display: inline-block;
+}
+
 .landscape .Product .Product-related {
 	width: 100%;
 	box-sizing: border-box;
