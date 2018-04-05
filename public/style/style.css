@@ -846,6 +846,17 @@ header.nav .logo {
 	/* max-width: 1200px; */
 	margin: auto;
 	min-height: 50vh;
+
+
+}
+
+
+.Product{
+    opacity: 1;
+    transition: opacity 0.1s ease-in;
+}
+.Product.hidden{
+    opacity: 0;
 }
 
 .small .Product .Product-wrapper{
@@ -992,7 +1003,7 @@ header.nav .logo {
     text-align: center;
 
     background-color: white;
-    z-index: 2;
+    z-index: 1;
     cursor: pointer;
 
     opacity: 0;

@@ -96,26 +96,39 @@ docReady( function() {
 
     zoomPrompt = document.querySelector('.Product-gallery-zoom')
     if (zoomPrompt == null) return;
+
+
     zoomPrompt.addEventListener('click', function(e){
-        e.preventDefault();
+      e.preventDefault();
 
-        var parent = document.querySelector('.Product-zoom')
-        var img = new Image()
-        img.src = this.href
-        parent.appendChild(img)
+      var tohide = document.querySelector('.Product')
+      var parent = document.querySelector('.Product-zoom')
+      var img = parent.querySelector('img')
 
-        img.addEventListener('load', function(){
-            parent.classList.add('active')
-            document.body.style.overflow = 'hidden';
-        })
+      function hide(){
+        tohide.classList.remove('hidden')
+        parent.classList.remove('active')
+        document.body.style.overflow = 'visible';
+      }
 
-        img.addEventListener("click", function(){
-            parent.classList.remove('active')
-            document.body.style.overflow = 'visible';
-        })
+      function show(){
+        tohide.classList.add('hidden')
+        parent.classList.add('active')
+        document.body.style.overflow = 'hidden';
+      }
 
+      if (img != null)
+          show()
 
+      else {
+          img = new Image()
+          img.src = this.href
+          parent.appendChild(img)
 
+          img.addEventListener('load', show)
+      }
+
+      img.addEventListener("click", hide)
 
     })
 

@@ -3,102 +3,101 @@ extends ./layout
 block body
   include ./partials/header
 
+  .Product-zoom
   .content.Product
     div.max-width-4.mx-auto
+      .Product-wrapper.clearfix.md-flex.py4.my4
 
-        .Product-wrapper.clearfix.md-flex.py4.my4
-          .Product-zoom
+        - var image = productContent.getImage('product.img')
+        if image
+          - var image_hd = image.getView('main')
+          - var image_sd = image.getView('thumb')
 
-          - var image = productContent.getImage('product.img')
-          if image
-            - var image_hd = image.getView('main')
-            - var image_sd = image.getView('thumb')
+        - var side = productContent.getImage('product.side-img')
+        if side
+          - var side_hd = side.getView('main')
+          - var side_sd = productContent.getImage('product.side-img').getView('thumb')
 
-          - var side = productContent.getImage('product.side-img')
-          if side
-            - var side_hd = side.getView('main')
-            - var side_sd = productContent.getImage('product.side-img').getView('thumb')
+        - var ref = productContent.getNumber('product.ref')
+        - var price = productContent.getNumber('product.price')
+        - var name = productContent.getText('product.fullName')
+        - var frame = productContent.getText('product.frame')
+        - var lens = productContent.getText('product.lens')
+        - var collection = productContent.tags.indexOf('theopsy') > -1 ? 'special editions': productContent.tags.indexOf('sun') > -1 ? 'sun': 'optical'
+        - var material = productContent.tags.indexOf('supernatural') > -1 ? 'supernatural' : productContent.tags.indexOf('clip-on') > -1 ? 'beta-titanium' : productContent.tags.indexOf('acetate') > -1 ? 'acetate' : ''
 
-          - var ref = productContent.getNumber('product.ref')
-          - var price = productContent.getNumber('product.price')
-          - var name = productContent.getText('product.fullName')
-          - var frame = productContent.getText('product.frame')
-          - var lens = productContent.getText('product.lens')
-          - var collection = productContent.tags.indexOf('theopsy') > -1 ? 'special editions': productContent.tags.indexOf('sun') > -1 ? 'sun': 'optical'
-          - var material = productContent.tags.indexOf('supernatural') > -1 ? 'supernatural' : productContent.tags.indexOf('clip-on') > -1 ? 'beta-titanium' : productContent.tags.indexOf('acetate') > -1 ? 'acetate' : ''
-
-          - var stock = productContent.getText('product.stock') == "in stock" ? true : false
+        - var stock = productContent.getText('product.stock') == "in stock" ? true : false
 
 
-          .Product-gallery.sm-col.sm-col-12.md-col-6.relative.order-1
-            .swiper-pagination
-            .swiper-container.Product-images
-              .swiper-wrapper
-                if image_sd
-                  .swiper-slide
-                    if image_hd
-                      a.Product-gallery-zoom(href=image_hd.url, target='_blank')
-                        img(src=image_sd.url)
-                    else
+        .Product-gallery.sm-col.sm-col-12.md-col-6.relative.order-1
+          .swiper-pagination
+          .swiper-container.Product-images
+            .swiper-wrapper
+              if image_sd
+                .swiper-slide
+                  if image_hd
+                    a.Product-gallery-zoom(href=image_hd.url, target='_blank')
                       img(src=image_sd.url)
-                else if image
-                  .swiper-slide
-                    img(src=image.url)
+                  else
+                    img(src=image_sd.url)
+              else if image
+                .swiper-slide
+                  img(src=image.url)
 
 
-                if side_sd
-                  .swiper-slide
-                    if side_hd
-                      a(href=side_hd.url, target='_blank')
-                        img(src=side_sd.url)
-                    else
+              if side_sd
+                .swiper-slide
+                  if side_hd
+                    a(href=side_hd.url, target='_blank')
                       img(src=side_sd.url)
-                else if side
-                  .swiper-slide
-                    img(src=side.url)
+                  else
+                    img(src=side_sd.url)
+              else if side
+                .swiper-slide
+                  img(src=side.url)
 
 
-          .Product-description.sm-col.sm-col-12.md-col-6.order-0
-            .Product-collection
-              - var anchor = material != '' ? collection+'-'+material : collection
-              a(href='/collections#'+anchor)
-                != collection + ' collection ' + material
+        .Product-description.sm-col.sm-col-12.md-col-6.order-0
+          .Product-collection
+            - var anchor = material != '' ? collection+'-'+material : collection
+            a(href='/collections#'+anchor)
+              != collection + ' collection ' + material
 
-            .Product-info(data-wio-id=''+productContent.id)
+          .Product-info(data-wio-id=''+productContent.id)
 
-              .Product-name
-                != name ? name + ' ' : ''
+            .Product-name
+              != name ? name + ' ' : ''
 
-              .Product-details
-                p
-                  != frame ? 'frame: ' + frame : ''
-                p
-                  != lens ? 'lens: ' + lens : ''
-                // p
-                //   != ref ? 'article n°: ' + ref : ''
+            .Product-details
+              p
+                != frame ? 'frame: ' + frame : ''
+              p
+                != lens ? 'lens: ' + lens : ''
+              // p
+              //   != ref ? 'article n°: ' + ref : ''
 
-              .Product-price
-                != price ? "€" + price : ''
+            .Product-price
+              != price ? "€" + price : ''
 
-              if stock
-                include ./partials/add-to-cart-button.pug
+            if stock
+              include ./partials/add-to-cart-button.pug
 
-        if relatedProducts.results_size > 0
-          div.Product-related
-            h2 More Colours
-            div.recommended-wrapper
-              for relatedProduct in relatedProducts.results
-                - var relatedImage = relatedProduct.getImage('product.img')
-                - var relatedImageURL = relatedImage ? relatedImage.url : ""
-                - var relatedSide_image = productContent.getImage('product.side-img')
-                - var relatedSide_imageURL = relatedSide_image ? relatedSide_image.url : ""
+      if relatedProducts.results_size > 0
+        div.Product-related
+          h2 More Colours
+          div.recommended-wrapper
+            for relatedProduct in relatedProducts.results
+              - var relatedImage = relatedProduct.getImage('product.img')
+              - var relatedImageURL = relatedImage ? relatedImage.url : ""
+              - var relatedSide_image = productContent.getImage('product.side-img')
+              - var relatedSide_imageURL = relatedSide_image ? relatedSide_image.url : ""
 
-                div.recommended-product
-                  a(href=ctx.linkResolver(relatedProduct))
-                    if relatedImage
-                      img.recommended-image(src=relatedImageURL)
-                    else
-                      img.recommended-image(src=relatedSide_imageURL)
+              div.recommended-product
+                a(href=ctx.linkResolver(relatedProduct))
+                  if relatedImage
+                    img.recommended-image(src=relatedImageURL)
+                  else
+                    img.recommended-image(src=relatedSide_imageURL)
 
 
-        include ./partials/footer
+      include ./partials/footer
