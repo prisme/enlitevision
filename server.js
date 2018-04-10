@@ -36,7 +36,7 @@ app.route('/preview').get(function(req, res) {
 })
 
 
-// Product Page Route
+// Product Route
 app.route('/product/:uid').get(function(req, res) {
 
   api(req, res)
@@ -83,7 +83,7 @@ app.route('/product/:uid').get(function(req, res) {
   })
 });
 
-// All Collections Page Route
+// Collections Route
 app.route('/collections').get(function(req, res) {
     api(req, res)
     .then(function(api) {

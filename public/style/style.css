@@ -1008,13 +1008,16 @@ header.nav .logo {
 
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.3s ease-out;
+    filter: blur(5px);
+    transition: all 0.4s ease-out;
 }
 
 .Product-zoom.active{
     opacity: 1;
     pointer-events: all;
-    transition: opacity 0.3s ease-in;
+    filter: blur(0px);
+    transition: opacity 0.6s ease-in-out,
+    filter 1s ease-in-out;
     cursor: zoom-out;
 }
 
@@ -1024,7 +1027,7 @@ header.nav .logo {
 
 .Product-zoom img{
     height: 100vh;
-    display: inline-block;
+    /* display: inline-block; */
 }
 
 .landscape .Product .Product-related {
