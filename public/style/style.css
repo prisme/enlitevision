@@ -1185,7 +1185,7 @@ header.nav .snipcart-checkout {
   height: 16px;
   margin-right: 11px;
   margin-left: 5px;
-  background: #FFFFFF center center no-repeat;
+  background: center center no-repeat;
   background-size: 16px;
   background-image: url('https://icon.now.sh/shopping_cart/000000');
   opacity: 0;
